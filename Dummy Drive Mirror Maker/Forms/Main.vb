@@ -4,7 +4,7 @@ Imports ElektroKit.Core.Application.UserInterface.Types
 Imports ElektroKit.Core.IO.Tools
 Imports ElektroKit.Core.Threading.Enums
 Imports ElektroKit.Core.Threading.Types
-
+Imports ElektroKit.Interop.Win32
 Imports Ookii.Dialogs
 
 Imports System.ComponentModel
@@ -259,6 +259,23 @@ Public NotInheritable Class Main : Inherits Form
 
     ''' ----------------------------------------------------------------------------------------------------
     ''' <summary>
+    ''' Handles the <see cref="CheckBox.CheckedChanged"/> event of the <see cref="Main.CheckBoxSymLinks"/> control.
+    ''' </summary>
+    ''' ----------------------------------------------------------------------------------------------------
+    ''' <param name="sender">
+    ''' The source of the event.
+    ''' </param>
+    ''' ----------------------------------------------------------------------------------------------------
+    ''' <param name="e">
+    ''' The <see cref="EventArgs"/> instance containing the event data.
+    ''' </param>
+    ''' ----------------------------------------------------------------------------------------------------
+    Private Sub CheckBoxSymLinks_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBoxSymLinks.CheckedChanged
+        Options.MirrorSymbolicLinks = DirectCast(sender, CheckBox).Checked
+    End Sub
+
+    ''' ----------------------------------------------------------------------------------------------------
+    ''' <summary>
     ''' Handles the <see cref="CheckBox.CheckedChanged"/> event of the <see cref="Main.CheckBoxIgnoreSecurityExceptions"/> control.
     ''' </summary>
     ''' ----------------------------------------------------------------------------------------------------
@@ -430,7 +447,7 @@ Public NotInheritable Class Main : Inherits Form
         ' Get all the sub-directories in the root source dir.
         Dim srcSubDirs As IEnumerable(Of DirectoryInfo) =
             Directories.GetDirs(Options.SourceDir, SearchOption.AllDirectories, {"*"}, {"*"}, True,
-                                throwOnError:=False)
+                                throwOnError:=False).OrderBy(Function(di As DirectoryInfo) di.FullName)
 
         ' Set progressbar ma. value.
         Me.progressMaximum = srcSubDirs.Count
@@ -442,9 +459,17 @@ Public NotInheritable Class Main : Inherits Form
                 Exit For
             End If
 
-            ' By default ignore the 'X:\$Recycle.Bin' folder, 
-            ' it hasn't useful purpose in real-world usage to mirror it.
-            If (srcSubDir.FullName.ToLower() Like "?:\$recycle.bin*") Then
+            ' By default ignore the recycle bin folder, 
+            ' it hasn't useful purpose in real-world usage to will mirror it.
+            '
+            ' Reminder of recycle bin locations:
+            ' ----------------------------------
+            ' VISTA, 7, 8/8.1, 10.............: X:\$Recycle.Bin
+            ' 2000 (NTFS), XP (NTFS)..........: X:\RECYCLER
+            ' 95, 98, 2000 (FAT32), XP (FAT32): X:\RECYCLED
+            If (srcSubDir.FullName.ToLower() Like "?:\$recycle.bin*") OrElse
+               (srcSubDir.FullName.ToLower() Like "?:\recycler*") OrElse
+               (srcSubDir.FullName.ToLower() Like "?:\recycled*") Then
                 Continue For
             End If
 
@@ -493,7 +518,35 @@ Public NotInheritable Class Main : Inherits Form
                 ' Ignore hidden folder by user-demand.
                 If Not (Options.MirrorHiddenFiles) AndAlso
                        (srcSubDir.Attributes.HasFlag(FileAttributes.Hidden)) Then
+#If DEBUG Then
+                    Debug.WriteLine(String.Format("Directory is hidden. Ignored.: '{0}'", srcSubDir.FullName))
+#End If
                     Continue For
+                End If
+
+                ' Ignore mount points.
+                If (Directories.IsMountPoint(srcSubDir)) Then
+#If DEBUG Then
+                    Debug.WriteLine(String.Format("Directory is a mount point. Ignored.: '{0}'", srcSubDir.FullName))
+#End If
+                    Continue For
+                End If
+
+                Dim isSymbolicLink As Boolean = Directories.IsSymbolicLink(srcSubDir)
+                If (isSymbolicLink) Then
+                    If (Options.MirrorSymbolicLinks) Then
+                        ' Create a copy of the symbolic link pointing to the same original target path.
+                        Dim targetDir As DirectoryInfo = Directories.GetSymbolicLinkTarget(srcSubDir)
+                        Directories.CreateSymbolicLink(targetDir, dstDir.Parent)
+                        Continue For
+
+                    Else ' Ignore symbolic links by user-demand.
+#If DEBUG Then
+                        Debug.WriteLine(String.Format("Directory is a symbolic link. Ignored.: '{0}'", srcSubDir.FullName))
+#End If
+                        Continue For
+
+                    End If
                 End If
 
                 ' Create the destination directory.
@@ -521,16 +574,16 @@ Public NotInheritable Class Main : Inherits Form
                     MessageBox.Show(String.Format(UIMessages.DirectoryException, ex.Message),
                                     Me.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Error)
                 If (dlgResult = DialogResult.No) Then
-                        e.Cancel = True
-                        Exit Sub
-                    End If
+                    e.Cancel = True
+                    Exit Sub
+                End If
 
             End Try
 
             ' Get top files of the current source sub-directory.
             Dim topFiles As IEnumerable(Of FileInfo) =
                 Files.GetFiles(srcSubDir, SearchOption.TopDirectoryOnly, {"*"}, {"*"}, True,
-                               throwOnError:=False)
+                               throwOnError:=False).OrderBy(Function(fi As FileInfo) fi.FullName)
 
             For Each topFile As FileInfo In topFiles
 
@@ -577,6 +630,23 @@ Public NotInheritable Class Main : Inherits Form
                     If Not (Options.MirrorHiddenFiles) AndAlso
                            (topFile.Attributes.HasFlag(FileAttributes.Hidden)) Then
                         Continue For
+                    End If
+
+                    Dim isSymbolicLink As Boolean = Files.IsSymbolicLink(topFile)
+                    If (isSymbolicLink) Then
+                        If (Options.MirrorSymbolicLinks) Then
+                            ' Create a copy of the symbolic link pointing to the same original target path.
+                            Dim targetFile As FileInfo = Files.GetSymbolicLinkTarget(topFile)
+                            Files.CreateSymbolicLink(topFile, dstDir)
+                            Continue For
+
+                        Else ' Ignore symbolic links by user-demand.
+#If DEBUG Then
+                            Debug.WriteLine(String.Format("Directory is a symbolic link. Ignored.: '{0}'", srcSubDir.FullName))
+#End If
+                            Continue For
+
+                        End If
                     End If
 
                     ' Create the (dummy) destination file.

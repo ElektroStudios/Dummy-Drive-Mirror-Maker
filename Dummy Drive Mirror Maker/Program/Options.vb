@@ -32,6 +32,11 @@ Friend NotInheritable Class Options
     Friend Shared Property MirrorHiddenFiles As Boolean
 
     ''' <summary>
+    ''' Gets or sets a value indicating whether symbolic links must be mirrored.
+    ''' </summary>
+    Friend Shared Property MirrorSymbolicLinks As Boolean
+
+    ''' <summary>
     ''' Gets or sets a value indicating whether security access exceptions must be handled when in a mirror operation.
     ''' <para></para>
     ''' If <see langword="True"/>, an exception will be thrown if the user has no permission to read a file or folder,

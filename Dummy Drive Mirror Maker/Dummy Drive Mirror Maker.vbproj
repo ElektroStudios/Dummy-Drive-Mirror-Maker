@@ -78,20 +78,31 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ElektroKit\Core\Application\UserInterface\Types\CenteredMessageBox.vb" />
-    <Compile Include="ElektroKit\Core\IO\Tools\Directories.vb" />
+    <Compile Include="ElektroKit\Core\IO\Tools\Directories_SymLink.vb" />
+    <Compile Include="ElektroKit\Core\IO\Tools\Directories_GetDirs.vb" />
     <Compile Include="ElektroKit\Core\IO\Tools\FileDirSearcher.vb" />
+    <Compile Include="ElektroKit\Core\IO\Tools\Directories.vb" />
     <Compile Include="ElektroKit\Core\IO\Tools\Files.vb" />
     <Compile Include="ElektroKit\Core\IO\Tools\Files_GetFiles.vb" />
+    <Compile Include="ElektroKit\Core\IO\Tools\Files_SymLink.vb" />
     <Compile Include="ElektroKit\Core\IO\Tools\Streams.vb" />
     <Compile Include="ElektroKit\Core\IO\Tools\Files_DummyFile.vb" />
     <Compile Include="ElektroKit\Core\Threading\Types\ElektroBackgroundWorker.vb">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="ElektroKit\Interop\Win32\Delegates\Delegates.vb" />
+    <Compile Include="ElektroKit\Interop\Win32\Enums\DirectoryManagementControlCodes.vb" />
+    <Compile Include="ElektroKit\Interop\Win32\Enums\CreateFileFlags.vb" />
+    <Compile Include="ElektroKit\Interop\Win32\Enums\StandardAccessRights.vb" />
+    <Compile Include="ElektroKit\Interop\Win32\Enums\FileAccessRights.vb" />
+    <Compile Include="ElektroKit\Interop\Win32\Enums\ReparsePointTags.vb" />
+    <Compile Include="ElektroKit\Interop\Win32\Enums\ReparseDataBufferFlags.vb" />
+    <Compile Include="ElektroKit\Interop\Win32\Enums\SymbolicLinkFlags.vb" />
     <Compile Include="ElektroKit\Interop\Win32\Enums\LParams.vb" />
     <Compile Include="ElektroKit\Interop\Win32\Enums\SetWindowPosFlags.vb" />
     <Compile Include="ElektroKit\Interop\Win32\Enums\WindowsMessages.vb" />
     <Compile Include="ElektroKit\Interop\Win32\Enums\WindowStylesEx.vb" />
+    <Compile Include="ElektroKit\Interop\Win32\Enums\Win32ErrorCode.vb" />
     <Compile Include="ElektroKit\Interop\Win32\NativeMethods\NativeMethods.vb" />
     <Compile Include="ElektroKit\Interop\Win32\NativeMethods\NativeMethods_GDI32.vb" />
     <Compile Include="ElektroKit\Interop\Win32\NativeMethods\NativeMethods_Kernel32.vb" />
@@ -99,6 +110,7 @@
     <Compile Include="ElektroKit\Interop\Win32\NativeMethods\NativeMethods_User32_Messaging.vb" />
     <Compile Include="ElektroKit\Interop\Win32\Types\NativeRectangle.vb" />
     <Compile Include="ElektroKit\Interop\Win32\Types\PaintStruct.vb" />
+    <Compile Include="ElektroKit\Interop\Win32\Types\ReparseDataBuffer.vb" />
     <Compile Include="ElektroKit\Interop\Win32\Types\TextMetricA.vb" />
     <Compile Include="ElektroKit\Interop\Win32\Types\TextMetricW.vb" />
     <Compile Include="ElektroKit\UserControls\Controls\ElektroProgressBar.vb">

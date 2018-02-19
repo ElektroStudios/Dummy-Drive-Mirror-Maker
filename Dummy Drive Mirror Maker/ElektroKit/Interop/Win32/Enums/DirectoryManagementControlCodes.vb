@@ -26,20 +26,20 @@
 
 
 
-#Region " W-Params "
+#Region " DirectoryManagementControlCodes "
 
 Namespace ElektroKit.Interop.Win32.Enums
 
     ''' ----------------------------------------------------------------------------------------------------
     ''' <summary>
-    ''' Specifies additional message-specific information for a System-Defined Message.
+    ''' Specifies Directory Management Control Codes to use with the <see cref="NativeMethods.DeviceIoControl"/> function.
     ''' </summary>
     ''' ----------------------------------------------------------------------------------------------------
     ''' <remarks>
-    ''' <see href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms644927%28v=vs.85%29.aspx#system_defined"/>
+    ''' <see href="https://msdn.microsoft.com/es-es/library/windows/desktop/aa363948(v=vs.85).aspx"/>
     ''' </remarks>
     ''' ----------------------------------------------------------------------------------------------------
-    Public Enum WParams As UInteger
+    Public Enum DirectoryManagementControlCodes As UInteger
 
         ' *****************************************************************************
         '                            WARNING!, NEED TO KNOW...
@@ -49,49 +49,25 @@ Namespace ElektroKit.Interop.Win32.Enums
 
         ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
-        ''' A Null WParam.
-        ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
-        Null = 0UI
-
-        ''' ----------------------------------------------------------------------------------------------------
-        ''' <summary>
-        ''' Sets the state of a progressbar to Normal (Green Color).
-        ''' <para></para>
-        ''' Used with <see cref="ProgressBarUIMessages.SetState"/> message.
+        ''' Sets a reparse point on a file or directory.
         ''' </summary>
         ''' ----------------------------------------------------------------------------------------------------
         ''' <remarks>
-        ''' <see href="http://msdn.microsoft.com/en-us/library/windows/desktop/bb760850(v=vs.85).aspx"/>
+        ''' <see href="https://msdn.microsoft.com/es-es/library/windows/desktop/aa364595(v=vs.85).aspx"/>
         ''' </remarks>
         ''' ----------------------------------------------------------------------------------------------------
-        PBST_Normal = &H1
+        SetReparsePoint = &H900A4
 
         ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
-        ''' Sets the state of a progressbar to Error (Red Color).
-        ''' <para></para>
-        ''' Used with <see cref="ProgressBarUIMessages.SetState"/> message.
+        ''' Retrieves the reparse point data associated with the file or directory identified by the specified handle.
         ''' </summary>
         ''' ----------------------------------------------------------------------------------------------------
         ''' <remarks>
-        ''' <see href="http://msdn.microsoft.com/en-us/library/windows/desktop/bb760850(v=vs.85).aspx"/>
+        ''' <see href="https://msdn.microsoft.com/es-es/library/windows/desktop/aa364571(v=vs.85).aspx"/>
         ''' </remarks>
         ''' ----------------------------------------------------------------------------------------------------
-        PBST_Error = &H2
-
-        ''' ----------------------------------------------------------------------------------------------------
-        ''' <summary>
-        ''' Sets the state of a progressbar to Paused (Yellow Color).
-        ''' <para></para>
-        ''' Used with <see cref="ProgressBarUIMessages.SetState"/> message.
-        ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
-        ''' <remarks>
-        ''' <see href="http://msdn.microsoft.com/en-us/library/windows/desktop/bb760850(v=vs.85).aspx"/>
-        ''' </remarks>
-        ''' ----------------------------------------------------------------------------------------------------
-        PBST_Paused = &H3
+        GetReparsePoint = &H900A8
 
     End Enum
 

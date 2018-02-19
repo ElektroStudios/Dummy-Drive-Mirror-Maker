@@ -26,31 +26,32 @@
 
 
 
-#Region " Directories "
+#Region " SymbolicLinkFlags "
 
-Namespace ElektroKit.Core.IO.Tools
+Namespace ElektroKit.Interop.Win32.Enums
 
     ''' ----------------------------------------------------------------------------------------------------
     ''' <summary>
-    ''' Contains directory related utilities.
+    ''' Indicates whether a symbolic link is a file or is a directory.
     ''' </summary>
     ''' ----------------------------------------------------------------------------------------------------
-    Public NotInheritable Class Directories
+    ''' <remarks>
+    ''' <see href="http://msdn.microsoft.com/en-us/library/windows/desktop/aa363866%28v=vs.85%29.aspx"/>
+    ''' </remarks>
+    ''' ----------------------------------------------------------------------------------------------------
+    Public Enum SymbolicLinkFlags As Integer
 
-#Region " Constructors "
-
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
-        ''' Prevents a default instance of the <see cref="Directories"/> class from being created.
+        ''' The link target is a file.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
-        <DebuggerNonUserCode>
-        Private Sub New()
-        End Sub
+        File = &H0
 
-#End Region
+        ''' <summary>
+        ''' The link target is a directory.
+        ''' </summary>
+        Directory = &H1
 
-    End Class
+    End Enum
 
 End Namespace
 

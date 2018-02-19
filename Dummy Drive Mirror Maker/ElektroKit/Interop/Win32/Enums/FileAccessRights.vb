@@ -26,31 +26,52 @@
 
 
 
-#Region " Directories "
+#Region " FileAccessRights "
 
-Namespace ElektroKit.Core.IO.Tools
+Namespace ElektroKit.Interop.Win32.Enums
 
     ''' ----------------------------------------------------------------------------------------------------
     ''' <summary>
-    ''' Contains directory related utilities.
+    ''' Specifies file-specific access rights.
     ''' </summary>
     ''' ----------------------------------------------------------------------------------------------------
-    Public NotInheritable Class Directories
+    ''' <remarks>
+    ''' <see href="https://msdn.microsoft.com/en-us/library/windows/desktop/gg258116(v=vs.85).aspx"/>
+    ''' </remarks>
+    ''' ----------------------------------------------------------------------------------------------------
+    <Flags>
+    Public Enum FileAccessRights As UInteger
 
-#Region " Constructors "
+        ' *****************************************************************************
+        '                            WARNING!, NEED TO KNOW...
+        '
+        '  THIS ENUMERATION IS PARTIALLY DEFINED TO MEET THE PURPOSES OF THIS API
+        ' *****************************************************************************
 
-        ''' ----------------------------------------------------------------------------------------------------
+#Region " Generic "
+#End Region
+
+#Region " Directories Only "
+#End Region
+
+#Region " Named Pipes Only "
+#End Region
+
+#Region " Standard Rights "
+
         ''' <summary>
-        ''' Prevents a default instance of the <see cref="Directories"/> class from being created.
+        ''' Same as <see cref="StandardAccessRights.ReadControl"/>.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
-        <DebuggerNonUserCode>
-        Private Sub New()
-        End Sub
+        StandardRightsRead = StandardAccessRights.StandardRightsRead
+
+        ''' <summary>
+        ''' Same as <see cref="StandardAccessRights.StandardRightsRead"/>.
+        ''' </summary>
+        StandardRightsWrite = StandardAccessRights.StandardRightsWrite
 
 #End Region
 
-    End Class
+    End Enum
 
 End Namespace
 

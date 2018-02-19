@@ -34,6 +34,7 @@ Partial Class Main
         Me.CheckBoxAttribs = New System.Windows.Forms.CheckBox()
         Me.ButtonMirror = New System.Windows.Forms.Button()
         Me.GroupBoxOptions = New System.Windows.Forms.GroupBox()
+        Me.CheckBoxSymLinks = New System.Windows.Forms.CheckBox()
         Me.CheckBoxIgnoreSecurityExceptions = New System.Windows.Forms.CheckBox()
         Me.GroupBoxDirectories = New System.Windows.Forms.GroupBox()
         Me.PictureBoxLogo = New System.Windows.Forms.PictureBox()
@@ -112,8 +113,6 @@ Partial Class Main
         'CheckBoxHiddenFiles
         '
         Me.CheckBoxHiddenFiles.AutoSize = True
-        Me.CheckBoxHiddenFiles.Checked = True
-        Me.CheckBoxHiddenFiles.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBoxHiddenFiles.Cursor = System.Windows.Forms.Cursors.Hand
         Me.CheckBoxHiddenFiles.ForeColor = System.Drawing.SystemColors.ControlText
         Me.CheckBoxHiddenFiles.Location = New System.Drawing.Point(6, 65)
@@ -126,29 +125,25 @@ Partial Class Main
         'CheckBoxDatestamps
         '
         Me.CheckBoxDatestamps.AutoSize = True
-        Me.CheckBoxDatestamps.Checked = True
-        Me.CheckBoxDatestamps.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBoxDatestamps.Cursor = System.Windows.Forms.Cursors.Hand
         Me.CheckBoxDatestamps.ForeColor = System.Drawing.SystemColors.ControlText
         Me.CheckBoxDatestamps.Location = New System.Drawing.Point(6, 42)
         Me.CheckBoxDatestamps.Name = "CheckBoxDatestamps"
-        Me.CheckBoxDatestamps.Size = New System.Drawing.Size(123, 17)
+        Me.CheckBoxDatestamps.Size = New System.Drawing.Size(139, 17)
         Me.CheckBoxDatestamps.TabIndex = 1
-        Me.CheckBoxDatestamps.Text = "Preserve timestamps"
+        Me.CheckBoxDatestamps.Text = "Preserve file timestamps"
         Me.CheckBoxDatestamps.UseVisualStyleBackColor = True
         '
         'CheckBoxAttribs
         '
         Me.CheckBoxAttribs.AutoSize = True
-        Me.CheckBoxAttribs.Checked = True
-        Me.CheckBoxAttribs.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBoxAttribs.Cursor = System.Windows.Forms.Cursors.Hand
         Me.CheckBoxAttribs.ForeColor = System.Drawing.SystemColors.ControlText
         Me.CheckBoxAttribs.Location = New System.Drawing.Point(6, 19)
         Me.CheckBoxAttribs.Name = "CheckBoxAttribs"
-        Me.CheckBoxAttribs.Size = New System.Drawing.Size(114, 17)
+        Me.CheckBoxAttribs.Size = New System.Drawing.Size(130, 17)
         Me.CheckBoxAttribs.TabIndex = 0
-        Me.CheckBoxAttribs.Text = "Preserve attributes"
+        Me.CheckBoxAttribs.Text = "Preserve file attributes"
         Me.CheckBoxAttribs.UseVisualStyleBackColor = True
         '
         'ButtonMirror
@@ -168,6 +163,7 @@ Partial Class Main
         '
         'GroupBoxOptions
         '
+        Me.GroupBoxOptions.Controls.Add(Me.CheckBoxSymLinks)
         Me.GroupBoxOptions.Controls.Add(Me.CheckBoxIgnoreSecurityExceptions)
         Me.GroupBoxOptions.Controls.Add(Me.CheckBoxAttribs)
         Me.GroupBoxOptions.Controls.Add(Me.CheckBoxHiddenFiles)
@@ -178,14 +174,26 @@ Partial Class Main
         Me.GroupBoxOptions.Size = New System.Drawing.Size(200, 136)
         Me.GroupBoxOptions.TabIndex = 1
         Me.GroupBoxOptions.TabStop = False
-        Me.GroupBoxOptions.Text = "File and folder options"
+        Me.GroupBoxOptions.Text = "Options"
+        '
+        'CheckBoxSymLinks
+        '
+        Me.CheckBoxSymLinks.AutoSize = True
+        Me.CheckBoxSymLinks.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.CheckBoxSymLinks.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.CheckBoxSymLinks.Location = New System.Drawing.Point(6, 88)
+        Me.CheckBoxSymLinks.Name = "CheckBoxSymLinks"
+        Me.CheckBoxSymLinks.Size = New System.Drawing.Size(119, 17)
+        Me.CheckBoxSymLinks.TabIndex = 5
+        Me.CheckBoxSymLinks.Text = "Mirror symbolic links"
+        Me.CheckBoxSymLinks.UseVisualStyleBackColor = True
         '
         'CheckBoxIgnoreSecurityExceptions
         '
         Me.CheckBoxIgnoreSecurityExceptions.AutoSize = True
         Me.CheckBoxIgnoreSecurityExceptions.Cursor = System.Windows.Forms.Cursors.Hand
         Me.CheckBoxIgnoreSecurityExceptions.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.CheckBoxIgnoreSecurityExceptions.Location = New System.Drawing.Point(6, 88)
+        Me.CheckBoxIgnoreSecurityExceptions.Location = New System.Drawing.Point(6, 111)
         Me.CheckBoxIgnoreSecurityExceptions.Name = "CheckBoxIgnoreSecurityExceptions"
         Me.CheckBoxIgnoreSecurityExceptions.Size = New System.Drawing.Size(186, 17)
         Me.CheckBoxIgnoreSecurityExceptions.TabIndex = 4
@@ -303,4 +311,5 @@ Partial Class Main
     Friend WithEvents StatusStripFilepaths As StatusStrip
     Friend WithEvents ToolStripStatusLabelFilepaths As ToolStripStatusLabel
     Friend WithEvents ElektroBackgroundWorker1 As ElektroKit.Core.Threading.Types.ElektroBackgroundWorker
+    Friend WithEvents CheckBoxSymLinks As CheckBox
 End Class
