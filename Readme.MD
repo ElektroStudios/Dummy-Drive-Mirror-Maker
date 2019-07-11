@@ -2,24 +2,6 @@
 
 Dummy Drive Mirror Creator, or simply DDMM, is a desktop application to create folder and file structure mirrors with dummy (zero-byte) files. 
 
-# Video
-
-[![](https://img.youtube.com/vi/EE-HEPyt5tA/0.jpg)](https://www.youtube.com/watch?v=EE-HEPyt5tA)
-
-# Images
-
-![](https://i.imgur.com/0EWL0Ec.png)
-
-![](https://i.imgur.com/GeYMnov.png)
-
-![](https://i.imgur.com/elHAiDi.png)
-
-![](https://i.imgur.com/0xpSIkC.png)
-
-![](https://i.imgur.com/S947FjJ.png)
-
-![](https://i.imgur.com/TUe6mQL.png)
-
 # **Donations**
 
 ##### Through Paypal:
@@ -40,3 +22,21 @@ You can click the next button to go to the product specifications and the purcha
 Note that all the source-code within the namespace 'DevCase' included in this **GitHub** repository, was freely extracted and distributed from the commercial library '**DevCase for .NET Framework**'.
 
 <u>**Thanks in advance for your consideration!**</u> :thumbsup:
+
+# Video
+
+[![](https://img.youtube.com/vi/EE-HEPyt5tA/0.jpg)](https://www.youtube.com/watch?v=EE-HEPyt5tA)
+
+# Images
+
+![](https://i.imgur.com/0EWL0Ec.png)
+
+![](https://i.imgur.com/GeYMnov.png)
+
+![](https://i.imgur.com/elHAiDi.png)
+
+![](https://i.imgur.com/0xpSIkC.png)
+
+![](https://i.imgur.com/S947FjJ.png)
+
+![](https://i.imgur.com/TUe6mQL.png)
