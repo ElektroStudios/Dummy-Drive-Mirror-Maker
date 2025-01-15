@@ -35,6 +35,7 @@
     <OutputPath>bin\Release\</OutputPath>
     <DocumentationFile>Dummy Drive Mirror Maker.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
     <OptionExplicit>On</OptionExplicit>
@@ -52,11 +53,11 @@
     <ApplicationIcon>Resources\Main Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Ookii.Dialogs">
-      <HintPath>bin\Debug\Ookii.Dialogs.dll</HintPath>
+    <Reference Include="Ookii.Dialogs.WinForms, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ookii.Dialogs.WinForms.4.0.0\lib\net462\Ookii.Dialogs.WinForms.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Data" />
     <Reference Include="System.Design" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
@@ -77,52 +78,52 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ElektroKit\Core\Application\UserInterface\Types\CenteredMessageBox.vb" />
-    <Compile Include="ElektroKit\Core\IO\Tools\Directories_SymLink.vb" />
-    <Compile Include="ElektroKit\Core\IO\Tools\Directories_GetDirs.vb" />
-    <Compile Include="ElektroKit\Core\IO\Tools\FileDirSearcher.vb" />
-    <Compile Include="ElektroKit\Core\IO\Tools\Directories.vb" />
-    <Compile Include="ElektroKit\Core\IO\Tools\Files.vb" />
-    <Compile Include="ElektroKit\Core\IO\Tools\Files_GetFiles.vb" />
-    <Compile Include="ElektroKit\Core\IO\Tools\Files_SymLink.vb" />
-    <Compile Include="ElektroKit\Core\IO\Tools\Streams.vb" />
-    <Compile Include="ElektroKit\Core\IO\Tools\Files_DummyFile.vb" />
-    <Compile Include="ElektroKit\Core\Threading\Types\ElektroBackgroundWorker.vb">
+    <Compile Include="DevCase\Core\Application\UserInterface\Types\CenteredMessageBox.vb" />
+    <Compile Include="DevCase\Core\IO\Tools\Directories_SymLink.vb" />
+    <Compile Include="DevCase\Core\IO\Tools\Directories_GetDirs.vb" />
+    <Compile Include="DevCase\Core\IO\Tools\FileDirSearcher.vb" />
+    <Compile Include="DevCase\Core\IO\Tools\Directories.vb" />
+    <Compile Include="DevCase\Core\IO\Tools\Files.vb" />
+    <Compile Include="DevCase\Core\IO\Tools\Files_GetFiles.vb" />
+    <Compile Include="DevCase\Core\IO\Tools\Files_SymLink.vb" />
+    <Compile Include="DevCase\Core\IO\Tools\Streams.vb" />
+    <Compile Include="DevCase\Core\IO\Tools\Files_DummyFile.vb" />
+    <Compile Include="DevCase\Core\Threading\Types\ElektroBackgroundWorker.vb">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ElektroKit\Interop\Win32\Delegates\Delegates.vb" />
-    <Compile Include="ElektroKit\Interop\Win32\Enums\DirectoryManagementControlCodes.vb" />
-    <Compile Include="ElektroKit\Interop\Win32\Enums\CreateFileFlags.vb" />
-    <Compile Include="ElektroKit\Interop\Win32\Enums\StandardAccessRights.vb" />
-    <Compile Include="ElektroKit\Interop\Win32\Enums\FileAccessRights.vb" />
-    <Compile Include="ElektroKit\Interop\Win32\Enums\ReparsePointTags.vb" />
-    <Compile Include="ElektroKit\Interop\Win32\Enums\ReparseDataBufferFlags.vb" />
-    <Compile Include="ElektroKit\Interop\Win32\Enums\SymbolicLinkFlags.vb" />
-    <Compile Include="ElektroKit\Interop\Win32\Enums\LParams.vb" />
-    <Compile Include="ElektroKit\Interop\Win32\Enums\SetWindowPosFlags.vb" />
-    <Compile Include="ElektroKit\Interop\Win32\Enums\WindowsMessages.vb" />
-    <Compile Include="ElektroKit\Interop\Win32\Enums\WindowStylesEx.vb" />
-    <Compile Include="ElektroKit\Interop\Win32\Enums\Win32ErrorCode.vb" />
-    <Compile Include="ElektroKit\Interop\Win32\NativeMethods\NativeMethods.vb" />
-    <Compile Include="ElektroKit\Interop\Win32\NativeMethods\NativeMethods_GDI32.vb" />
-    <Compile Include="ElektroKit\Interop\Win32\NativeMethods\NativeMethods_Kernel32.vb" />
-    <Compile Include="ElektroKit\Interop\Win32\NativeMethods\NativeMethods_User32.vb" />
-    <Compile Include="ElektroKit\Interop\Win32\NativeMethods\NativeMethods_User32_Messaging.vb" />
-    <Compile Include="ElektroKit\Interop\Win32\Types\NativeRectangle.vb" />
-    <Compile Include="ElektroKit\Interop\Win32\Types\PaintStruct.vb" />
-    <Compile Include="ElektroKit\Interop\Win32\Types\ReparseDataBuffer.vb" />
-    <Compile Include="ElektroKit\Interop\Win32\Types\TextMetricA.vb" />
-    <Compile Include="ElektroKit\Interop\Win32\Types\TextMetricW.vb" />
-    <Compile Include="ElektroKit\UserControls\Controls\ElektroProgressBar.vb">
+    <Compile Include="DevCase\Interop\Win32\Delegates\Delegates.vb" />
+    <Compile Include="DevCase\Interop\Win32\Enums\DirectoryManagementControlCodes.vb" />
+    <Compile Include="DevCase\Interop\Win32\Enums\CreateFileFlags.vb" />
+    <Compile Include="DevCase\Interop\Win32\Enums\StandardAccessRights.vb" />
+    <Compile Include="DevCase\Interop\Win32\Enums\FileAccessRights.vb" />
+    <Compile Include="DevCase\Interop\Win32\Enums\ReparsePointTags.vb" />
+    <Compile Include="DevCase\Interop\Win32\Enums\ReparseDataBufferFlags.vb" />
+    <Compile Include="DevCase\Interop\Win32\Enums\SymbolicLinkFlags.vb" />
+    <Compile Include="DevCase\Interop\Win32\Enums\LParams.vb" />
+    <Compile Include="DevCase\Interop\Win32\Enums\SetWindowPosFlags.vb" />
+    <Compile Include="DevCase\Interop\Win32\Enums\WindowsMessages.vb" />
+    <Compile Include="DevCase\Interop\Win32\Enums\WindowStylesEx.vb" />
+    <Compile Include="DevCase\Interop\Win32\Enums\Win32ErrorCode.vb" />
+    <Compile Include="DevCase\Interop\Win32\NativeMethods\NativeMethods.vb" />
+    <Compile Include="DevCase\Interop\Win32\NativeMethods\NativeMethods_GDI32.vb" />
+    <Compile Include="DevCase\Interop\Win32\NativeMethods\NativeMethods_Kernel32.vb" />
+    <Compile Include="DevCase\Interop\Win32\NativeMethods\NativeMethods_User32.vb" />
+    <Compile Include="DevCase\Interop\Win32\NativeMethods\NativeMethods_User32_Messaging.vb" />
+    <Compile Include="DevCase\Interop\Win32\Types\NativeRectangle.vb" />
+    <Compile Include="DevCase\Interop\Win32\Types\PaintStruct.vb" />
+    <Compile Include="DevCase\Interop\Win32\Types\ReparseDataBuffer.vb" />
+    <Compile Include="DevCase\Interop\Win32\Types\TextMetricA.vb" />
+    <Compile Include="DevCase\Interop\Win32\Types\TextMetricW.vb" />
+    <Compile Include="DevCase\UserControls\Controls\ElektroProgressBar.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ElektroKit\UserControls\Enums\ProgressBarMessages.vb" />
-    <Compile Include="ElektroKit\UserControls\Enums\ProgressBarState.vb" />
-    <Compile Include="ElektroKit\Interop\Win32\Enums\WParams.vb" />
-    <Compile Include="ElektroKit\UserControls\Types\Designers\ElektroProgressBarDesigner.vb" />
-    <Compile Include="ElektroKit\UserControls\Types\EventArgs\ValueChangedEventArgs.vb" />
-    <Compile Include="ElektroKit\UserControls\Types\EventArgs\ProgressBarValueChangedEventArgs.vb" />
-    <Compile Include="ElektroKit\UserControls\Types\IBufferedControl.vb" />
+    <Compile Include="DevCase\UserControls\Enums\ProgressBarMessages.vb" />
+    <Compile Include="DevCase\UserControls\Enums\ProgressBarState.vb" />
+    <Compile Include="DevCase\Interop\Win32\Enums\WParams.vb" />
+    <Compile Include="DevCase\UserControls\Types\Designers\ElektroProgressBarDesigner.vb" />
+    <Compile Include="DevCase\UserControls\Types\EventArgs\ValueChangedEventArgs.vb" />
+    <Compile Include="DevCase\UserControls\Types\EventArgs\ProgressBarValueChangedEventArgs.vb" />
+    <Compile Include="DevCase\UserControls\Types\IBufferedControl.vb" />
     <Compile Include="Forms\Main.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -130,7 +131,7 @@
       <DependentUpon>Main.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ElektroKit\Core\Threading\Enums\ElektroBackgroundWorkerState.vb" />
+    <Compile Include="DevCase\Core\Threading\Enums\ElektroBackgroundWorkerState.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -177,6 +178,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
     <None Include="Resources\Copy.png" />
   </ItemGroup>
   <ItemGroup>

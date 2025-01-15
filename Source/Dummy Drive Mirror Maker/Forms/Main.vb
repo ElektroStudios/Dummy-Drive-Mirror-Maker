@@ -5,7 +5,9 @@ Imports DevCase.Core.IO.Tools
 Imports DevCase.Core.Threading.Enums
 Imports DevCase.Core.Threading.Types
 Imports DevCase.Interop.Win32
+
 Imports Ookii.Dialogs
+Imports Ookii.Dialogs.WinForms
 
 Imports System.ComponentModel
 Imports System.IO
@@ -90,7 +92,7 @@ Public NotInheritable Class Main : Inherits Form
     ''' The <see cref="DragEventArgs"/> instance containing the event data.
     ''' </param>
     ''' ----------------------------------------------------------------------------------------------------
-    Private Sub TextBoxSource_DragEnter(ByVal sender As Object, ByVal e As DragEventArgs) Handles TextBoxSource.DragEnter
+    Private Sub TextBoxSource_DragEnter(sender As Object, e As DragEventArgs) Handles TextBoxSource.DragEnter
 
         If (e.Data.GetDataPresent(DataFormats.FileDrop)) Then
 
@@ -123,7 +125,7 @@ Public NotInheritable Class Main : Inherits Form
     ''' The <see cref="DragEventArgs"/> instance containing the event data.
     ''' </param>
     ''' ----------------------------------------------------------------------------------------------------
-    Private Sub TextBoxSource_DragDrop(ByVal sender As Object, ByVal e As DragEventArgs) Handles TextBoxSource.DragDrop
+    Private Sub TextBoxSource_DragDrop(sender As Object, e As DragEventArgs) Handles TextBoxSource.DragDrop
 
         If (e.Data.GetDataPresent(DataFormats.FileDrop)) Then
             Dim dirpath As String = DirectCast(e.Data.GetData(DataFormats.FileDrop), IEnumerable(Of String)).Single()
@@ -157,7 +159,7 @@ Public NotInheritable Class Main : Inherits Form
     ''' The <see cref="DragEventArgs"/> instance containing the event data.
     ''' </param>
     ''' ----------------------------------------------------------------------------------------------------
-    Private Sub TextBoxTarget_DragEnter(ByVal sender As Object, ByVal e As DragEventArgs) Handles TextBoxTarget.DragEnter
+    Private Sub TextBoxTarget_DragEnter(sender As Object, e As DragEventArgs) Handles TextBoxTarget.DragEnter
 
         If (e.Data.GetDataPresent(DataFormats.FileDrop)) Then
 
@@ -190,7 +192,7 @@ Public NotInheritable Class Main : Inherits Form
     ''' The <see cref="DragEventArgs"/> instance containing the event data.
     ''' </param>
     ''' ----------------------------------------------------------------------------------------------------
-    Private Sub TextBoxTarget_DragDrop(ByVal sender As Object, ByVal e As DragEventArgs) Handles TextBoxTarget.DragDrop
+    Private Sub TextBoxTarget_DragDrop(sender As Object, e As DragEventArgs) Handles TextBoxTarget.DragDrop
 
         If (e.Data.GetDataPresent(DataFormats.FileDrop)) Then
             Dim dirpath As String = DirectCast(e.Data.GetData(DataFormats.FileDrop), IEnumerable(Of String)).Single()
@@ -446,8 +448,8 @@ Public NotInheritable Class Main : Inherits Form
 
         ' Get all the sub-directories in the root source dir.
         Dim srcSubDirs As IEnumerable(Of DirectoryInfo) =
-            Directories.GetDirs(Options.SourceDir, SearchOption.AllDirectories, {"*"}, {"*"}, True,
-                                throwOnError:=False).OrderBy(Function(di As DirectoryInfo) di.FullName)
+            {Options.SourceDir}.Concat(Directories.GetDirs(Options.SourceDir, SearchOption.AllDirectories, {"*"}, {"*"}, True,
+                                throwOnError:=False).OrderBy(Function(di As DirectoryInfo) di.FullName))
 
         ' Set progressbar ma. value.
         Me.progressMaximum = srcSubDirs.Count
@@ -487,32 +489,32 @@ Public NotInheritable Class Main : Inherits Form
             Debug.WriteLine(String.Format("About to create dir.: '{0}'", dstDir.FullName))
 #End If
 
-            ' Ask the user when a target directory already exists before creating dummy files inside, 
-            ' because the target directory could contain user files
-            ' and those files will be end messed up with dummy files.
-            If (dstDir.Exists()) AndAlso Not (ignoreFolderExistsConflict) Then
-                Dim dlgResult As DialogResult =
-                    MessageBox.Show(String.Format(UIMessages.DirectoryExistQuestion1, dstDir.FullName),
-                                    Me.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+            '' Ask the user when a target directory already exists before creating dummy files inside, 
+            '' because the target directory could contain user files
+            '' and those files will be end messed up with dummy files.
+            'If (dstDir.Exists()) AndAlso Not (ignoreFolderExistsConflict) Then
+            '    Dim dlgResult As DialogResult =
+            '        MessageBox.Show(String.Format(UIMessages.DirectoryExistQuestion1, dstDir.FullName),
+            '                        Me.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question)
 
 
-                ' In case of the user is really aware of what he is doing, 
-                ' we simplify things by brinding to him the chance to discard more folder conflict questions like this.
-                If (dlgResult = DialogResult.Yes) AndAlso Not (ignoreFolderExistsConflictAnswered) Then
-                    dlgResult = MessageBox.Show(String.Format(UIMessages.DirectoryExistQuestion2, dstDir.FullName),
-                                                Me.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-                    Select Case dlgResult
-                        Case DialogResult.Yes
-                            ignoreFolderExistsConflict = True
-                        Case Else
-                            ignoreFolderExistsConflict = False
-                    End Select
-                    ignoreFolderExistsConflictAnswered = True
-                ElseIf (dlgResult = DialogResult.No) Then
-                    e.Cancel = True
-                    Exit For
-                End If
-            End If
+            '    ' In case of the user is really aware of what he is doing, 
+            '    ' we simplify things by brinding to him the chance to discard more folder conflict questions like this.
+            '    If (dlgResult = DialogResult.Yes) AndAlso Not (ignoreFolderExistsConflictAnswered) Then
+            '        dlgResult = MessageBox.Show(String.Format(UIMessages.DirectoryExistQuestion2, dstDir.FullName),
+            '                                    Me.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+            '        Select Case dlgResult
+            '            Case DialogResult.Yes
+            '                ignoreFolderExistsConflict = True
+            '            Case Else
+            '                ignoreFolderExistsConflict = False
+            '        End Select
+            '        ignoreFolderExistsConflictAnswered = True
+            '    ElseIf (dlgResult = DialogResult.No) Then
+            '        e.Cancel = True
+            '        Exit For
+            '    End If
+            'End If
 
             Try
                 ' Ignore hidden folder by user-demand.
@@ -712,7 +714,7 @@ Public NotInheritable Class Main : Inherits Form
     ''' </param>
     ''' ----------------------------------------------------------------------------------------------------
     <DebuggerStepperBoundary>
-    Private Sub ElektroBackgroundWorker1_ProgressChanged(ByVal sender As Object, ByVal e As ProgressChangedEventArgs) _
+    Private Sub ElektroBackgroundWorker1_ProgressChanged(sender As Object, e As ProgressChangedEventArgs) _
     Handles ElektroBackgroundWorker1.ProgressChanged
 
         If Not (Me.isProgressBarInitialValuesSet) Then
@@ -752,7 +754,7 @@ Public NotInheritable Class Main : Inherits Form
     ''' </param>
     ''' ----------------------------------------------------------------------------------------------------
     <DebuggerStepperBoundary>
-    Private Sub ElektroBackgroundWorker1_RunWorkerCompleted(ByVal sender As Object, ByVal e As RunWorkerCompletedEventArgs) _
+    Private Sub ElektroBackgroundWorker1_RunWorkerCompleted(sender As Object, e As RunWorkerCompletedEventArgs) _
     Handles ElektroBackgroundWorker1.RunWorkerCompleted
 
         ' Restore button style.
