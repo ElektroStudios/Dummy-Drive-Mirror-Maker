@@ -126,7 +126,7 @@ Namespace DevCase.Core.IO.Tools
 
             Dim dstDir As New DirectoryInfo(Path.Combine(dstDirPath, Path.GetFileName(srcDirPath)))
             If (dstDir.Exists) Then
-                Throw New IOException(message:=String.Format("Target directory '{0}' already exists.", dstDir.FullName))
+                Throw New IOException(message:=String.Format("Destination directory '{0}' already exists.", dstDir.FullName))
                 Exit Sub
             End If
 
@@ -189,7 +189,7 @@ Namespace DevCase.Core.IO.Tools
 
         ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
-        ''' Gets the target of the specified symbolic link.
+        ''' Gets the destination of the specified symbolic link.
         ''' </summary>
         ''' ----------------------------------------------------------------------------------------------------
         ''' <param name="directory">
@@ -197,17 +197,17 @@ Namespace DevCase.Core.IO.Tools
         ''' </param>
         ''' ----------------------------------------------------------------------------------------------------
         ''' <returns>
-        ''' The target of the specified symbolic link.
+        ''' The destination of the specified symbolic link.
         ''' </returns>
         ''' ----------------------------------------------------------------------------------------------------
         <DebuggerStepThrough>
-        Public Shared Function GetSymbolicLinkTarget(directory As DirectoryInfo) As DirectoryInfo
-            Return New DirectoryInfo(Directories.GetSymbolicLinkTarget(directory.FullName))
+        Public Shared Function GetSymbolicLinkDestination(directory As DirectoryInfo) As DirectoryInfo
+            Return New DirectoryInfo(Directories.GetSymbolicLinkDestination(directory.FullName))
         End Function
 
         ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
-        ''' Gets the target of the specified symbolic link.
+        ''' Gets the destination of the specified symbolic link.
         ''' </summary>
         ''' ----------------------------------------------------------------------------------------------------
         ''' <param name="dirPath">
@@ -215,7 +215,7 @@ Namespace DevCase.Core.IO.Tools
         ''' </param>
         ''' ----------------------------------------------------------------------------------------------------
         ''' <returns>
-        ''' The target of the specified symbolic link.
+        ''' The destination of the specified symbolic link.
         ''' </returns>
         ''' ----------------------------------------------------------------------------------------------------
         ''' <exception cref="DirectoryNotFoundException">
@@ -229,7 +229,7 @@ Namespace DevCase.Core.IO.Tools
         ''' </exception>
         ''' ----------------------------------------------------------------------------------------------------
         <DebuggerStepThrough>
-        Public Shared Function GetSymbolicLinkTarget(dirPath As String) As String
+        Public Shared Function GetSymbolicLinkDestination(dirPath As String) As String
 
             If Not Directory.Exists(dirPath) Then
                 Throw New DirectoryNotFoundException(dirPath)
@@ -272,8 +272,8 @@ Namespace DevCase.Core.IO.Tools
             If (reparseDataBuffer.ReparseTag <> ReparsePointTags.SymbolicLink) Then
                 Throw New ArgumentException("The specified directory is not a symbolic link.", "dirPath")
             Else
-                Dim target As String = Encoding.Unicode.GetString(reparseDataBuffer.Buffer, reparseDataBuffer.PrintNameOffset, reparseDataBuffer.PrintNameLength)
-                Return target
+                Dim destination As String = Encoding.Unicode.GetString(reparseDataBuffer.Buffer, reparseDataBuffer.PrintNameOffset, reparseDataBuffer.PrintNameLength)
+                Return destination
 
             End If
 

@@ -25,15 +25,16 @@ Partial Class Main
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Main))
         Me.TextBoxSource = New System.Windows.Forms.TextBox()
         Me.LabelSource = New System.Windows.Forms.Label()
-        Me.LabelTarget = New System.Windows.Forms.Label()
-        Me.TextBoxTarget = New System.Windows.Forms.TextBox()
+        Me.LabelDestination = New System.Windows.Forms.Label()
+        Me.TextBoxDestination = New System.Windows.Forms.TextBox()
         Me.ButtonSource = New System.Windows.Forms.Button()
-        Me.ButtonTarget = New System.Windows.Forms.Button()
+        Me.ButtonDestination = New System.Windows.Forms.Button()
         Me.CheckBoxHiddenFiles = New System.Windows.Forms.CheckBox()
         Me.CheckBoxDatestamps = New System.Windows.Forms.CheckBox()
         Me.CheckBoxAttribs = New System.Windows.Forms.CheckBox()
         Me.ButtonMirror = New System.Windows.Forms.Button()
         Me.GroupBoxOptions = New System.Windows.Forms.GroupBox()
+        Me.CheckBoxOverwrite = New System.Windows.Forms.CheckBox()
         Me.CheckBoxSymLinks = New System.Windows.Forms.CheckBox()
         Me.CheckBoxIgnoreSecurityExceptions = New System.Windows.Forms.CheckBox()
         Me.GroupBoxDirectories = New System.Windows.Forms.GroupBox()
@@ -67,25 +68,25 @@ Partial Class Main
         Me.LabelSource.TabIndex = 0
         Me.LabelSource.Text = "Source Directory"
         '
-        'LabelTarget
+        'LabelDestination
         '
-        Me.LabelTarget.AutoSize = True
-        Me.LabelTarget.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.LabelTarget.Location = New System.Drawing.Point(6, 67)
-        Me.LabelTarget.Name = "LabelTarget"
-        Me.LabelTarget.Size = New System.Drawing.Size(83, 13)
-        Me.LabelTarget.TabIndex = 3
-        Me.LabelTarget.Text = "Target Directory"
+        Me.LabelDestination.AutoSize = True
+        Me.LabelDestination.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.LabelDestination.Location = New System.Drawing.Point(6, 67)
+        Me.LabelDestination.Name = "LabelDestination"
+        Me.LabelDestination.Size = New System.Drawing.Size(83, 13)
+        Me.LabelDestination.TabIndex = 3
+        Me.LabelDestination.Text = "Dest. Directory"
         '
-        'TextBoxTarget
+        'TextBoxDestination
         '
-        Me.TextBoxTarget.AllowDrop = True
-        Me.TextBoxTarget.Enabled = False
-        Me.TextBoxTarget.Location = New System.Drawing.Point(98, 64)
-        Me.TextBoxTarget.Name = "TextBoxTarget"
-        Me.TextBoxTarget.ReadOnly = True
-        Me.TextBoxTarget.Size = New System.Drawing.Size(390, 20)
-        Me.TextBoxTarget.TabIndex = 4
+        Me.TextBoxDestination.AllowDrop = True
+        Me.TextBoxDestination.Enabled = False
+        Me.TextBoxDestination.Location = New System.Drawing.Point(98, 64)
+        Me.TextBoxDestination.Name = "TextBoxDestination"
+        Me.TextBoxDestination.ReadOnly = True
+        Me.TextBoxDestination.Size = New System.Drawing.Size(390, 20)
+        Me.TextBoxDestination.TabIndex = 4
         '
         'ButtonSource
         '
@@ -98,24 +99,24 @@ Partial Class Main
         Me.ButtonSource.Text = "Browse..."
         Me.ButtonSource.UseVisualStyleBackColor = True
         '
-        'ButtonTarget
+        'ButtonDestination
         '
-        Me.ButtonTarget.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.ButtonTarget.Enabled = False
-        Me.ButtonTarget.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.ButtonTarget.Location = New System.Drawing.Point(494, 62)
-        Me.ButtonTarget.Name = "ButtonTarget"
-        Me.ButtonTarget.Size = New System.Drawing.Size(75, 23)
-        Me.ButtonTarget.TabIndex = 5
-        Me.ButtonTarget.Text = "Browse..."
-        Me.ButtonTarget.UseVisualStyleBackColor = True
+        Me.ButtonDestination.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.ButtonDestination.Enabled = False
+        Me.ButtonDestination.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.ButtonDestination.Location = New System.Drawing.Point(494, 62)
+        Me.ButtonDestination.Name = "ButtonDestination"
+        Me.ButtonDestination.Size = New System.Drawing.Size(75, 23)
+        Me.ButtonDestination.TabIndex = 5
+        Me.ButtonDestination.Text = "Browse..."
+        Me.ButtonDestination.UseVisualStyleBackColor = True
         '
         'CheckBoxHiddenFiles
         '
         Me.CheckBoxHiddenFiles.AutoSize = True
         Me.CheckBoxHiddenFiles.Cursor = System.Windows.Forms.Cursors.Hand
         Me.CheckBoxHiddenFiles.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.CheckBoxHiddenFiles.Location = New System.Drawing.Point(6, 65)
+        Me.CheckBoxHiddenFiles.Location = New System.Drawing.Point(6, 57)
         Me.CheckBoxHiddenFiles.Name = "CheckBoxHiddenFiles"
         Me.CheckBoxHiddenFiles.Size = New System.Drawing.Size(163, 17)
         Me.CheckBoxHiddenFiles.TabIndex = 2
@@ -127,7 +128,7 @@ Partial Class Main
         Me.CheckBoxDatestamps.AutoSize = True
         Me.CheckBoxDatestamps.Cursor = System.Windows.Forms.Cursors.Hand
         Me.CheckBoxDatestamps.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.CheckBoxDatestamps.Location = New System.Drawing.Point(6, 42)
+        Me.CheckBoxDatestamps.Location = New System.Drawing.Point(6, 38)
         Me.CheckBoxDatestamps.Name = "CheckBoxDatestamps"
         Me.CheckBoxDatestamps.Size = New System.Drawing.Size(139, 17)
         Me.CheckBoxDatestamps.TabIndex = 1
@@ -158,11 +159,12 @@ Partial Class Main
         Me.ButtonMirror.Size = New System.Drawing.Size(370, 130)
         Me.ButtonMirror.TabIndex = 2
         Me.ButtonMirror.Text = "Build Mirror"
-        Me.ButtonMirror.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.ButtonMirror.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.ButtonMirror.UseVisualStyleBackColor = True
         '
         'GroupBoxOptions
         '
+        Me.GroupBoxOptions.Controls.Add(Me.CheckBoxOverwrite)
         Me.GroupBoxOptions.Controls.Add(Me.CheckBoxSymLinks)
         Me.GroupBoxOptions.Controls.Add(Me.CheckBoxIgnoreSecurityExceptions)
         Me.GroupBoxOptions.Controls.Add(Me.CheckBoxAttribs)
@@ -176,12 +178,24 @@ Partial Class Main
         Me.GroupBoxOptions.TabStop = False
         Me.GroupBoxOptions.Text = "Options"
         '
+        'CheckBoxOverwrite
+        '
+        Me.CheckBoxOverwrite.AutoSize = True
+        Me.CheckBoxOverwrite.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.CheckBoxOverwrite.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.CheckBoxOverwrite.Location = New System.Drawing.Point(6, 114)
+        Me.CheckBoxOverwrite.Name = "CheckBoxOverwrite"
+        Me.CheckBoxOverwrite.Size = New System.Drawing.Size(146, 17)
+        Me.CheckBoxOverwrite.TabIndex = 6
+        Me.CheckBoxOverwrite.Text = "Overwrite destination files"
+        Me.CheckBoxOverwrite.UseVisualStyleBackColor = True
+        '
         'CheckBoxSymLinks
         '
         Me.CheckBoxSymLinks.AutoSize = True
         Me.CheckBoxSymLinks.Cursor = System.Windows.Forms.Cursors.Hand
         Me.CheckBoxSymLinks.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.CheckBoxSymLinks.Location = New System.Drawing.Point(6, 88)
+        Me.CheckBoxSymLinks.Location = New System.Drawing.Point(6, 76)
         Me.CheckBoxSymLinks.Name = "CheckBoxSymLinks"
         Me.CheckBoxSymLinks.Size = New System.Drawing.Size(119, 17)
         Me.CheckBoxSymLinks.TabIndex = 5
@@ -193,7 +207,7 @@ Partial Class Main
         Me.CheckBoxIgnoreSecurityExceptions.AutoSize = True
         Me.CheckBoxIgnoreSecurityExceptions.Cursor = System.Windows.Forms.Cursors.Hand
         Me.CheckBoxIgnoreSecurityExceptions.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.CheckBoxIgnoreSecurityExceptions.Location = New System.Drawing.Point(6, 111)
+        Me.CheckBoxIgnoreSecurityExceptions.Location = New System.Drawing.Point(6, 95)
         Me.CheckBoxIgnoreSecurityExceptions.Name = "CheckBoxIgnoreSecurityExceptions"
         Me.CheckBoxIgnoreSecurityExceptions.Size = New System.Drawing.Size(186, 17)
         Me.CheckBoxIgnoreSecurityExceptions.TabIndex = 4
@@ -204,10 +218,10 @@ Partial Class Main
         '
         Me.GroupBoxDirectories.Controls.Add(Me.LabelSource)
         Me.GroupBoxDirectories.Controls.Add(Me.TextBoxSource)
-        Me.GroupBoxDirectories.Controls.Add(Me.LabelTarget)
-        Me.GroupBoxDirectories.Controls.Add(Me.TextBoxTarget)
+        Me.GroupBoxDirectories.Controls.Add(Me.LabelDestination)
+        Me.GroupBoxDirectories.Controls.Add(Me.TextBoxDestination)
         Me.GroupBoxDirectories.Controls.Add(Me.ButtonSource)
-        Me.GroupBoxDirectories.Controls.Add(Me.ButtonTarget)
+        Me.GroupBoxDirectories.Controls.Add(Me.ButtonDestination)
         Me.GroupBoxDirectories.ForeColor = System.Drawing.SystemColors.ControlText
         Me.GroupBoxDirectories.Location = New System.Drawing.Point(12, 90)
         Me.GroupBoxDirectories.Name = "GroupBoxDirectories"
@@ -234,6 +248,7 @@ Partial Class Main
         Me.StatusStripFilepaths.Location = New System.Drawing.Point(0, 371)
         Me.StatusStripFilepaths.Name = "StatusStripFilepaths"
         Me.StatusStripFilepaths.Size = New System.Drawing.Size(600, 22)
+        Me.StatusStripFilepaths.SizingGrip = False
         Me.StatusStripFilepaths.TabIndex = 8
         Me.StatusStripFilepaths.Text = "StatusStrip1"
         '
@@ -244,12 +259,12 @@ Partial Class Main
         Me.ToolStripStatusLabelFilepaths.Image = Global.My.Resources.Resources.File
         Me.ToolStripStatusLabelFilepaths.Name = "ToolStripStatusLabelFilepaths"
         Me.ToolStripStatusLabelFilepaths.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never
-        Me.ToolStripStatusLabelFilepaths.Size = New System.Drawing.Size(68, 17)
-        Me.ToolStripStatusLabelFilepaths.Text = "Waiting..."
+        Me.ToolStripStatusLabelFilepaths.Size = New System.Drawing.Size(73, 17)
+        Me.ToolStripStatusLabelFilepaths.Text = "Ready"
         '
         'ElektroProgressBar1
         '
-        Me.ElektroProgressBar1.FormatString = "Waiting..."
+        Me.ElektroProgressBar1.FormatString = "Ready"
         Me.ElektroProgressBar1.FormatStringError = ""
         Me.ElektroProgressBar1.FormatStringPaused = ""
         Me.ElektroProgressBar1.Location = New System.Drawing.Point(12, 342)
@@ -295,10 +310,10 @@ Partial Class Main
 
     Friend WithEvents TextBoxSource As TextBox
     Friend WithEvents LabelSource As Label
-    Friend WithEvents LabelTarget As Label
-    Friend WithEvents TextBoxTarget As TextBox
+    Friend WithEvents LabelDestination As Label
+    Friend WithEvents TextBoxDestination As TextBox
     Friend WithEvents ButtonSource As Button
-    Friend WithEvents ButtonTarget As Button
+    Friend WithEvents ButtonDestination As Button
     Friend WithEvents PictureBoxLogo As PictureBox
     Friend WithEvents CheckBoxHiddenFiles As CheckBox
     Friend WithEvents CheckBoxDatestamps As CheckBox
@@ -312,4 +327,5 @@ Partial Class Main
     Friend WithEvents ToolStripStatusLabelFilepaths As ToolStripStatusLabel
     Friend WithEvents ElektroBackgroundWorker1 As DevCase.Core.Threading.Types.ElektroBackgroundWorker
     Friend WithEvents CheckBoxSymLinks As CheckBox
+    Friend WithEvents CheckBoxOverwrite As CheckBox
 End Class

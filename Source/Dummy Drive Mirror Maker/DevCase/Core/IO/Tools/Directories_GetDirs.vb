@@ -103,61 +103,6 @@ searchOption As SearchOption,
 
         End Function
 
-        ''' ----------------------------------------------------------------------------------------------------
-        ''' <summary>
-        ''' Gets the filepaths those matches the criteria inside the specified directory and/or sub-directories.
-        ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
-        ''' <example> This is a code example.
-        ''' <code>
-        ''' Dim dirPaths As List(Of String) =
-        '''     GetDirPaths("C:\Windows\System32", SearchOption.AllDirectories).ToList
-        ''' </code>
-        ''' </example>
-        ''' ----------------------------------------------------------------------------------------------------
-        ''' <param name="dir">
-        ''' The root directory path to search for directories.
-        ''' </param>
-        ''' 
-        ''' <param name="searchOption">
-        ''' The searching mode.
-        ''' </param>
-        ''' 
-        ''' <param name="dirPathPatterns">
-        ''' The directory path pattern(s) to match.
-        ''' </param>
-        ''' 
-        ''' <param name="dirNamePatterns">
-        ''' The directory name pattern(s) to match.
-        ''' </param>
-        ''' 
-        ''' <param name="ignoreCase">
-        ''' If <see langword="True"/>, ignores the comparing case of <paramref name="dirPathPatterns"/> and <paramref name="dirNamePatterns"/> patterns.
-        ''' </param>
-        ''' 
-        ''' <param name="throwOnError">
-        ''' If set to <see langword="True"/>, exceptions will be thrown, like access denied to directory.
-        ''' </param>
-        ''' ----------------------------------------------------------------------------------------------------
-        ''' <returns>
-        ''' An <see cref="IEnumerable(Of String)"/> instance containing the directory paths.
-        ''' </returns>
-        ''' ----------------------------------------------------------------------------------------------------
-        ''' <exception cref="Global.System.ArgumentException">dirPath or searchOption
-        ''' </exception>
-        ''' ----------------------------------------------------------------------------------------------------
-        <DebuggerStepThrough>
-        Public Shared Function GetDirPaths(dir As DirectoryInfo,
-searchOption As SearchOption,
-                                           Optional dirPathPatterns As IEnumerable(Of String) = Nothing,
-                                           Optional dirNamePatterns As IEnumerable(Of String) = Nothing,
-                                           Optional ignoreCase As Boolean = True,
-                                           Optional throwOnError As Boolean = False) As IEnumerable(Of String)
-
-            Return FileDirSearcher.GetDirPaths(dir.FullName, searchOption, dirPathPatterns, dirNamePatterns, ignoreCase, throwOnError)
-
-        End Function
-
 #End Region
 
     End Class

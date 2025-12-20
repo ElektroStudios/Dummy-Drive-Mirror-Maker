@@ -42,12 +42,12 @@ Namespace DevCase.Interop.Win32.Enums
     Public Enum SymbolicLinkFlags As Integer
 
         ''' <summary>
-        ''' The link target is a file.
+        ''' The link destination is a file.
         ''' </summary>
         File = &H0
 
         ''' <summary>
-        ''' The link target is a directory.
+        ''' The link destination is a directory.
         ''' </summary>
         Directory = &H1
 

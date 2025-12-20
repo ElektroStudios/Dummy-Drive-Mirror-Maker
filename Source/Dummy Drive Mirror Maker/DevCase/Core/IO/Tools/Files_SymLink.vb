@@ -73,46 +73,6 @@ Namespace DevCase.Core.IO.Tools
         ''' Creates a symbolic link of the specified file.
         ''' </summary>
         ''' ----------------------------------------------------------------------------------------------------
-        ''' <param name="srcFile">
-        ''' The source file.
-        ''' </param>
-        ''' 
-        ''' <param name="dstDirPath">
-        ''' The destination directory path where to create the symbolic link.
-        ''' </param>
-        ''' ----------------------------------------------------------------------------------------------------
-        <DebuggerStepThrough>
-        Public Shared Sub CreateSymbolicLink(srcFile As FileInfo, dstDirPath As String)
-
-            Files.CreateSymbolicLink(srcFile.FullName, dstDirPath)
-
-        End Sub
-
-        ''' ----------------------------------------------------------------------------------------------------
-        ''' <summary>
-        ''' Creates a symbolic link of the specified file.
-        ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
-        ''' <param name="srcFilePath">
-        ''' The source file path.
-        ''' </param>
-        ''' 
-        ''' <param name="dstDirPath">
-        ''' The destination directory where to create the symbolic link.
-        ''' </param>
-        ''' ----------------------------------------------------------------------------------------------------
-        <DebuggerStepThrough>
-        Public Shared Sub CreateSymbolicLink(srcFilePath As String, dstDirPath As DirectoryInfo)
-
-            Files.CreateSymbolicLink(srcFilePath, dstDirPath.FullName)
-
-        End Sub
-
-        ''' ----------------------------------------------------------------------------------------------------
-        ''' <summary>
-        ''' Creates a symbolic link of the specified file.
-        ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <param name="srcFilePath">
         ''' The source file path.
         ''' </param>
@@ -197,7 +157,7 @@ Namespace DevCase.Core.IO.Tools
 
         ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
-        ''' Gets the target of the specified symbolic link.
+        ''' Gets the destination of the specified symbolic link.
         ''' </summary>
         ''' ----------------------------------------------------------------------------------------------------
         ''' <param name="file">
@@ -205,19 +165,19 @@ Namespace DevCase.Core.IO.Tools
         ''' </param>
         ''' ----------------------------------------------------------------------------------------------------
         ''' <returns>
-        ''' The target of the specified symbolic link.
+        ''' The destination of the specified symbolic link.
         ''' </returns>
         ''' ----------------------------------------------------------------------------------------------------
         <DebuggerStepThrough>
-        Public Shared Function GetSymbolicLinkTarget(file As FileInfo) As FileInfo
+        Public Shared Function GetSymbolicLinkDestination(file As FileInfo) As FileInfo
 
-            Return New FileInfo(Files.GetSymbolicLinkTarget(file.FullName))
+            Return New FileInfo(Files.GetSymbolicLinkDestination(file.FullName))
 
         End Function
 
         ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
-        ''' Gets the target of the specified symbolic link.
+        ''' Gets the destination of the specified symbolic link.
         ''' </summary>
         ''' ----------------------------------------------------------------------------------------------------
         ''' <param name="filePath">
@@ -225,7 +185,7 @@ Namespace DevCase.Core.IO.Tools
         ''' </param>
         ''' ----------------------------------------------------------------------------------------------------
         ''' <returns>
-        ''' The target of the specified symbolic link.
+        ''' The destination of the specified symbolic link.
         ''' </returns>
         ''' ----------------------------------------------------------------------------------------------------
         ''' <exception cref="FileNotFoundException">
@@ -239,7 +199,7 @@ Namespace DevCase.Core.IO.Tools
         ''' </exception>
         ''' ----------------------------------------------------------------------------------------------------
         <DebuggerStepThrough>
-        Public Shared Function GetSymbolicLinkTarget(filePath As String) As String
+        Public Shared Function GetSymbolicLinkDestination(filePath As String) As String
 
             If Not File.Exists(filePath) Then
                 Throw New FileNotFoundException(filePath)
@@ -282,8 +242,8 @@ Namespace DevCase.Core.IO.Tools
             If (reparseDataBuffer.ReparseTag <> ReparsePointTags.SymbolicLink) Then
                 Throw New ArgumentException("The specified file is not a symbolic link.", "filePath")
             Else
-                Dim target As String = Encoding.Unicode.GetString(reparseDataBuffer.Buffer, reparseDataBuffer.PrintNameOffset, reparseDataBuffer.PrintNameLength)
-                Return target
+                Dim destination As String = Encoding.Unicode.GetString(reparseDataBuffer.Buffer, reparseDataBuffer.PrintNameOffset, reparseDataBuffer.PrintNameLength)
+                Return destination
 
             End If
 

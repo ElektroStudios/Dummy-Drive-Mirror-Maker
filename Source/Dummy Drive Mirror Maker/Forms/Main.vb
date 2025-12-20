@@ -75,6 +75,35 @@ Public NotInheritable Class Main : Inherits Form
 
     End Sub
 
+    ''' ----------------------------------------------------------------------------------------------------
+    ''' <summary>
+    ''' Handles the <see cref="Form.FormClosing"/> event of the <see cref="Main"/> Form.
+    ''' </summary>
+    ''' ----------------------------------------------------------------------------------------------------
+    ''' <param name="sender">
+    ''' The source of the event.
+    ''' </param>
+    ''' ----------------------------------------------------------------------------------------------------
+    ''' <param name="e">
+    ''' The <see cref="EventArgs"/> instance containing the event data.
+    ''' </param>
+    ''' ----------------------------------------------------------------------------------------------------
+    Private Sub Main_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+
+        If e.CloseReason = CloseReason.UserClosing Then
+
+            If Me.ElektroBackgroundWorker1.State = ElektroBackgroundWorkerState.Running Then
+
+                Dim dlgResult As DialogResult =
+                    MessageBox.Show(UIMessages.FormClosingWarning,
+                                    Me.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
+
+                e.Cancel = (dlgResult = DialogResult.No)
+            End If
+        End If
+
+    End Sub
+
 #End Region
 
 #Region " TextBoxes "
@@ -132,13 +161,13 @@ Public NotInheritable Class Main : Inherits Form
             Options.SourceDir = New DirectoryInfo(dirpath)
 
             Me.TextBoxSource.Text = Options.SourceDir.FullName
-            If (Options.TargetDir IsNot Nothing) Then
+            If (Options.DestinationDir IsNot Nothing) Then
                 Me.ButtonMirror.Enabled = False
-                Me.ValidateTargetDirectory()
+                Me.ValidateDestinationDirectory()
 
             Else
-                Me.ButtonTarget.Enabled = True
-                Me.TextBoxTarget.Enabled = True
+                Me.ButtonDestination.Enabled = True
+                Me.TextBoxDestination.Enabled = True
 
             End If
 
@@ -148,7 +177,7 @@ Public NotInheritable Class Main : Inherits Form
 
     ''' ----------------------------------------------------------------------------------------------------
     ''' <summary>
-    ''' Handles the <see cref="TextBox.DragEnter"/> event of the <see cref="Main.TextBoxTarget"/> control.
+    ''' Handles the <see cref="TextBox.DragEnter"/> event of the <see cref="Main.TextBoxDestination"/> control.
     ''' </summary>
     ''' ----------------------------------------------------------------------------------------------------
     ''' <param name="sender">
@@ -159,7 +188,7 @@ Public NotInheritable Class Main : Inherits Form
     ''' The <see cref="DragEventArgs"/> instance containing the event data.
     ''' </param>
     ''' ----------------------------------------------------------------------------------------------------
-    Private Sub TextBoxTarget_DragEnter(sender As Object, e As DragEventArgs) Handles TextBoxTarget.DragEnter
+    Private Sub TextBoxDestination_DragEnter(sender As Object, e As DragEventArgs) Handles TextBoxDestination.DragEnter
 
         If (e.Data.GetDataPresent(DataFormats.FileDrop)) Then
 
@@ -181,7 +210,7 @@ Public NotInheritable Class Main : Inherits Form
 
     ''' ----------------------------------------------------------------------------------------------------
     ''' <summary>
-    ''' Handles the <see cref="TextBox.DragDrop"/> event of the <see cref="Main.TextBoxTarget"/> control.
+    ''' Handles the <see cref="TextBox.DragDrop"/> event of the <see cref="Main.TextBoxDestination"/> control.
     ''' </summary>
     ''' ----------------------------------------------------------------------------------------------------
     ''' <param name="sender">
@@ -192,14 +221,14 @@ Public NotInheritable Class Main : Inherits Form
     ''' The <see cref="DragEventArgs"/> instance containing the event data.
     ''' </param>
     ''' ----------------------------------------------------------------------------------------------------
-    Private Sub TextBoxTarget_DragDrop(sender As Object, e As DragEventArgs) Handles TextBoxTarget.DragDrop
+    Private Sub TextBoxDestination_DragDrop(sender As Object, e As DragEventArgs) Handles TextBoxDestination.DragDrop
 
         If (e.Data.GetDataPresent(DataFormats.FileDrop)) Then
             Dim dirpath As String = DirectCast(e.Data.GetData(DataFormats.FileDrop), IEnumerable(Of String)).Single()
 
-            Options.TargetDir = New DirectoryInfo(dirpath)
+            Options.DestinationDir = New DirectoryInfo(dirpath)
             Me.ButtonMirror.Enabled = False
-            Me.ValidateTargetDirectory()
+            Me.ValidateDestinationDirectory()
         End If
 
     End Sub
@@ -293,6 +322,23 @@ Public NotInheritable Class Main : Inherits Form
         Options.IgnoreSecurityExceptions = DirectCast(sender, CheckBox).Checked
     End Sub
 
+    ''' ----------------------------------------------------------------------------------------------------
+    ''' <summary>
+    ''' Handles the <see cref="CheckBox.CheckedChanged"/> event of the <see cref="Main.CheckBoxOverwrite"/> control.
+    ''' </summary>
+    ''' ----------------------------------------------------------------------------------------------------
+    ''' <param name="sender">
+    ''' The source of the event.
+    ''' </param>
+    ''' ----------------------------------------------------------------------------------------------------
+    ''' <param name="e">
+    ''' The <see cref="EventArgs"/> instance containing the event data.
+    ''' </param>
+    ''' ----------------------------------------------------------------------------------------------------
+    Private Sub CheckBoxOverwrite_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBoxOverwrite.CheckedChanged
+        Options.OverwriteDestinationFiles = DirectCast(sender, CheckBox).Checked
+    End Sub
+
 #End Region
 
 #Region " Buttons "
@@ -323,13 +369,13 @@ Public NotInheritable Class Main : Inherits Form
                 Options.SourceDir = New DirectoryInfo(vfbd.SelectedPath)
 
                 Me.TextBoxSource.Text = Options.SourceDir.FullName
-                If (Options.TargetDir IsNot Nothing) Then
+                If (Options.DestinationDir IsNot Nothing) Then
                     Me.ButtonMirror.Enabled = False
-                    Me.ValidateTargetDirectory()
+                    Me.ValidateDestinationDirectory()
 
                 Else
-                    Me.ButtonTarget.Enabled = True
-                    Me.TextBoxTarget.Enabled = True
+                    Me.ButtonDestination.Enabled = True
+                    Me.TextBoxDestination.Enabled = True
 
                 End If
 
@@ -340,7 +386,7 @@ Public NotInheritable Class Main : Inherits Form
 
     ''' ----------------------------------------------------------------------------------------------------
     ''' <summary>
-    ''' Handles the <see cref="Button.Click"/> event of the <see cref="Main.ButtonTarget"/> control.
+    ''' Handles the <see cref="Button.Click"/> event of the <see cref="Main.ButtonDestination"/> control.
     ''' </summary>
     ''' ----------------------------------------------------------------------------------------------------
     ''' <param name="sender">
@@ -351,18 +397,18 @@ Public NotInheritable Class Main : Inherits Form
     ''' The <see cref="EventArgs"/> instance containing the event data.
     ''' </param>
     ''' ----------------------------------------------------------------------------------------------------
-    Private Sub ButtonTarget_Click(sender As Object, e As EventArgs) Handles ButtonTarget.Click
+    Private Sub ButtonDestination_Click(sender As Object, e As EventArgs) Handles ButtonDestination.Click
 
         Using vfbd As New VistaFolderBrowserDialog
-            vfbd.Description = "Select a target directory."
+            vfbd.Description = "Select a destination directory."
             vfbd.UseDescriptionForTitle = True
-            vfbd.ShowNewFolderButton = False
-            vfbd.SelectedPath = If(Options.TargetDir IsNot Nothing, Options.TargetDir.FullName, vfbd.SelectedPath)
+            vfbd.ShowNewFolderButton = True
+            vfbd.SelectedPath = If(Options.DestinationDir IsNot Nothing, Options.DestinationDir.FullName, vfbd.SelectedPath)
 
             Dim dlgResult As DialogResult = vfbd.ShowDialog()
             If (dlgResult = DialogResult.OK) Then
-                Options.TargetDir = New DirectoryInfo(vfbd.SelectedPath)
-                Me.ValidateTargetDirectory()
+                Options.DestinationDir = New DirectoryInfo(vfbd.SelectedPath)
+                Me.ValidateDestinationDirectory()
             End If
 
         End Using
@@ -443,6 +489,7 @@ Public NotInheritable Class Main : Inherits Form
 
         ' Flag to determine whether folder-exists conflicts must be ignored.
         Dim ignoreFolderExistsConflict As Boolean
+
         ' Flag to determine whether the user answered to folder-exists conflicts question.
         Dim ignoreFolderExistsConflictAnswered As Boolean
 
@@ -483,38 +530,53 @@ Public NotInheritable Class Main : Inherits Form
             End If
 
             ' Build destination directory full path.
-            Dim dstDir As New DirectoryInfo(Options.TargetDir.FullName & "\" & (srcSubDir.FullName.Replace(Options.SourceDir.FullName, "")))
+            Dim dstDir As New DirectoryInfo("\\?\" & Options.DestinationDir.FullName.TrimEnd("\"c) & "\" & srcSubDir.FullName.Replace(Options.SourceDir.FullName, "").TrimStart("\"c))
 
 #If DEBUG Then
-            Debug.WriteLine(String.Format("About to create dir.: '{0}'", dstDir.FullName))
+            Debug.WriteLine(String.Format("Attempting to create dir.: '{0}'", dstDir.FullName))
 #End If
 
-            '' Ask the user when a target directory already exists before creating dummy files inside, 
-            '' because the target directory could contain user files
-            '' and those files will be end messed up with dummy files.
-            'If (dstDir.Exists()) AndAlso Not (ignoreFolderExistsConflict) Then
-            '    Dim dlgResult As DialogResult =
-            '        MessageBox.Show(String.Format(UIMessages.DirectoryExistQuestion1, dstDir.FullName),
-            '                        Me.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+            ' Ask the user when a destination directory already exists before creating dummy files inside, 
+            ' because the destination directory could contain user files
+            ' and those files will be end messed up with dummy files.
+            If Not ignoreFolderExistsConflict AndAlso
+                   dstDir.Exists() AndAlso
+               Not dstDir.FullName.TrimEnd("\"c).Replace("\\?\", "").Equals(Options.DestinationDir.FullName.TrimEnd("\"c)) Then
+
+                Dim dlgResult As DialogResult =
+                    MessageBox.Show(String.Format(UIMessages.DirectoryExistQuestion1, dstDir.FullName.Replace("\\?\", "")),
+                                    Me.Text, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning)
 
 
-            '    ' In case of the user is really aware of what he is doing, 
-            '    ' we simplify things by brinding to him the chance to discard more folder conflict questions like this.
-            '    If (dlgResult = DialogResult.Yes) AndAlso Not (ignoreFolderExistsConflictAnswered) Then
-            '        dlgResult = MessageBox.Show(String.Format(UIMessages.DirectoryExistQuestion2, dstDir.FullName),
-            '                                    Me.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-            '        Select Case dlgResult
-            '            Case DialogResult.Yes
-            '                ignoreFolderExistsConflict = True
-            '            Case Else
-            '                ignoreFolderExistsConflict = False
-            '        End Select
-            '        ignoreFolderExistsConflictAnswered = True
-            '    ElseIf (dlgResult = DialogResult.No) Then
-            '        e.Cancel = True
-            '        Exit For
-            '    End If
-            'End If
+                If (dlgResult = DialogResult.Cancel) Then
+                    e.Cancel = True
+                    Exit Sub
+                End If
+
+                ' In case of the user is really aware of what he is doing, 
+                ' we simplify things by brinding to him the chance to discard more folder conflict questions like this.
+                If (dlgResult = DialogResult.Yes) AndAlso Not (ignoreFolderExistsConflictAnswered) Then
+                    dlgResult = MessageBox.Show(String.Format(UIMessages.DirectoryExistQuestion2, dstDir.FullName.Replace("\\?\", "")),
+                                                Me.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+
+                    Select Case dlgResult
+                        Case DialogResult.Yes
+                            ignoreFolderExistsConflict = True
+                        Case Else
+                            ignoreFolderExistsConflict = False
+                    End Select
+                    ignoreFolderExistsConflictAnswered = True
+
+                ElseIf (dlgResult = DialogResult.No) Then
+                    e.Cancel = True
+                    Exit For
+
+                ElseIf (dlgResult = DialogResult.Cancel) Then
+                    e.Cancel = True
+                    Exit Sub
+
+                End If
+            End If
 
             Try
                 ' Ignore hidden folder by user-demand.
@@ -537,9 +599,9 @@ Public NotInheritable Class Main : Inherits Form
                 Dim isSymbolicLink As Boolean = Directories.IsSymbolicLink(srcSubDir)
                 If (isSymbolicLink) Then
                     If (Options.MirrorSymbolicLinks) Then
-                        ' Create a copy of the symbolic link pointing to the same original target path.
-                        Dim targetDir As DirectoryInfo = Directories.GetSymbolicLinkTarget(srcSubDir)
-                        Directories.CreateSymbolicLink(targetDir, dstDir.Parent)
+                        ' Create a copy of the symbolic link pointing to the same original destination path.
+                        Dim destinationDir As DirectoryInfo = Directories.GetSymbolicLinkDestination(srcSubDir)
+                        Directories.CreateSymbolicLink(destinationDir, dstDir.Parent)
                         Continue For
 
                     Else ' Ignore symbolic links by user-demand.
@@ -582,10 +644,12 @@ Public NotInheritable Class Main : Inherits Form
 
             End Try
 
-            ' Get top files of the current source sub-directory.
             Dim topFiles As IEnumerable(Of FileInfo) =
                 Files.GetFiles(srcSubDir, SearchOption.TopDirectoryOnly, {"*"}, {"*"}, True,
-                               throwOnError:=False).OrderBy(Function(fi As FileInfo) fi.FullName)
+                               throwOnError:=False).
+                               Select(Function(fi As FileInfo) New FileInfo("\\?\" & fi.FullName)).
+                               OrderBy(Function(fi As FileInfo) fi.FullName)
+
 
             For Each topFile As FileInfo In topFiles
 
@@ -594,26 +658,34 @@ Public NotInheritable Class Main : Inherits Form
                     Exit For
                 End If
 
-                Me.currentFilePath = topFile.FullName
+                Me.currentFilePath = topFile.FullName.Replace("\\?\", "")
 
                 ' Build destination file full path.
-                Dim dstFile As New FileInfo(Options.TargetDir.FullName & "\" & (topFile.FullName.Replace(Options.SourceDir.FullName, "")))
+                Dim relativePath As String = topFile.FullName.Replace("\\?\", "").Replace(Options.SourceDir.FullName, "").TrimStart("\"c)
+                Dim longPath As String = "\\?\" & Options.DestinationDir.FullName.TrimEnd("\"c) & "\" & relativePath
+                Dim dstFile As New FileInfo(longPath)
 
 #If DEBUG Then
-                Debug.WriteLine(String.Format("About to create file: '{0}'", dstFile.FullName))
+                Debug.WriteLine(String.Format("Attempting to create file: '{0}'", dstFile.FullName))
 #End If
 
-                ' Ask the user when a target file already exists before replacing it with a dummy file.
+                ' Ask the user when a destination file already exists before replacing it with a dummy file.
                 If (dstFile.Exists()) AndAlso Not (ignoreFileExistsConflict) Then
                     Dim dlgResult As DialogResult =
-                        MessageBox.Show(String.Format(UIMessages.FileExistQuestion1, dstFile.FullName),
-                                        Me.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                        MessageBox.Show(String.Format(If(Options.OverwriteDestinationFiles, UIMessages.FileExistQuestion_Overwrite, UIMessages.FileExistQuestion_NotOverwrite), dstFile.FullName.Replace("\\?\", "")),
+                                        Me.Text, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning)
+
+                    If (dlgResult = DialogResult.Cancel) Then
+                        e.Cancel = True
+                        Exit Sub
+                    End If
 
                     ' In case of the user is really aware of what he is doing, 
                     ' we simplify things by brinding to him the chance to discard more file conflict questions like this.
                     If (dlgResult = DialogResult.Yes) AndAlso Not (ignoreFileExistsConflictAnswered) Then
-                        dlgResult = MessageBox.Show(String.Format(UIMessages.FileExistQuestion2, dstFile.FullName),
-                                                    Me.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                        dlgResult = MessageBox.Show(String.Format(UIMessages.FileExistQuestion2, dstFile.FullName.Replace("\\?\", "")),
+                                                    Me.Text, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question)
+
                         Select Case dlgResult
                             Case DialogResult.Yes
                                 ignoreFileExistsConflict = True
@@ -621,9 +693,15 @@ Public NotInheritable Class Main : Inherits Form
                                 ignoreFileExistsConflict = False
                         End Select
                         ignoreFileExistsConflictAnswered = True
+
                     ElseIf (dlgResult = DialogResult.No) Then
                         e.Cancel = True
                         Exit For
+
+                    ElseIf (dlgResult = DialogResult.Cancel) Then
+                        e.Cancel = True
+                        Exit Sub
+
                     End If
                 End If
 
@@ -631,14 +709,15 @@ Public NotInheritable Class Main : Inherits Form
                     ' Ignore hidden file by user-demand.
                     If Not (Options.MirrorHiddenFiles) AndAlso
                            (topFile.Attributes.HasFlag(FileAttributes.Hidden)) Then
+
                         Continue For
                     End If
 
                     Dim isSymbolicLink As Boolean = Files.IsSymbolicLink(topFile)
                     If (isSymbolicLink) Then
                         If (Options.MirrorSymbolicLinks) Then
-                            ' Create a copy of the symbolic link pointing to the same original target path.
-                            Dim targetFile As FileInfo = Files.GetSymbolicLinkTarget(topFile)
+                            ' Create a copy of the symbolic link pointing to the same original destination path.
+                            Dim destinationFile As FileInfo = Files.GetSymbolicLinkDestination(topFile)
                             Files.CreateSymbolicLink(topFile, dstDir)
                             Continue For
 
@@ -652,8 +731,10 @@ Public NotInheritable Class Main : Inherits Form
                     End If
 
                     ' Create the (dummy) destination file.
-                    Using fs As FileStream = dstFile.Create()
-                    End Using
+                    If Options.OverwriteDestinationFiles OrElse Not dstFile.Exists Then
+                        Using fs As FileStream = dstFile.Create()
+                        End Using
+                    End If
 
                     ' Set file timestamps.
                     If (Options.PreserveTimestamps) Then
@@ -766,7 +847,7 @@ Public NotInheritable Class Main : Inherits Form
         Me.ElektroProgressBar1.Value = Me.progressCurrent
         Dim ignoredDirectoryCount As Integer = (Me.ElektroProgressBar1.Maximum - Me.ElektroProgressBar1.Value)
         Me.ElektroProgressBar1.FormatString = String.Format("#current of #total directories (100%) - {0} directories were ignored/not copied.", ignoredDirectoryCount)
-        Me.ToolStripStatusLabelFilepaths.Text = "Waiting..."
+        Me.ToolStripStatusLabelFilepaths.Text = "Ready"
 
         ' Show termination message.
         If (e.Cancelled) Then
@@ -799,35 +880,35 @@ Public NotInheritable Class Main : Inherits Form
 
     ''' ----------------------------------------------------------------------------------------------------
     ''' <summary>
-    ''' Validates the source directory (<see cref="Options.TargetDir"/>).
+    ''' Validates the source directory (<see cref="Options.DestinationDir"/>).
     ''' </summary>
     ''' ----------------------------------------------------------------------------------------------------
-    Private Sub ValidateTargetDirectory()
+    Private Sub ValidateDestinationDirectory()
 
-        If (Options.TargetDir.FullName.Equals(Options.SourceDir.FullName)) Then
-            Options.TargetDir = Nothing
-            Me.TextBoxTarget.Text = ""
+        If (Options.DestinationDir.FullName.Equals(Options.SourceDir.FullName)) Then
+            Options.DestinationDir = Nothing
+            Me.TextBoxDestination.Text = ""
             Using msg As New CenteredMessageBox(owner:=Me, timeOut:=Timeout.Infinite)
-                msg.Show(UIMessages.ButtonTargetConflict1, Me.Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                msg.Show(UIMessages.ButtonDestinationConflict1, Me.Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             End Using
 
-        ElseIf (Options.TargetDir.FullName.StartsWith(Options.SourceDir.FullName)) Then
-            Options.TargetDir = Nothing
-            Me.TextBoxTarget.Text = ""
+        ElseIf (Options.DestinationDir.FullName.StartsWith(Options.SourceDir.FullName)) Then
+            Options.DestinationDir = Nothing
+            Me.TextBoxDestination.Text = ""
             Using msg As New CenteredMessageBox(owner:=Me, timeOut:=Timeout.Infinite)
-                msg.Show(UIMessages.ButtonTargetConflict2, Me.Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                msg.Show(UIMessages.ButtonDestinationConflict2, Me.Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             End Using
 
-        ElseIf (Options.SourceDir.Parent IsNot Nothing) AndAlso (Options.SourceDir.Parent.FullName.Equals(Options.TargetDir.FullName)) Then
-            Options.TargetDir = Nothing
-            Me.TextBoxTarget.Text = ""
+        ElseIf (Options.SourceDir.Parent IsNot Nothing) AndAlso (Options.SourceDir.Parent.FullName.Equals(Options.DestinationDir.FullName)) Then
+            Options.DestinationDir = Nothing
+            Me.TextBoxDestination.Text = ""
             Using msg As New CenteredMessageBox(owner:=Me, timeOut:=Timeout.Infinite)
-                msg.Show(UIMessages.ButtonTargetConflict3, Me.Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                msg.Show(UIMessages.ButtonDestinationConflict3, Me.Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             End Using
 
         Else
-            Me.TextBoxTarget.Text = Options.TargetDir.FullName
-            Me.ButtonMirror.Enabled = (Options.TargetDir IsNot Nothing)
+            Me.TextBoxDestination.Text = Options.DestinationDir.FullName
+            Me.ButtonMirror.Enabled = (Options.DestinationDir IsNot Nothing)
 
         End If
 

@@ -48,7 +48,7 @@ Namespace DevCase.Interop.Win32.Enums
     Public Enum ReparseDataBufferFlags As UInteger
 
         ''' <summary>
-        ''' The substitute name is an absolute target path name.
+        ''' The substitute name is an absolute destination path name.
         ''' </summary>
         AbsolutePath = &H0
 

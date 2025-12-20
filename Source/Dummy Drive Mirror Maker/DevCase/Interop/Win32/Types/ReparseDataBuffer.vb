@@ -114,7 +114,7 @@ Namespace DevCase.Interop.Win32.Types
         ''' The offset, in bytes, from the beginning of the PathBuffer field, at which the print name is located. 
         ''' <para></para>
         ''' The print name is the user-friendly name the client MUST return to the 
-        ''' application if it requests the name of the symbolic link target
+        ''' application if it requests the name of the symbolic link destination
         ''' </summary>
         ''' ----------------------------------------------------------------------------------------------------
         Public PrintNameOffset As UShort
@@ -133,7 +133,7 @@ Namespace DevCase.Interop.Win32.Types
 
         ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
-        ''' Flags that pecifies whether the substitute is an absolute target path name or 
+        ''' Flags that pecifies whether the substitute is an absolute destination path name or 
         ''' a path name relative to the directory containing the symbolic link.
         ''' </summary>
         ''' ----------------------------------------------------------------------------------------------------
@@ -147,10 +147,10 @@ Namespace DevCase.Interop.Win32.Types
         ''' <see cref="ReparseDataBuffer.PrintNameOffset"/>, and 
         ''' <see cref="ReparseDataBuffer.PrintNameLength"/>.
         ''' <para></para>
-        ''' The substitute name string MUST be a Unicode path to the target of the symbolic link. 
+        ''' The substitute name string MUST be a Unicode path to the destination of the symbolic link. 
         ''' <para></para>
         ''' The print name string MUST be a Unicode string, suitable for display to a user, 
-        ''' that also identifies the target of the symbolic link.
+        ''' that also identifies the destination of the symbolic link.
         ''' </summary>
         ''' ----------------------------------------------------------------------------------------------------
         <MarshalAs(UnmanagedType.ByValArray, SizeConst:=&H3FF0)> ' MaxUnicodePathLength

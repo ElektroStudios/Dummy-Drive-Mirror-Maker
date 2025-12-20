@@ -12,9 +12,9 @@ Friend NotInheritable Class Options
     Friend Shared Property SourceDir As DirectoryInfo
 
     ''' <summary>
-    ''' Gets or sets the target directory.
+    ''' Gets or sets the destination directory.
     ''' </summary>
-    Friend Shared Property TargetDir As DirectoryInfo
+    Friend Shared Property DestinationDir As DirectoryInfo
 
     ''' <summary>
     ''' Gets or sets a value indicating whether the attributes of file and folders must be preserved when mirroring.
@@ -43,5 +43,10 @@ Friend NotInheritable Class Options
     ''' and the mirror operation will stop abruptly.
     ''' </summary>
     Friend Shared Property IgnoreSecurityExceptions As Boolean
+
+    ''' <summary>
+    ''' Gets or sets a value indicating whether to overwrite destination files that already exists.
+    ''' </summary>
+    Friend Shared Property OverwriteDestinationFiles As Boolean
 
 End Class

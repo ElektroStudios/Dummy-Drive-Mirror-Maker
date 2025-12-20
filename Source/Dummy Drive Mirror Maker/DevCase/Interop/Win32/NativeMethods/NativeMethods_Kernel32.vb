@@ -80,7 +80,7 @@ Namespace DevCase.Interop.Win32
         ''' </param>
         ''' 
         ''' <param name="srcPath">
-        ''' The path of the target for the symbolic link to be created.
+        ''' The path of the destination for the symbolic link to be created.
         ''' <para></para>
         ''' If <paramref name="srcPath"/> has a device name associated with it, 
         ''' the link is treated as an absolute link; 
@@ -88,7 +88,7 @@ Namespace DevCase.Interop.Win32
         ''' </param>
         ''' 
         ''' <param name="flags">
-        ''' Indicates whether the link target is a file or is a directory.
+        ''' Indicates whether the link destination is a file or is a directory.
         ''' </param>
         ''' ----------------------------------------------------------------------------------------------------
         ''' <returns>

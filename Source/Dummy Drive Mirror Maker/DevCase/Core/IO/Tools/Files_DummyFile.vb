@@ -1,115 +1,115 @@
-﻿
+﻿' UNUSED
 
 
 
 
-' THIS OPEN-SOURCE APPLICATION IS POWERED BY DEVCASE CLASS LIBRARY, CREATED BY ELEKTRO STUDIOS.
+'' THIS OPEN-SOURCE APPLICATION IS POWERED BY DEVCASE CLASS LIBRARY, CREATED BY ELEKTRO STUDIOS.
 
-' WHAT YOU SEE HERE IS FREE CUTTED CONTENT OF THIS FRAMEWORK.
+'' WHAT YOU SEE HERE IS FREE CUTTED CONTENT OF THIS FRAMEWORK.
 
-' IF YOU LIKED THIS FREE APPLICATION, THEN PLEASE CONSIDER TO BUY DEVCASE CLASS LIBRARY FOR .NET AT:
-' https://codecanyon.net/item/DevCase-class-library-for-net/19260282
+'' IF YOU LIKED THIS FREE APPLICATION, THEN PLEASE CONSIDER TO BUY DEVCASE CLASS LIBRARY FOR .NET AT:
+'' https://codecanyon.net/item/DevCase-class-library-for-net/19260282
 
-' YOU CAN FIND THESE HELPER METHODS AND A MASSIVE AMOUNT MORE!, 
-' +850 EXTENSION METHODS FOR ALL KIND OF TYPES, CUSTOM USER-CONTROLS, 
-' EVERYTHING FOR THE NEWBIE And THE ADVANCED USER, FOR VB.NET AND C#. 
+'' YOU CAN FIND THESE HELPER METHODS AND A MASSIVE AMOUNT MORE!, 
+'' +850 EXTENSION METHODS FOR ALL KIND OF TYPES, CUSTOM USER-CONTROLS, 
+'' EVERYTHING FOR THE NEWBIE And THE ADVANCED USER, FOR VB.NET AND C#. 
 
-' DevCase is a utility framework containing new APIs and extensions to the core .NET Framework 
-' to help complete your developer toolbox.
-' It Is a set of general purpose classes provided as easy to consume packages.
-' These utility classes and components provide productivity in day to day software development 
-' mainly focused To WindowsForms. 
+'' DevCase is a utility framework containing new APIs and extensions to the core .NET Framework 
+'' to help complete your developer toolbox.
+'' It Is a set of general purpose classes provided as easy to consume packages.
+'' These utility classes and components provide productivity in day to day software development 
+'' mainly focused To WindowsForms. 
 
-' UPDATES OF DevCase ARE MAINTAINED AND RELEASED EVERY MONTH.
-
-
+'' UPDATES OF DevCase ARE MAINTAINED AND RELEASED EVERY MONTH.
 
 
 
-#Region " Imports "
 
-Imports System.IO
 
-#End Region
+'#Region " Imports "
 
-#Region " File Util "
+'Imports System.IO
 
-Namespace DevCase.Core.IO.Tools
+'#End Region
 
-    Partial Public NotInheritable Class Files
+'#Region " File Util "
 
-#Region " Public Methods "
+'Namespace DevCase.Core.IO.Tools
 
-        ''' ----------------------------------------------------------------------------------------------------
-        ''' <summary>
-        ''' Creates a dummy (zero-byte filled) file of zero size.
-        ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
-        ''' <example> This is a code example.
-        ''' <code>
-        ''' CreateDummyFile("C:\DummyFile.tmp"))
-        ''' </code>
-        ''' </example>
-        ''' ----------------------------------------------------------------------------------------------------
-        ''' <param name="filepath">
-        ''' The target filepath.
-        ''' </param>
-        ''' ----------------------------------------------------------------------------------------------------
-        ''' <exception cref="IOException">
-        ''' Target file already exists.
-        ''' </exception>
-        ''' ----------------------------------------------------------------------------------------------------
-        <DebuggerStepThrough>
-        Public Shared Sub CreateDummyFile(filepath As String)
+'    Partial Public NotInheritable Class Files
 
-            Files.CreateDummyFile(filepath, 0L)
+'#Region " Public Methods "
 
-        End Sub
+'        ''' ----------------------------------------------------------------------------------------------------
+'        ''' <summary>
+'        ''' Creates a dummy (zero-byte filled) file of zero size.
+'        ''' </summary>
+'        ''' ----------------------------------------------------------------------------------------------------
+'        ''' <example> This is a code example.
+'        ''' <code>
+'        ''' CreateDummyFile("C:\DummyFile.tmp"))
+'        ''' </code>
+'        ''' </example>
+'        ''' ----------------------------------------------------------------------------------------------------
+'        ''' <param name="filepath">
+'        ''' The destination filepath.
+'        ''' </param>
+'        ''' ----------------------------------------------------------------------------------------------------
+'        ''' <exception cref="IOException">
+'        ''' Destination file already exists.
+'        ''' </exception>
+'        ''' ----------------------------------------------------------------------------------------------------
+'        <DebuggerStepThrough>
+'        Public Shared Sub CreateDummyFile(filepath As String)
 
-        ''' ----------------------------------------------------------------------------------------------------
-        ''' <summary>
-        ''' Creates a dummy (zero-byte filled) file of the specified filesize.
-        ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
-        ''' <example> This is a code example.
-        ''' <code>
-        ''' CreateDummyFile("C:\DummyFile.tmp", CLng(Math.Pow(1024L, 3L))) ' 1 GB filesize.
-        ''' </code>
-        ''' </example>
-        ''' ----------------------------------------------------------------------------------------------------
-        ''' <param name="filepath">
-        ''' The target filepath.
-        ''' </param>
-        ''' 
-        ''' <param name="filesize">
-        ''' The filesize, in Bytes.
-        ''' </param>
-        ''' ----------------------------------------------------------------------------------------------------
-        ''' <exception cref="IOException">
-        ''' Target file already exists.
-        ''' </exception>
-        ''' ----------------------------------------------------------------------------------------------------
-        <DebuggerStepThrough>
-        Public Shared Sub CreateDummyFile(filepath As String, filesize As Long)
+'            Files.CreateDummyFile(filepath, 0L)
 
-            If File.Exists(filepath) Then
-                Throw New IOException(message:="Target file already exists.")
+'        End Sub
 
-            Else
-                Dim bufferSize As Integer = Streams.GetFileStreamBufferSize(filesize)
+'        ''' ----------------------------------------------------------------------------------------------------
+'        ''' <summary>
+'        ''' Creates a dummy (zero-byte filled) file of the specified filesize.
+'        ''' </summary>
+'        ''' ----------------------------------------------------------------------------------------------------
+'        ''' <example> This is a code example.
+'        ''' <code>
+'        ''' CreateDummyFile("C:\DummyFile.tmp", CLng(Math.Pow(1024L, 3L))) ' 1 GB filesize.
+'        ''' </code>
+'        ''' </example>
+'        ''' ----------------------------------------------------------------------------------------------------
+'        ''' <param name="filepath">
+'        ''' The destination filepath.
+'        ''' </param>
+'        ''' 
+'        ''' <param name="filesize">
+'        ''' The filesize, in Bytes.
+'        ''' </param>
+'        ''' ----------------------------------------------------------------------------------------------------
+'        ''' <exception cref="IOException">
+'        ''' Destination file already exists.
+'        ''' </exception>
+'        ''' ----------------------------------------------------------------------------------------------------
+'        <DebuggerStepThrough>
+'        Public Shared Sub CreateDummyFile(filepath As String, filesize As Long)
 
-                Using fs As New FileStream(filepath, FileMode.CreateNew, FileAccess.Write, FileShare.Read, bufferSize)
-                    fs.SetLength(filesize)
-                End Using
+'            If File.Exists(filepath) Then
+'                Throw New IOException(message:="Destination file already exists.")
 
-            End If
+'            Else
+'                Dim bufferSize As Integer = Streams.GetFileStreamBufferSize(filesize)
 
-        End Sub
+'                Using fs As New FileStream(filepath, FileMode.CreateNew, FileAccess.Write, FileShare.Read, bufferSize)
+'                    fs.SetLength(filesize)
+'                End Using
 
-#End Region
+'            End If
 
-    End Class
+'        End Sub
 
-End Namespace
+'#End Region
 
-#End Region
+'    End Class
+
+'End Namespace
+
+'#End Region
