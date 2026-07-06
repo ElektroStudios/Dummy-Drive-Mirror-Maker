@@ -81,13 +81,12 @@ Managing data structure visibility across multiple environments often involves m
   <br>
   <img src="/Images/Captura2.png" width="48%" alt="Captura 2">&nbsp;<img src="/Images/Captura3.png" width="48%" alt="Captura 3">
   <br>
-  <img src="/Images/Captura2.png" width="48%" alt="Captura 6">&nbsp;<img src="/Images/Captura6.png" width="48%" alt="Captura 3">
+  <img src="/Images/Captura6.png" width="48%" alt="Captura 6">
 </div>
 
 ## 🎦 Videos
 
-See a recorded video by clicking on the following button:
-[![](https://img.youtube.com/vi/EE-HEPyt5tA/0.jpg)](https://www.youtube.com/watch?v=EE-HEPyt5tA)
+![DDMM Demo Video](https://github.com/user-attachments/assets/746b7a4a-789e-418b-8eb8-088a9700ed45)
 
 ## 📝 Requirements
 
