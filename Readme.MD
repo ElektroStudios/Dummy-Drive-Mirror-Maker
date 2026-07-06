@@ -21,7 +21,7 @@ winforms
   
   <h1>Dummy Drive Mirror Maker (DDMM)</h1>
 
-### A desktop application to create replicas of directories (including files) using dummy zero-byte files. 
+### A desktop application to create replicas of directories (including files)<br>using dummy zero-byte files. 
 
 </div>
 
