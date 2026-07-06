@@ -16,43 +16,39 @@ windows-forms
 winforms 
  -->
 
-# 
-
-### A desktop application to create replicas of directories (including files) using dummy (zero-byte) files. 
-
 <div align="center">
   <img src="/Images/Logo.png" width="90%" alt="Logo">
   
-  <h1>DDMM (Dummy Drive Mirror Maker)</h1>
+  <h1>Dummy Drive Mirror Maker (DDMM)</h1>
 
-### PROJECT DESCRIPTION
+### A desktop application to create replicas of directories (including files) using dummy zero-byte files. 
 
 </div>
 
 ------------------
 
 <p align="center">
-    <a href="https://github.com/ElektroStudios/PROJECT_NAME/network/members"><img src="https://img.shields.io/github/forks/ElektroStudios/PROJECT_NAME.svg?style=social&logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg%3D%3D&label=%F0%9F%8D%B4%20Forks" alt="Forks"></a>&nbsp;
-    <a href="https://github.com/ElektroStudios/PROJECT_NAME/graphs/contributors"><img src="https://img.shields.io/github/contributors/ElektroStudios/PROJECT_NAME.svg?style=social&logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg%3D%3D&label=%F0%9F%91%A5%20Contributors" alt="Contributors"></a>&nbsp;
+    <a href="https://github.com/ElektroStudios/Dummy-Drive-Mirror-Maker/network/members"><img src="https://img.shields.io/github/forks/ElektroStudios/Dummy-Drive-Mirror-Maker.svg?style=social&logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg%3D%3D&label=%F0%9F%8D%B4%20Forks" alt="Forks"></a>&nbsp;
+    <a href="https://github.com/ElektroStudios/Dummy-Drive-Mirror-Maker/graphs/contributors"><img src="https://img.shields.io/github/contributors/ElektroStudios/Dummy-Drive-Mirror-Maker.svg?style=social&logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg%3D%3D&label=%F0%9F%91%A5%20Contributors" alt="Contributors"></a>&nbsp;
     <a href="https://github.com/ElektroStudios"><img src="https://img.shields.io/github/followers/ElektroStudios.svg?style=social&logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg%3D%3D&label=%F0%9F%91%A4%20Followers" alt="Followers"></a>&nbsp;
-    <a href="https://github.com/ElektroStudios/PROJECT_NAME/watchers"><img src="https://img.shields.io/github/watchers/ElektroStudios/PROJECT_NAME.svg?style=social&logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg%3D%3D&label=%F0%9F%91%80%20Watchers" alt="Watchers"></a>
+    <a href="https://github.com/ElektroStudios/Dummy-Drive-Mirror-Maker/watchers"><img src="https://img.shields.io/github/watchers/ElektroStudios/Dummy-Drive-Mirror-Maker.svg?style=social&logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg%3D%3D&label=%F0%9F%91%80%20Watchers" alt="Watchers"></a>
     <a href="https://github.com/sponsors/ElektroStudios"><img src="https://img.shields.io/github/sponsors/ElektroStudios.svg?style=social&logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg%3D%3D&label=%F0%9F%92%96%20Sponsors" alt="Sponsors"></a>&nbsp;
-    <a href="https://github.com/ElektroStudios/PROJECT_NAME/stargazers"><img src="https://img.shields.io/github/stars/ElektroStudios/PROJECT_NAME.svg?style=social&logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg%3D%3D&label=%E2%AD%90%20Stars" alt="Stars"></a>
+    <a href="https://github.com/ElektroStudios/Dummy-Drive-Mirror-Maker/stargazers"><img src="https://img.shields.io/github/stars/ElektroStudios/Dummy-Drive-Mirror-Maker.svg?style=social&logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg%3D%3D&label=%E2%AD%90%20Stars" alt="Stars"></a>
   <br>
   <br>
-    <a href="https://ci.appveyor.com/project/ElektroStudios/PROJECT_NAME"><img src="https://ci.appveyor.com/api/projects/status/github/ElektroStudios/PROJECT_NAME?svg=true" alt="AppVeyor CI"></a>
-    <a href="https://sonarcloud.io/summary/new_code?id=ElektroStudios_PROJECT_NAME"><img src="https://sonarcloud.io/api/project_badges/measure?project=ElektroStudios_PROJECT_NAME&metric=alert_status" alt="SonarCloud Quality Gate"></a>
-    <a href="https://github.com/ElektroStudios/PROJECT_NAME/releases/latest"><img src="https://img.shields.io/github/v/release/ElektroStudios/PROJECT_NAME" alt="Latest Release"></a>
+    <a href="https://ci.appveyor.com/project/ElektroStudios/Dummy-Drive-Mirror-Maker"><img src="https://ci.appveyor.com/api/projects/status/github/ElektroStudios/Dummy-Drive-Mirror-Maker?svg=true" alt="AppVeyor CI"></a>
+    <a href="https://sonarcloud.io/summary/new_code?id=ElektroStudios_Dummy-Drive-Mirror-Maker"><img src="https://sonarcloud.io/api/project_badges/measure?project=ElektroStudios_Dummy-Drive-Mirror-Maker&metric=alert_status" alt="SonarCloud Quality Gate"></a>
+    <a href="https://github.com/ElektroStudios/Dummy-Drive-Mirror-Maker/releases/latest"><img src="https://img.shields.io/github/v/release/ElektroStudios/Dummy-Drive-Mirror-Maker" alt="Latest Release"></a>
     <a href="https://learn.microsoft.com/en-us/dotnet/visual-basic/"><img src="https://img.shields.io/badge/language-VB.NET-purple.svg?logo=visualbasic" alt="Language"></a>
     <a href="https://learn.microsoft.com/en-us/windows/apps/"><img src="https://img.shields.io/badge/platform-Windows-lightgray.svg" alt="Platform"></a>
-    <a href="License.md"><img src="https://img.shields.io/github/license/ElektroStudios/PROJECT_NAME" alt="License"></a>
+    <a href="License.md"><img src="https://img.shields.io/github/license/ElektroStudios/Dummy-Drive-Mirror-Maker" alt="License"></a>
   <br>
-    <a href="https://github.com/ElektroStudios/PROJECT_NAME/archive/refs/heads/main.zip"><img src="https://img.shields.io/github/repo-size/ElektroStudios/PROJECT_NAME" alt="Repo size"></a>
-    <a href="https://somsubhra.github.io/github-release-stats/?username=ElektroStudios&repository=PROJECT_NAME"><img src="https://img.shields.io/github/downloads/ElektroStudios/PROJECT_NAME/total.svg?label=total%20downloads" alt="Total Downloads"></a>
-    <a href="https://github.com/ElektroStudios/PROJECT_NAME/commits/main"><img src="https://img.shields.io/github/last-commit/ElektroStudios/PROJECT_NAME" alt="Last commit"></a>
-    <a href="https://github.com/ElektroStudios/PROJECT_NAME/pulls"><img src="https://img.shields.io/github/issues-pr/ElektroStudios/PROJECT_NAME" alt="Pull Requests"></a>
-    <a href="https://github.com/ElektroStudios/PROJECT_NAME/issues?q=is%3Aissue+is%3Aopen"><img src="https://img.shields.io/github/issues/ElektroStudios/PROJECT_NAME?color=blue" alt="Open Issues"></a><a href="https://github.com/ElektroStudios/PROJECT_NAME/issues?q=is%3Aissue+is%3Aclosed"><img src="https://img.shields.io/github/issues-closed/ElektroStudios/PROJECT_NAME?label=&color=28a745" alt="Closed Issues"></a>
-    <a href="https://github.com/ElektroStudios/PROJECT_NAME/pulse"><img src="https://img.shields.io/badge/maintained-yes-green.svg" alt="Maintenance"></a>
+    <a href="https://github.com/ElektroStudios/Dummy-Drive-Mirror-Maker/archive/refs/heads/main.zip"><img src="https://img.shields.io/github/repo-size/ElektroStudios/Dummy-Drive-Mirror-Maker" alt="Repo size"></a>
+    <a href="https://somsubhra.github.io/github-release-stats/?username=ElektroStudios&repository=Dummy-Drive-Mirror-Maker"><img src="https://img.shields.io/github/downloads/ElektroStudios/Dummy-Drive-Mirror-Maker/total.svg?label=total%20downloads" alt="Total Downloads"></a>
+    <a href="https://github.com/ElektroStudios/Dummy-Drive-Mirror-Maker/commits/main"><img src="https://img.shields.io/github/last-commit/ElektroStudios/Dummy-Drive-Mirror-Maker" alt="Last commit"></a>
+    <a href="https://github.com/ElektroStudios/Dummy-Drive-Mirror-Maker/pulls"><img src="https://img.shields.io/github/issues-pr/ElektroStudios/Dummy-Drive-Mirror-Maker" alt="Pull Requests"></a>
+    <a href="https://github.com/ElektroStudios/Dummy-Drive-Mirror-Maker/issues?q=is%3Aissue+is%3Aopen"><img src="https://img.shields.io/github/issues/ElektroStudios/Dummy-Drive-Mirror-Maker?color=blue" alt="Open Issues"></a><a href="https://github.com/ElektroStudios/Dummy-Drive-Mirror-Maker/issues?q=is%3Aissue+is%3Aclosed"><img src="https://img.shields.io/github/issues-closed/ElektroStudios/Dummy-Drive-Mirror-Maker?label=&color=28a745" alt="Closed Issues"></a>
+    <a href="https://github.com/ElektroStudios/Dummy-Drive-Mirror-Maker/pulse"><img src="https://img.shields.io/badge/maintained-yes-green.svg" alt="Maintenance"></a>
   <br>
   <br>
     <a href="https://en.wikipedia.org/wiki/Spanish_Empire"><img src="https://img.shields.io/badge/Made_in-Spain_%F0%9F%87%AA%F0%9F%87%B8-AA151B?style=flat" alt="Made in Spain"></a>
@@ -84,15 +80,9 @@ Managing data structure visibility across multiple environments often involves m
   <img src="/Images/Captura1.png" width="48%" alt="Captura 1">&nbsp;<img src="/Images/Captura4.png" width="48%" alt="Captura 4">
   <br>
   <img src="/Images/Captura2.png" width="48%" alt="Captura 2">&nbsp;<img src="/Images/Captura3.png" width="48%" alt="Captura 3">
+  <br>
+  <img src="/Images/Captura2.png" width="48%" alt="Captura 6">&nbsp;<img src="/Images/Captura6.png" width="48%" alt="Captura 3">
 </div>
-
-
-
-
-
-![](/Images/Captura5.png)
-
-![](/Images/Captura6.png)
 
 ## 🎦 Videos
 
