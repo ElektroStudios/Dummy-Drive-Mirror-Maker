@@ -1,4 +1,4 @@
-# DDMM (Dummy Drive Mirror Maker) Change Log 📋
+﻿# DDMM (Dummy Drive Mirror Maker) Change Log 📋
 
 ## v1.3 *(current)* 🆕
 #### 🌟 Improvements:
