@@ -12,7 +12,7 @@ name: SonarQube
 on:
   push:
     branches:
-      - main
+      - master
   pull_request:
     types: [opened, synchronize, reopened]
 jobs:
@@ -57,4 +57,3 @@ jobs:
           nuget restore "Source\${{ env.SOLUTION_NAME }}.${{ env.SOLUTION_EXT }}"
           dotnet build "Source\${{ env.SOLUTION_NAME }}.${{ env.SOLUTION_EXT }}" -p:GenerateResourceUsePreserializedResources=true
           & "${{ runner.temp }}\scanner\dotnet-sonarscanner" end /d:sonar.token="$env:SONAR_TOKEN"
-          
