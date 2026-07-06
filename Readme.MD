@@ -94,8 +94,6 @@ Managing data structure visibility across multiple environments often involves m
 
 ## 🚀 Getting Started
 
-## 🚀 Getting Started
-
 1. Navigate to the **[Releases page](https://github.com/ElektroStudios/Dummy-Drive-Mirror-Maker/releases/latest)**.
 2. Download the latest `.zip` archive or the `.exe` setup installer, depending on your preference.
 3. If you downloaded the `.zip` archive, extract its contents to your preferred directory.
