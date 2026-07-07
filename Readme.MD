@@ -41,11 +41,11 @@ winforms
     <a href="https://github.com/ElektroStudios/Dummy-Drive-Mirror-Maker/releases/latest"><img src="https://img.shields.io/github/v/release/ElektroStudios/Dummy-Drive-Mirror-Maker" alt="Latest Release"></a>
     <a href="https://learn.microsoft.com/en-us/dotnet/visual-basic/"><img src="https://img.shields.io/badge/language-VB.NET-purple.svg?logo=visualbasic" alt="Language"></a>
     <a href="https://learn.microsoft.com/en-us/windows/apps/"><img src="https://img.shields.io/badge/platform-Windows-lightgray.svg" alt="Platform"></a>
-    <a href="License.md"><img src="https://img.shields.io/github/license/ElektroStudios/Dummy-Drive-Mirror-Maker" alt="License"></a>
+    <a href="LICENSE"><img src="https://img.shields.io/github/license/ElektroStudios/Dummy-Drive-Mirror-Maker" alt="License"></a>
   <br>
-    <a href="https://github.com/ElektroStudios/Dummy-Drive-Mirror-Maker/archive/refs/heads/main.zip"><img src="https://img.shields.io/github/repo-size/ElektroStudios/Dummy-Drive-Mirror-Maker" alt="Repo size"></a>
+    <a href="https://api.github.com/repos/ElektroStudios/Dummy-Drive-Mirror-Maker/zipball"><img src="https://img.shields.io/github/repo-size/ElektroStudios/Dummy-Drive-Mirror-Maker" alt="Repo size"></a>
     <a href="https://somsubhra.github.io/github-release-stats/?username=ElektroStudios&repository=Dummy-Drive-Mirror-Maker"><img src="https://img.shields.io/github/downloads/ElektroStudios/Dummy-Drive-Mirror-Maker/total.svg?label=total%20downloads" alt="Total Downloads"></a>
-    <a href="https://github.com/ElektroStudios/Dummy-Drive-Mirror-Maker/commits/main"><img src="https://img.shields.io/github/last-commit/ElektroStudios/Dummy-Drive-Mirror-Maker" alt="Last commit"></a>
+    <a href="https://github.com/ElektroStudios/Dummy-Drive-Mirror-Maker/commits"><img src="https://img.shields.io/github/last-commit/ElektroStudios/Dummy-Drive-Mirror-Maker" alt="Last commit"></a>
     <a href="https://github.com/ElektroStudios/Dummy-Drive-Mirror-Maker/pulls"><img src="https://img.shields.io/github/issues-pr/ElektroStudios/Dummy-Drive-Mirror-Maker" alt="Pull Requests"></a>
     <a href="https://github.com/ElektroStudios/Dummy-Drive-Mirror-Maker/issues?q=is%3Aissue+is%3Aopen"><img src="https://img.shields.io/github/issues/ElektroStudios/Dummy-Drive-Mirror-Maker?color=blue" alt="Open Issues"></a><a href="https://github.com/ElektroStudios/Dummy-Drive-Mirror-Maker/issues?q=is%3Aissue+is%3Aclosed"><img src="https://img.shields.io/github/issues-closed/ElektroStudios/Dummy-Drive-Mirror-Maker?label=&color=28a745" alt="Closed Issues"></a>
     <a href="https://github.com/ElektroStudios/Dummy-Drive-Mirror-Maker/pulse"><img src="https://img.shields.io/badge/maintained-yes-green.svg" alt="Maintenance"></a>
