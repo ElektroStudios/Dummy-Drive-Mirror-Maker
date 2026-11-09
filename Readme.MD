@@ -77,11 +77,7 @@ Managing data structure visibility across multiple environments often involves m
 
 <!-- CAPTURAS (Organizadas en filas del 48% cada imagen) -->
 <div align="center">
-  <img src="/Images/Captura1.png" width="48%" alt="Captura 1">&nbsp;<img src="/Images/Captura4.png" width="48%" alt="Captura 4">
-  <br>
-  <img src="/Images/Captura2.png" width="48%" alt="Captura 2">&nbsp;<img src="/Images/Captura3.png" width="48%" alt="Captura 3">
-  <br>
-  <img src="/Images/Captura6.png" width="48%" alt="Captura 6">
+  <img src="/Images/screenshot1.png" width="48%" alt="Captura 1">&nbsp;<img src="/Images/screenshot2.png" width="48%" alt="Captura 4">
 </div>
 
 ## 🎦 Videos
