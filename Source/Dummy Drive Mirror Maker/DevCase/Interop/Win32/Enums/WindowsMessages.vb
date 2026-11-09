@@ -30,7 +30,6 @@
 
 Namespace DevCase.Interop.Win32.Enums
 
-    ''' ----------------------------------------------------------------------------------------------------
     ''' <summary>
     ''' The system sends or posts a system-defined message when it communicates with an application. 
     ''' <para></para>
@@ -40,11 +39,9 @@ Namespace DevCase.Interop.Win32.Enums
     ''' <para></para>
     ''' Applications generally use these UIMessages to control the operation of control windows created by using preregistered window classes.
     ''' </summary>
-    ''' ----------------------------------------------------------------------------------------------------
     ''' <remarks>
     ''' <see href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms644927%28v=vs.85%29.aspx"/>
     ''' </remarks>
-    ''' ----------------------------------------------------------------------------------------------------
     Public Enum WindowsMessages As Integer
 
         ' *****************************************************************************
@@ -53,40 +50,31 @@ Namespace DevCase.Interop.Win32.Enums
         '  THIS ENUMERATION IS PARTIALLY DEFINED TO MEET THE PURPOSES OF THIS API
         ' *****************************************************************************
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' The <see cref="Null"/> message performs no operation.
         ''' <para></para>
         ''' An application sends the <see cref="Null"/> message if it wants to 
         ''' post a message that the recipient window will ignore.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         Null = &H0
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Occurs when the control needs repainting.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <remarks>
         ''' <see href=""/>
         ''' </remarks>
-        ''' ----------------------------------------------------------------------------------------------------
         WM_Paint = &HF
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' The message is sent to a window to request that it draw its client area in the specified device context 
         ''' most commonly in a printer device context.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <remarks>
         ''' <see href=""/>
         ''' </remarks>
-        ''' ----------------------------------------------------------------------------------------------------
         WM_PrintClient = &H318
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Sets the font that a control is to use when drawing text.
         ''' <para></para>
@@ -102,14 +90,11 @@ Namespace DevCase.Interop.Win32.Enums
         ''' <para></para>
         ''' If this parameter is TRUE, the control redraws itself.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <remarks>
         ''' <see href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms632642%28v=vs.85%29.aspx"/>
         ''' </remarks>
-        ''' ----------------------------------------------------------------------------------------------------
         WM_SetFont = &H30
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Sets the text of a window.
         ''' <para></para>
@@ -121,14 +106,11 @@ Namespace DevCase.Interop.Win32.Enums
         ''' <c>lParam</c> 
         ''' A pointer to a null-terminated string that is the window text.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <remarks>
         ''' <see href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms632644%28v=vs.85%29.aspx"/>
         ''' </remarks>
-        ''' ----------------------------------------------------------------------------------------------------
         WM_SetText = &HC
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Copies the text that corresponds to a window into a buffer provided by the caller.
         ''' <para></para>
@@ -143,14 +125,11 @@ Namespace DevCase.Interop.Win32.Enums
         ''' <c>lParam</c> 
         ''' A pointer to the buffer that is to receive the text.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <remarks>
         ''' <see href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms632627%28v=vs.85%29.aspx"/>
         ''' </remarks>
-        ''' ----------------------------------------------------------------------------------------------------
         WM_GetText = &HD
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Determines the length, in characters, of the text associated with a window.
         ''' <para></para>
@@ -162,12 +141,23 @@ Namespace DevCase.Interop.Win32.Enums
         ''' <c>lParam</c> 
         ''' This parameter is not used and must be zero
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <remarks>
         ''' <see href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms632628%28v=vs.85%29.aspx"/>
         ''' </remarks>
-        ''' ----------------------------------------------------------------------------------------------------
         WM_GetTextLength = &HE
+
+        ''' <summary>
+        ''' Sent to a window when its nonclient area needs to be changed to indicate an active or inactive state.
+        ''' <para></para>
+        '''
+        ''' <c>wParam</c>
+        ''' Indicates when a title bar or icon needs to be changed to indicate an active (<see langword="True"/>)
+        ''' or inactive (<see langword="False"/>) state.
+        ''' </summary>
+        ''' <remarks>
+        ''' <see href="https://learn.microsoft.com/en-us/windows/win32/winmsg/wm-ncactivate"/>
+        ''' </remarks>
+        WM_NCActivate = &H86
 
     End Enum
 

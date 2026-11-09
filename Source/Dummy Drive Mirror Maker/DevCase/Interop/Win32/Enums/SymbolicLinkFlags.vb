@@ -30,26 +30,32 @@
 
 Namespace DevCase.Interop.Win32.Enums
 
-    ''' ----------------------------------------------------------------------------------------------------
     ''' <summary>
     ''' Indicates whether a symbolic link is a file or is a directory.
     ''' </summary>
-    ''' ----------------------------------------------------------------------------------------------------
     ''' <remarks>
     ''' <see href="http://msdn.microsoft.com/en-us/library/windows/desktop/aa363866%28v=vs.85%29.aspx"/>
     ''' </remarks>
-    ''' ----------------------------------------------------------------------------------------------------
+    <Flags>
     Public Enum SymbolicLinkFlags As Integer
 
         ''' <summary>
         ''' The link destination is a file.
         ''' </summary>
-        File = &H0
+        File = 0
 
         ''' <summary>
         ''' The link destination is a directory.
         ''' </summary>
-        Directory = &H1
+        Directory = 1 << 0
+
+        ''' <summary>
+        ''' Allows the creation of symbolic links when the process is not elevated.
+        ''' <para></para>
+        ''' Requires Windows 10 (build 14972 or later) with Developer Mode enabled;
+        ''' on earlier versions of Windows the function fails with <c>ERROR_INVALID_PARAMETER</c>.
+        ''' </summary>
+        AllowUnprivilegedCreate = 1 << 1
 
     End Enum
 

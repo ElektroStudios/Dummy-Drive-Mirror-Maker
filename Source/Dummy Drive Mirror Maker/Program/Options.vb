@@ -37,6 +37,22 @@ Friend NotInheritable Class Options
     Friend Shared Property MirrorSymbolicLinks As Boolean
 
     ''' <summary>
+    ''' Gets or sets a value indicating whether directory junctions must be mirrored 
+    ''' (as new junctions that point to the same original target directory).
+    ''' <para></para>
+    ''' Volume mount points are never mirrored.
+    ''' </summary>
+    Friend Shared Property MirrorJunctions As Boolean
+
+    ''' <summary>
+    ''' Gets or sets a value indicating whether hard links must be mirrored.
+    ''' <para></para>
+    ''' If <see langword="True"/>, all the names (hard links) of the same source file are mirrored 
+    ''' as hard links of a single dummy file; otherwise, each name is mirrored as an independent dummy file.
+    ''' </summary>
+    Friend Shared Property MirrorHardLinks As Boolean
+
+    ''' <summary>
     ''' Gets or sets a value indicating whether security access exceptions must be handled when in a mirror operation.
     ''' <para></para>
     ''' If <see langword="True"/>, an exception will be thrown if the user has no permission to read a file or folder,

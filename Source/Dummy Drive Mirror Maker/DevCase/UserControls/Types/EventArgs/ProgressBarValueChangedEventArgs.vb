@@ -36,39 +36,39 @@ Imports System.Windows.Forms
 
 Namespace DevCase.UserControls.Types.EventArgs
 
-    ''' ----------------------------------------------------------------------------------------------------
     ''' <summary>
     ''' Exposes the event-data of an event that notifies for value changes of a <see cref="ProgressBar"/> control.
     ''' </summary>
-    ''' ----------------------------------------------------------------------------------------------------
     Public Class ProgressBarValueChangedEventArgs : Inherits ValueChangedEventArgs(Of Integer)
 
 #Region " Properties "
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Gets the value.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <value>
         ''' The value.
         ''' </value>
-        ''' ----------------------------------------------------------------------------------------------------
+        ''' <remarks>
+        ''' The value is stored by the base class constructor, so this property must return the base value
+        ''' (an auto-implemented override would always return the default value: zero).
+        ''' </remarks>
         Public Overrides ReadOnly Property NewValue As Integer
+            Get
+                Return MyBase.NewValue
+            End Get
+        End Property
 
 #End Region
 
 #Region " Constructors "
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Initializes a new instance of the <see cref="ProgressBarValueChangedEventArgs"/> class.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <param name="value">
         ''' The value.
         ''' </param>
-        ''' ----------------------------------------------------------------------------------------------------
         <DebuggerStepThrough>
         Public Sub New(value As Integer)
 

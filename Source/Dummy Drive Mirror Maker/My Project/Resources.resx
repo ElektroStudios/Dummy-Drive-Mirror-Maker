@@ -133,4 +133,10 @@
   <data name="Abort" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Abort.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="GitHub_Invertocat_Black" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GitHub_Invertocat_Black.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GitHub_Invertocat_White" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GitHub_Invertocat_White.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

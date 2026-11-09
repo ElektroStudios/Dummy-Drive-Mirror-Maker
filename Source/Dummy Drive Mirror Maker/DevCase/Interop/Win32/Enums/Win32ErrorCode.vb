@@ -36,19 +36,16 @@ Imports System.Runtime.InteropServices
 
 Namespace DevCase.Interop.Win32.Enums
 
-    ''' ----------------------------------------------------------------------------------------------------
     ''' <summary>
     ''' Specifies system error codes for the Windows API functions. 
     ''' <para></para>
     ''' These error codes are returned by the <see cref="Marshal.GetLastWin32Error()"/> function when a function fails.
     ''' </summary>
-    ''' ----------------------------------------------------------------------------------------------------
     ''' <remarks>
     ''' List of System Error Codes: <see href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms681382(v=vs.85).aspx"/>.
     ''' <para></para>
     ''' C# Source: <see href="http://github.com/josemesona/Win32Ex"/>.
     ''' </remarks>
-    ''' ----------------------------------------------------------------------------------------------------
     Public Enum Win32ErrorCode As Integer
 
         ' *****************************************************************************
@@ -63,6 +60,20 @@ Namespace DevCase.Interop.Win32.Enums
         ''' The operation completed successfully.
         ''' </summary>
         ERROR_SUCCESS = &H0 ' 0
+
+        ''' <summary>
+        ''' The parameter is incorrect.
+        ''' </summary>
+        ERROR_INVALID_PARAMETER = &H57 ' 87
+
+#End Region
+
+#Region "1000 - 1999"
+
+        ''' <summary>
+        ''' A required privilege is not held by the client.
+        ''' </summary>
+        ERROR_PRIVILEGE_NOT_HELD = &H522 ' 1314
 
 #End Region
 

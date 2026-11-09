@@ -12,6 +12,11 @@ Friend NotInheritable Class UIMessages
     Friend Shared MirrorCompletedSuccessful As String =
 "Mirror operation completed."
 
+    Friend Shared MirrorCompletedWithIgnoredItems As String =
+"Mirror operation completed, but {0}.
+
+Do you want to see the details?"
+
     Friend Shared MirrorCompletedAborted As String =
 "Mirror operation aborted on demand."
 
@@ -34,9 +39,11 @@ Please, try again and select other directory."
  Please, try again and select other directory."
 
     Friend Shared DirectoryExistQuestion1 As String =
-"The destination directorty '{0}' already exists. 
+"The destination directory '{0}' already exists. 
 
-Do you want to continue?. Please note that dummy files will be placed there."
+Do you want to continue?. Please note that dummy files will be placed there.
+
+(Enable the 'Overwrite destination files' option to skip this question.)"
 
     Friend Shared DirectoryExistQuestion2 As String =
 "Do you want to ignore future directory conflicts like this one?.
@@ -44,29 +51,14 @@ Do you want to continue?. Please note that dummy files will be placed there."
 (This choice applies only to the current mirror operation.)"
 
     Friend Shared DirectoryException As String =
-"An exception occured attempting to create the directory. 
+"An exception occurred attempting to create the directory. 
 
 Exception message: '{0}'
 
 Do you want to ignore and continue the operation?."
 
-    Friend Shared FileExistQuestion_NotOverwrite As String =
-"The destination file '{0}' already exists. 
-
-Do you want to continue?. (the destination file will not be overwritten)"
-
-    Friend Shared FileExistQuestion_Overwrite As String =
-"The destination file '{0}' already exists. 
-
-Do you want to continue?. (the destination file will be overwritten with a dummy file!)"
-
-    Friend Shared FileExistQuestion2 As String =
-"Do you want to ignore future file conflicts like this one?. 
-
-(This choice applies only to the current mirror operation.)"
-
     Friend Shared FileException As String =
-"An exception occured attempting to create the file. 
+"An exception occurred attempting to create the file. 
 
 Exception message: '{0}'. 
 

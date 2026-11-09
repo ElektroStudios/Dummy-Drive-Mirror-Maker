@@ -18,217 +18,42 @@ Partial Class Main
     Private components As System.ComponentModel.IContainer
 
     'NOTE: The following procedure is required by the Windows Form Designer
-    'It can be modified using the Windows Form Designer.  
+    'It can be modified using the Windows Form Designer.
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Main))
-        Me.TextBoxSource = New System.Windows.Forms.TextBox()
+        Me.PictureBoxLogo = New System.Windows.Forms.PictureBox()
+        Me.SectionHeaderDirectories = New SectionHeaderLabel()
         Me.LabelSource = New System.Windows.Forms.Label()
+        Me.TextBoxSource = New System.Windows.Forms.TextBox()
+        Me.ButtonSource = New System.Windows.Forms.Button()
         Me.LabelDestination = New System.Windows.Forms.Label()
         Me.TextBoxDestination = New System.Windows.Forms.TextBox()
-        Me.ButtonSource = New System.Windows.Forms.Button()
         Me.ButtonDestination = New System.Windows.Forms.Button()
-        Me.CheckBoxHiddenFiles = New System.Windows.Forms.CheckBox()
-        Me.CheckBoxDatestamps = New System.Windows.Forms.CheckBox()
-        Me.CheckBoxAttribs = New System.Windows.Forms.CheckBox()
-        Me.ButtonMirror = New System.Windows.Forms.Button()
-        Me.GroupBoxOptions = New System.Windows.Forms.GroupBox()
-        Me.CheckBoxOverwrite = New System.Windows.Forms.CheckBox()
-        Me.CheckBoxSymLinks = New System.Windows.Forms.CheckBox()
-        Me.CheckBoxIgnoreSecurityExceptions = New System.Windows.Forms.CheckBox()
-        Me.GroupBoxDirectories = New System.Windows.Forms.GroupBox()
-        Me.PictureBoxLogo = New System.Windows.Forms.PictureBox()
+        Me.SectionHeaderOptions = New SectionHeaderLabel()
+        Me.CheckBoxAttribs = New ThemedCheckBox()
+        Me.CheckBoxDatestamps = New ThemedCheckBox()
+        Me.CheckBoxHiddenFiles = New ThemedCheckBox()
+        Me.CheckBoxSymLinks = New ThemedCheckBox()
+        Me.CheckBoxIgnoreSecurityExceptions = New ThemedCheckBox()
+        Me.CheckBoxOverwrite = New ThemedCheckBox()
+        Me.CheckBoxJunctions = New ThemedCheckBox()
+        Me.CheckBoxHardLinks = New ThemedCheckBox()
+        Me.ElektroProgressBar1 = New DevCase.UserControls.Controls.ElektroProgressBar()
+        Me.ButtonGitHub = New IconButton()
+        Me.ToggleSwitchTheme = New ToggleSwitch()
+        Me.ButtonMirror = New ActionButton()
+        Me.ButtonReport = New ActionButton()
         Me.StatusStripFilepaths = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabelFilepaths = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.ElektroProgressBar1 = New DevCase.UserControls.Controls.ElektroProgressBar()
+        Me.ToolTipMain = New System.Windows.Forms.ToolTip(Me.components)
+        Me.TimerProgress = New System.Windows.Forms.Timer(Me.components)
         Me.ElektroBackgroundWorker1 = New DevCase.Core.Threading.Types.ElektroBackgroundWorker()
-        Me.GroupBoxOptions.SuspendLayout()
-        Me.GroupBoxDirectories.SuspendLayout()
         CType(Me.PictureBoxLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.StatusStripFilepaths.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'TextBoxSource
-        '
-        Me.TextBoxSource.AllowDrop = True
-        Me.TextBoxSource.Location = New System.Drawing.Point(98, 25)
-        Me.TextBoxSource.Name = "TextBoxSource"
-        Me.TextBoxSource.ReadOnly = True
-        Me.TextBoxSource.Size = New System.Drawing.Size(390, 20)
-        Me.TextBoxSource.TabIndex = 1
-        '
-        'LabelSource
-        '
-        Me.LabelSource.AutoSize = True
-        Me.LabelSource.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.LabelSource.Location = New System.Drawing.Point(6, 28)
-        Me.LabelSource.Name = "LabelSource"
-        Me.LabelSource.Size = New System.Drawing.Size(86, 13)
-        Me.LabelSource.TabIndex = 0
-        Me.LabelSource.Text = "Source Directory"
-        '
-        'LabelDestination
-        '
-        Me.LabelDestination.AutoSize = True
-        Me.LabelDestination.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.LabelDestination.Location = New System.Drawing.Point(6, 67)
-        Me.LabelDestination.Name = "LabelDestination"
-        Me.LabelDestination.Size = New System.Drawing.Size(83, 13)
-        Me.LabelDestination.TabIndex = 3
-        Me.LabelDestination.Text = "Dest. Directory"
-        '
-        'TextBoxDestination
-        '
-        Me.TextBoxDestination.AllowDrop = True
-        Me.TextBoxDestination.Enabled = False
-        Me.TextBoxDestination.Location = New System.Drawing.Point(98, 64)
-        Me.TextBoxDestination.Name = "TextBoxDestination"
-        Me.TextBoxDestination.ReadOnly = True
-        Me.TextBoxDestination.Size = New System.Drawing.Size(390, 20)
-        Me.TextBoxDestination.TabIndex = 4
-        '
-        'ButtonSource
-        '
-        Me.ButtonSource.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.ButtonSource.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.ButtonSource.Location = New System.Drawing.Point(494, 23)
-        Me.ButtonSource.Name = "ButtonSource"
-        Me.ButtonSource.Size = New System.Drawing.Size(75, 23)
-        Me.ButtonSource.TabIndex = 2
-        Me.ButtonSource.Text = "Browse..."
-        Me.ButtonSource.UseVisualStyleBackColor = True
-        '
-        'ButtonDestination
-        '
-        Me.ButtonDestination.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.ButtonDestination.Enabled = False
-        Me.ButtonDestination.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.ButtonDestination.Location = New System.Drawing.Point(494, 62)
-        Me.ButtonDestination.Name = "ButtonDestination"
-        Me.ButtonDestination.Size = New System.Drawing.Size(75, 23)
-        Me.ButtonDestination.TabIndex = 5
-        Me.ButtonDestination.Text = "Browse..."
-        Me.ButtonDestination.UseVisualStyleBackColor = True
-        '
-        'CheckBoxHiddenFiles
-        '
-        Me.CheckBoxHiddenFiles.AutoSize = True
-        Me.CheckBoxHiddenFiles.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.CheckBoxHiddenFiles.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.CheckBoxHiddenFiles.Location = New System.Drawing.Point(6, 57)
-        Me.CheckBoxHiddenFiles.Name = "CheckBoxHiddenFiles"
-        Me.CheckBoxHiddenFiles.Size = New System.Drawing.Size(163, 17)
-        Me.CheckBoxHiddenFiles.TabIndex = 2
-        Me.CheckBoxHiddenFiles.Text = "Mirror hidden files and folders"
-        Me.CheckBoxHiddenFiles.UseVisualStyleBackColor = True
-        '
-        'CheckBoxDatestamps
-        '
-        Me.CheckBoxDatestamps.AutoSize = True
-        Me.CheckBoxDatestamps.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.CheckBoxDatestamps.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.CheckBoxDatestamps.Location = New System.Drawing.Point(6, 38)
-        Me.CheckBoxDatestamps.Name = "CheckBoxDatestamps"
-        Me.CheckBoxDatestamps.Size = New System.Drawing.Size(139, 17)
-        Me.CheckBoxDatestamps.TabIndex = 1
-        Me.CheckBoxDatestamps.Text = "Preserve file timestamps"
-        Me.CheckBoxDatestamps.UseVisualStyleBackColor = True
-        '
-        'CheckBoxAttribs
-        '
-        Me.CheckBoxAttribs.AutoSize = True
-        Me.CheckBoxAttribs.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.CheckBoxAttribs.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.CheckBoxAttribs.Location = New System.Drawing.Point(6, 19)
-        Me.CheckBoxAttribs.Name = "CheckBoxAttribs"
-        Me.CheckBoxAttribs.Size = New System.Drawing.Size(130, 17)
-        Me.CheckBoxAttribs.TabIndex = 0
-        Me.CheckBoxAttribs.Text = "Preserve file attributes"
-        Me.CheckBoxAttribs.UseVisualStyleBackColor = True
-        '
-        'ButtonMirror
-        '
-        Me.ButtonMirror.BackgroundImage = Global.My.Resources.Resources.Copy
-        Me.ButtonMirror.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.ButtonMirror.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.ButtonMirror.Enabled = False
-        Me.ButtonMirror.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
-        Me.ButtonMirror.Location = New System.Drawing.Point(218, 206)
-        Me.ButtonMirror.Name = "ButtonMirror"
-        Me.ButtonMirror.Size = New System.Drawing.Size(370, 130)
-        Me.ButtonMirror.TabIndex = 2
-        Me.ButtonMirror.Text = "Build Mirror"
-        Me.ButtonMirror.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ButtonMirror.UseVisualStyleBackColor = True
-        '
-        'GroupBoxOptions
-        '
-        Me.GroupBoxOptions.Controls.Add(Me.CheckBoxOverwrite)
-        Me.GroupBoxOptions.Controls.Add(Me.CheckBoxSymLinks)
-        Me.GroupBoxOptions.Controls.Add(Me.CheckBoxIgnoreSecurityExceptions)
-        Me.GroupBoxOptions.Controls.Add(Me.CheckBoxAttribs)
-        Me.GroupBoxOptions.Controls.Add(Me.CheckBoxHiddenFiles)
-        Me.GroupBoxOptions.Controls.Add(Me.CheckBoxDatestamps)
-        Me.GroupBoxOptions.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.GroupBoxOptions.Location = New System.Drawing.Point(12, 200)
-        Me.GroupBoxOptions.Name = "GroupBoxOptions"
-        Me.GroupBoxOptions.Size = New System.Drawing.Size(200, 136)
-        Me.GroupBoxOptions.TabIndex = 1
-        Me.GroupBoxOptions.TabStop = False
-        Me.GroupBoxOptions.Text = "Options"
-        '
-        'CheckBoxOverwrite
-        '
-        Me.CheckBoxOverwrite.AutoSize = True
-        Me.CheckBoxOverwrite.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.CheckBoxOverwrite.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.CheckBoxOverwrite.Location = New System.Drawing.Point(6, 114)
-        Me.CheckBoxOverwrite.Name = "CheckBoxOverwrite"
-        Me.CheckBoxOverwrite.Size = New System.Drawing.Size(146, 17)
-        Me.CheckBoxOverwrite.TabIndex = 6
-        Me.CheckBoxOverwrite.Text = "Overwrite destination files"
-        Me.CheckBoxOverwrite.UseVisualStyleBackColor = True
-        '
-        'CheckBoxSymLinks
-        '
-        Me.CheckBoxSymLinks.AutoSize = True
-        Me.CheckBoxSymLinks.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.CheckBoxSymLinks.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.CheckBoxSymLinks.Location = New System.Drawing.Point(6, 76)
-        Me.CheckBoxSymLinks.Name = "CheckBoxSymLinks"
-        Me.CheckBoxSymLinks.Size = New System.Drawing.Size(119, 17)
-        Me.CheckBoxSymLinks.TabIndex = 5
-        Me.CheckBoxSymLinks.Text = "Mirror symbolic links"
-        Me.CheckBoxSymLinks.UseVisualStyleBackColor = True
-        '
-        'CheckBoxIgnoreSecurityExceptions
-        '
-        Me.CheckBoxIgnoreSecurityExceptions.AutoSize = True
-        Me.CheckBoxIgnoreSecurityExceptions.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.CheckBoxIgnoreSecurityExceptions.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.CheckBoxIgnoreSecurityExceptions.Location = New System.Drawing.Point(6, 95)
-        Me.CheckBoxIgnoreSecurityExceptions.Name = "CheckBoxIgnoreSecurityExceptions"
-        Me.CheckBoxIgnoreSecurityExceptions.Size = New System.Drawing.Size(186, 17)
-        Me.CheckBoxIgnoreSecurityExceptions.TabIndex = 4
-        Me.CheckBoxIgnoreSecurityExceptions.Text = "Ignore security access exceptions"
-        Me.CheckBoxIgnoreSecurityExceptions.UseVisualStyleBackColor = True
-        '
-        'GroupBoxDirectories
-        '
-        Me.GroupBoxDirectories.Controls.Add(Me.LabelSource)
-        Me.GroupBoxDirectories.Controls.Add(Me.TextBoxSource)
-        Me.GroupBoxDirectories.Controls.Add(Me.LabelDestination)
-        Me.GroupBoxDirectories.Controls.Add(Me.TextBoxDestination)
-        Me.GroupBoxDirectories.Controls.Add(Me.ButtonSource)
-        Me.GroupBoxDirectories.Controls.Add(Me.ButtonDestination)
-        Me.GroupBoxDirectories.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.GroupBoxDirectories.Location = New System.Drawing.Point(12, 90)
-        Me.GroupBoxDirectories.Name = "GroupBoxDirectories"
-        Me.GroupBoxDirectories.Size = New System.Drawing.Size(576, 100)
-        Me.GroupBoxDirectories.TabIndex = 0
-        Me.GroupBoxDirectories.TabStop = False
-        Me.GroupBoxDirectories.Text = "Directories"
         '
         'PictureBoxLogo
         '
@@ -237,69 +62,303 @@ Partial Class Main
         Me.PictureBoxLogo.Image = Global.My.Resources.Resources.Logo
         Me.PictureBoxLogo.Location = New System.Drawing.Point(0, 0)
         Me.PictureBoxLogo.Name = "PictureBoxLogo"
-        Me.PictureBoxLogo.Size = New System.Drawing.Size(600, 80)
-        Me.PictureBoxLogo.TabIndex = 6
+        Me.PictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBoxLogo.Size = New System.Drawing.Size(680, 91)
+        Me.PictureBoxLogo.TabIndex = 0
         Me.PictureBoxLogo.TabStop = False
+        '
+        'SectionHeaderDirectories
+        '
+        Me.SectionHeaderDirectories.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!)
+        Me.SectionHeaderDirectories.Location = New System.Drawing.Point(16, 143)
+        Me.SectionHeaderDirectories.Name = "SectionHeaderDirectories"
+        Me.SectionHeaderDirectories.Size = New System.Drawing.Size(648, 20)
+        Me.SectionHeaderDirectories.TabIndex = 3
+        Me.SectionHeaderDirectories.Text = "Directories"
+        '
+        'LabelSource
+        '
+        Me.LabelSource.AutoSize = True
+        Me.LabelSource.Location = New System.Drawing.Point(16, 176)
+        Me.LabelSource.Name = "LabelSource"
+        Me.LabelSource.Size = New System.Drawing.Size(43, 15)
+        Me.LabelSource.TabIndex = 4
+        Me.LabelSource.Text = "Source"
+        '
+        'TextBoxSource
+        '
+        Me.TextBoxSource.AllowDrop = True
+        Me.TextBoxSource.Location = New System.Drawing.Point(100, 172)
+        Me.TextBoxSource.Name = "TextBoxSource"
+        Me.TextBoxSource.ReadOnly = True
+        Me.TextBoxSource.Size = New System.Drawing.Size(470, 23)
+        Me.TextBoxSource.TabIndex = 5
+        Me.ToolTipMain.SetToolTip(Me.TextBoxSource, "Select a directory with the 'Browse...' button, or drag and drop a directory here.")
+        '
+        'ButtonSource
+        '
+        Me.ButtonSource.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.ButtonSource.Location = New System.Drawing.Point(578, 171)
+        Me.ButtonSource.Name = "ButtonSource"
+        Me.ButtonSource.Size = New System.Drawing.Size(86, 25)
+        Me.ButtonSource.TabIndex = 6
+        Me.ButtonSource.Text = "Browse..."
+        Me.ButtonSource.UseVisualStyleBackColor = True
+        '
+        'LabelDestination
+        '
+        Me.LabelDestination.AutoSize = True
+        Me.LabelDestination.Location = New System.Drawing.Point(16, 208)
+        Me.LabelDestination.Name = "LabelDestination"
+        Me.LabelDestination.Size = New System.Drawing.Size(67, 15)
+        Me.LabelDestination.TabIndex = 7
+        Me.LabelDestination.Text = "Destination"
+        '
+        'TextBoxDestination
+        '
+        Me.TextBoxDestination.AllowDrop = True
+        Me.TextBoxDestination.Enabled = False
+        Me.TextBoxDestination.Location = New System.Drawing.Point(100, 204)
+        Me.TextBoxDestination.Name = "TextBoxDestination"
+        Me.TextBoxDestination.ReadOnly = True
+        Me.TextBoxDestination.Size = New System.Drawing.Size(470, 23)
+        Me.TextBoxDestination.TabIndex = 8
+        Me.ToolTipMain.SetToolTip(Me.TextBoxDestination, "Select a directory with the 'Browse...' button, or drag and drop a directory here.")
+        '
+        'ButtonDestination
+        '
+        Me.ButtonDestination.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.ButtonDestination.Enabled = False
+        Me.ButtonDestination.Location = New System.Drawing.Point(578, 203)
+        Me.ButtonDestination.Name = "ButtonDestination"
+        Me.ButtonDestination.Size = New System.Drawing.Size(86, 25)
+        Me.ButtonDestination.TabIndex = 9
+        Me.ButtonDestination.Text = "Browse..."
+        Me.ButtonDestination.UseVisualStyleBackColor = True
+        '
+        'SectionHeaderOptions
+        '
+        Me.SectionHeaderOptions.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!)
+        Me.SectionHeaderOptions.Location = New System.Drawing.Point(16, 241)
+        Me.SectionHeaderOptions.Name = "SectionHeaderOptions"
+        Me.SectionHeaderOptions.Size = New System.Drawing.Size(648, 20)
+        Me.SectionHeaderOptions.TabIndex = 10
+        Me.SectionHeaderOptions.Text = "Options"
+        '
+        'CheckBoxAttribs
+        '
+        Me.CheckBoxAttribs.AutoSize = True
+        Me.CheckBoxAttribs.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.CheckBoxAttribs.Location = New System.Drawing.Point(18, 267)
+        Me.CheckBoxAttribs.Name = "CheckBoxAttribs"
+        Me.CheckBoxAttribs.Size = New System.Drawing.Size(145, 19)
+        Me.CheckBoxAttribs.TabIndex = 11
+        Me.CheckBoxAttribs.Text = "Preserve file attributes"
+        Me.CheckBoxAttribs.UseVisualStyleBackColor = True
+        '
+        'CheckBoxDatestamps
+        '
+        Me.CheckBoxDatestamps.AutoSize = True
+        Me.CheckBoxDatestamps.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.CheckBoxDatestamps.Location = New System.Drawing.Point(18, 292)
+        Me.CheckBoxDatestamps.Name = "CheckBoxDatestamps"
+        Me.CheckBoxDatestamps.Size = New System.Drawing.Size(155, 19)
+        Me.CheckBoxDatestamps.TabIndex = 12
+        Me.CheckBoxDatestamps.Text = "Preserve file timestamps"
+        Me.CheckBoxDatestamps.UseVisualStyleBackColor = True
+        '
+        'CheckBoxHiddenFiles
+        '
+        Me.CheckBoxHiddenFiles.AutoSize = True
+        Me.CheckBoxHiddenFiles.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.CheckBoxHiddenFiles.Location = New System.Drawing.Point(18, 317)
+        Me.CheckBoxHiddenFiles.Name = "CheckBoxHiddenFiles"
+        Me.CheckBoxHiddenFiles.Size = New System.Drawing.Size(187, 19)
+        Me.CheckBoxHiddenFiles.TabIndex = 13
+        Me.CheckBoxHiddenFiles.Text = "Mirror hidden files and folders"
+        Me.CheckBoxHiddenFiles.UseVisualStyleBackColor = True
+        '
+        'CheckBoxSymLinks
+        '
+        Me.CheckBoxSymLinks.AutoSize = True
+        Me.CheckBoxSymLinks.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.CheckBoxSymLinks.Location = New System.Drawing.Point(248, 267)
+        Me.CheckBoxSymLinks.Name = "CheckBoxSymLinks"
+        Me.CheckBoxSymLinks.Size = New System.Drawing.Size(135, 19)
+        Me.CheckBoxSymLinks.TabIndex = 14
+        Me.CheckBoxSymLinks.Text = "Mirror symbolic links"
+        Me.ToolTipMain.SetToolTip(Me.CheckBoxSymLinks, "Mirror symbolic links as new symbolic links that point to the same original target.")
+        Me.CheckBoxSymLinks.UseVisualStyleBackColor = True
+        '
+        'CheckBoxJunctions
+        '
+        Me.CheckBoxJunctions.AutoSize = True
+        Me.CheckBoxJunctions.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.CheckBoxJunctions.Location = New System.Drawing.Point(248, 292)
+        Me.CheckBoxJunctions.Name = "CheckBoxJunctions"
+        Me.CheckBoxJunctions.Size = New System.Drawing.Size(168, 19)
+        Me.CheckBoxJunctions.TabIndex = 15
+        Me.CheckBoxJunctions.Text = "Mirror directory junctions"
+        Me.ToolTipMain.SetToolTip(Me.CheckBoxJunctions, "Mirror directory junctions as new junctions that point to the same original target (volume mount points are never mirrored).")
+        Me.CheckBoxJunctions.UseVisualStyleBackColor = True
+        '
+        'CheckBoxHardLinks
+        '
+        Me.CheckBoxHardLinks.AutoSize = True
+        Me.CheckBoxHardLinks.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.CheckBoxHardLinks.Location = New System.Drawing.Point(248, 317)
+        Me.CheckBoxHardLinks.Name = "CheckBoxHardLinks"
+        Me.CheckBoxHardLinks.Size = New System.Drawing.Size(121, 19)
+        Me.CheckBoxHardLinks.TabIndex = 16
+        Me.CheckBoxHardLinks.Text = "Mirror hard links"
+        Me.ToolTipMain.SetToolTip(Me.CheckBoxHardLinks, "Mirror all the names (hard links) of the same file as hard links of a single dummy file.")
+        Me.CheckBoxHardLinks.UseVisualStyleBackColor = True
+        '
+        'CheckBoxIgnoreSecurityExceptions
+        '
+        Me.CheckBoxIgnoreSecurityExceptions.AutoSize = True
+        Me.CheckBoxIgnoreSecurityExceptions.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.CheckBoxIgnoreSecurityExceptions.Location = New System.Drawing.Point(450, 267)
+        Me.CheckBoxIgnoreSecurityExceptions.Name = "CheckBoxIgnoreSecurityExceptions"
+        Me.CheckBoxIgnoreSecurityExceptions.Size = New System.Drawing.Size(206, 19)
+        Me.CheckBoxIgnoreSecurityExceptions.TabIndex = 17
+        Me.CheckBoxIgnoreSecurityExceptions.Text = "Ignore security access exceptions"
+        Me.CheckBoxIgnoreSecurityExceptions.UseVisualStyleBackColor = True
+        '
+        'CheckBoxOverwrite
+        '
+        Me.CheckBoxOverwrite.AutoSize = True
+        Me.CheckBoxOverwrite.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.CheckBoxOverwrite.Location = New System.Drawing.Point(450, 292)
+        Me.CheckBoxOverwrite.Name = "CheckBoxOverwrite"
+        Me.CheckBoxOverwrite.Size = New System.Drawing.Size(164, 19)
+        Me.CheckBoxOverwrite.TabIndex = 18
+        Me.CheckBoxOverwrite.Text = "Overwrite destination files"
+        Me.ToolTipMain.SetToolTip(Me.CheckBoxOverwrite, "Replace the existing destination files with dummy files, without asking." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "When unchecked, the existing destination files are kept untouched.")
+        Me.CheckBoxOverwrite.UseVisualStyleBackColor = True
+        '
+        'ElektroProgressBar1
+        '
+        Me.ElektroProgressBar1.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.ElektroProgressBar1.FormatString = "Ready"
+        Me.ElektroProgressBar1.FormatStringError = ""
+        Me.ElektroProgressBar1.FormatStringPaused = ""
+        Me.ElektroProgressBar1.Location = New System.Drawing.Point(176, 353)
+        Me.ElektroProgressBar1.Name = "ElektroProgressBar1"
+        Me.ElektroProgressBar1.PreventFlickering = True
+        Me.ElektroProgressBar1.Size = New System.Drawing.Size(392, 32)
+        Me.ElektroProgressBar1.Step = 1
+        Me.ElektroProgressBar1.Style = System.Windows.Forms.ProgressBarStyle.Continuous
+        Me.ElektroProgressBar1.TabIndex = 20
+        '
+        'ButtonGitHub
+        '
+        Me.ButtonGitHub.AccessibleName = "Open the GitHub repository"
+        Me.ButtonGitHub.DarkThemeImage = Global.My.Resources.Resources.GitHub_Invertocat_White
+        Me.ButtonGitHub.LightThemeImage = Global.My.Resources.Resources.GitHub_Invertocat_Black
+        Me.ButtonGitHub.Location = New System.Drawing.Point(16, 101)
+        Me.ButtonGitHub.Name = "ButtonGitHub"
+        Me.ButtonGitHub.Size = New System.Drawing.Size(32, 32)
+        Me.ButtonGitHub.TabIndex = 1
+        Me.ToolTipMain.SetToolTip(Me.ButtonGitHub, "View the source code on GitHub")
+        '
+        'ToggleSwitchTheme
+        '
+        Me.ToggleSwitchTheme.AutoSize = True
+        Me.ToggleSwitchTheme.Location = New System.Drawing.Point(54, 106)
+        Me.ToggleSwitchTheme.Name = "ToggleSwitchTheme"
+        Me.ToggleSwitchTheme.Size = New System.Drawing.Size(117, 22)
+        Me.ToggleSwitchTheme.TabIndex = 2
+        Me.ToggleSwitchTheme.CheckedText = "Dark theme"
+        Me.ToggleSwitchTheme.Text = "Light theme"
+        Me.ToggleSwitchTheme.UncheckedText = "Light theme"
+        Me.ToolTipMain.SetToolTip(Me.ToggleSwitchTheme, "Switch between the light and dark themes")
+        '
+        'ButtonMirror
+        '
+        Me.ButtonMirror.Enabled = False
+        Me.ButtonMirror.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!)
+        Me.ButtonMirror.Glyph = ActionButtonGlyph.Play
+        Me.ButtonMirror.Location = New System.Drawing.Point(16, 353)
+        Me.ButtonMirror.Name = "ButtonMirror"
+        Me.ButtonMirror.Size = New System.Drawing.Size(150, 32)
+        Me.ButtonMirror.TabIndex = 19
+        Me.ButtonMirror.Text = "Build Mirror"
+        '
+        'ButtonReport
+        '
+        Me.ButtonReport.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.ButtonReport.Enabled = False
+        Me.ButtonReport.Glyph = ActionButtonGlyph.Report
+        Me.ButtonReport.Kind = ActionButtonKind.Secondary
+        Me.ButtonReport.Location = New System.Drawing.Point(578, 353)
+        Me.ButtonReport.Name = "ButtonReport"
+        Me.ButtonReport.Size = New System.Drawing.Size(86, 32)
+        Me.ButtonReport.TabIndex = 21
+        Me.ButtonReport.Text = "Details..."
+        Me.ToolTipMain.SetToolTip(Me.ButtonReport, "Shows the files and directories that were ignored (not copied) by the last mirror operation.")
         '
         'StatusStripFilepaths
         '
-        Me.StatusStripFilepaths.BackColor = System.Drawing.Color.FromArgb(CType(CType(63, Byte), Integer), CType(CType(63, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.StatusStripFilepaths.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabelFilepaths})
-        Me.StatusStripFilepaths.Location = New System.Drawing.Point(0, 371)
+        Me.StatusStripFilepaths.Location = New System.Drawing.Point(0, 399)
         Me.StatusStripFilepaths.Name = "StatusStripFilepaths"
-        Me.StatusStripFilepaths.Size = New System.Drawing.Size(600, 22)
+        Me.StatusStripFilepaths.Size = New System.Drawing.Size(680, 22)
+        Me.StatusStripFilepaths.ShowItemToolTips = True
         Me.StatusStripFilepaths.SizingGrip = False
-        Me.StatusStripFilepaths.TabIndex = 8
+        Me.StatusStripFilepaths.TabIndex = 22
         Me.StatusStripFilepaths.Text = "StatusStrip1"
         '
         'ToolStripStatusLabelFilepaths
         '
-        Me.ToolStripStatusLabelFilepaths.BackColor = System.Drawing.Color.Transparent
-        Me.ToolStripStatusLabelFilepaths.ForeColor = System.Drawing.Color.Gainsboro
         Me.ToolStripStatusLabelFilepaths.Image = Global.My.Resources.Resources.File
+        Me.ToolStripStatusLabelFilepaths.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.ToolStripStatusLabelFilepaths.Name = "ToolStripStatusLabelFilepaths"
         Me.ToolStripStatusLabelFilepaths.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never
-        Me.ToolStripStatusLabelFilepaths.Size = New System.Drawing.Size(73, 17)
+        Me.ToolStripStatusLabelFilepaths.Size = New System.Drawing.Size(665, 17)
+        Me.ToolStripStatusLabelFilepaths.Spring = True
         Me.ToolStripStatusLabelFilepaths.Text = "Ready"
+        Me.ToolStripStatusLabelFilepaths.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'ElektroProgressBar1
+        'TimerProgress
         '
-        Me.ElektroProgressBar1.FormatString = "Ready"
-        Me.ElektroProgressBar1.FormatStringError = ""
-        Me.ElektroProgressBar1.FormatStringPaused = ""
-        Me.ElektroProgressBar1.Location = New System.Drawing.Point(12, 342)
-        Me.ElektroProgressBar1.Name = "ElektroProgressBar1"
-        Me.ElektroProgressBar1.PreventFlickering = True
-        Me.ElektroProgressBar1.Size = New System.Drawing.Size(576, 23)
-        Me.ElektroProgressBar1.Step = 1
-        Me.ElektroProgressBar1.TabIndex = 7
-        '
-        'ElektroBackgroundWorker1
-        '
+        Me.TimerProgress.Interval = 100
         '
         'Main
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.SystemColors.Window
-        Me.ClientSize = New System.Drawing.Size(600, 393)
-        Me.Controls.Add(Me.StatusStripFilepaths)
-        Me.Controls.Add(Me.ElektroProgressBar1)
-        Me.Controls.Add(Me.GroupBoxDirectories)
-        Me.Controls.Add(Me.GroupBoxOptions)
-        Me.Controls.Add(Me.ButtonMirror)
+        Me.ClientSize = New System.Drawing.Size(680, 421)
         Me.Controls.Add(Me.PictureBoxLogo)
-        Me.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.Controls.Add(Me.SectionHeaderDirectories)
+        Me.Controls.Add(Me.LabelSource)
+        Me.Controls.Add(Me.TextBoxSource)
+        Me.Controls.Add(Me.ButtonSource)
+        Me.Controls.Add(Me.LabelDestination)
+        Me.Controls.Add(Me.TextBoxDestination)
+        Me.Controls.Add(Me.ButtonDestination)
+        Me.Controls.Add(Me.SectionHeaderOptions)
+        Me.Controls.Add(Me.CheckBoxAttribs)
+        Me.Controls.Add(Me.CheckBoxDatestamps)
+        Me.Controls.Add(Me.CheckBoxHiddenFiles)
+        Me.Controls.Add(Me.CheckBoxSymLinks)
+        Me.Controls.Add(Me.CheckBoxJunctions)
+        Me.Controls.Add(Me.CheckBoxHardLinks)
+        Me.Controls.Add(Me.CheckBoxIgnoreSecurityExceptions)
+        Me.Controls.Add(Me.CheckBoxOverwrite)
+        Me.Controls.Add(Me.ElektroProgressBar1)
+        Me.Controls.Add(Me.ButtonMirror)
+        Me.Controls.Add(Me.ButtonReport)
+        Me.Controls.Add(Me.ButtonGitHub)
+        Me.Controls.Add(Me.ToggleSwitchTheme)
+        Me.Controls.Add(Me.StatusStripFilepaths)
+        Me.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.Name = "Main"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Dummy Drive Mirror Maker"
-        Me.GroupBoxOptions.ResumeLayout(False)
-        Me.GroupBoxOptions.PerformLayout()
-        Me.GroupBoxDirectories.ResumeLayout(False)
-        Me.GroupBoxDirectories.PerformLayout()
         CType(Me.PictureBoxLogo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.StatusStripFilepaths.ResumeLayout(False)
         Me.StatusStripFilepaths.PerformLayout()
@@ -308,24 +367,31 @@ Partial Class Main
 
     End Sub
 
-    Friend WithEvents TextBoxSource As TextBox
+    Friend WithEvents PictureBoxLogo As PictureBox
+    Friend WithEvents SectionHeaderDirectories As SectionHeaderLabel
     Friend WithEvents LabelSource As Label
+    Friend WithEvents TextBoxSource As TextBox
+    Friend WithEvents ButtonSource As Button
     Friend WithEvents LabelDestination As Label
     Friend WithEvents TextBoxDestination As TextBox
-    Friend WithEvents ButtonSource As Button
     Friend WithEvents ButtonDestination As Button
-    Friend WithEvents PictureBoxLogo As PictureBox
-    Friend WithEvents CheckBoxHiddenFiles As CheckBox
-    Friend WithEvents CheckBoxDatestamps As CheckBox
-    Friend WithEvents CheckBoxAttribs As CheckBox
-    Friend WithEvents ButtonMirror As Button
-    Friend WithEvents GroupBoxOptions As GroupBox
-    Friend WithEvents GroupBoxDirectories As GroupBox
-    Friend WithEvents CheckBoxIgnoreSecurityExceptions As CheckBox
+    Friend WithEvents SectionHeaderOptions As SectionHeaderLabel
+    Friend WithEvents CheckBoxAttribs As ThemedCheckBox
+    Friend WithEvents CheckBoxDatestamps As ThemedCheckBox
+    Friend WithEvents CheckBoxHiddenFiles As ThemedCheckBox
+    Friend WithEvents CheckBoxSymLinks As ThemedCheckBox
+    Friend WithEvents CheckBoxJunctions As ThemedCheckBox
+    Friend WithEvents CheckBoxHardLinks As ThemedCheckBox
+    Friend WithEvents CheckBoxIgnoreSecurityExceptions As ThemedCheckBox
+    Friend WithEvents CheckBoxOverwrite As ThemedCheckBox
     Friend WithEvents ElektroProgressBar1 As DevCase.UserControls.Controls.ElektroProgressBar
+    Friend WithEvents ButtonGitHub As IconButton
+    Friend WithEvents ToggleSwitchTheme As ToggleSwitch
+    Friend WithEvents ButtonMirror As ActionButton
+    Friend WithEvents ButtonReport As ActionButton
     Friend WithEvents StatusStripFilepaths As StatusStrip
     Friend WithEvents ToolStripStatusLabelFilepaths As ToolStripStatusLabel
+    Friend WithEvents ToolTipMain As ToolTip
+    Friend WithEvents TimerProgress As Timer
     Friend WithEvents ElektroBackgroundWorker1 As DevCase.Core.Threading.Types.ElektroBackgroundWorker
-    Friend WithEvents CheckBoxSymLinks As CheckBox
-    Friend WithEvents CheckBoxOverwrite As CheckBox
 End Class

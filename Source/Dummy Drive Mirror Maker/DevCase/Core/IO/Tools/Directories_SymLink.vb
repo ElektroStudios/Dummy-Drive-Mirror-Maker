@@ -48,11 +48,9 @@ Namespace DevCase.Core.IO.Tools
 
 #Region " Public Methods "
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Creates a symbolic link of the specified directory.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <param name="srcDir">
         ''' The source directory.
         ''' </param>
@@ -60,7 +58,6 @@ Namespace DevCase.Core.IO.Tools
         ''' <param name="dstDir">
         ''' The destination directory where to create the symbolic link.
         ''' </param>
-        ''' ----------------------------------------------------------------------------------------------------
         <DebuggerStepThrough>
         Public Shared Sub CreateSymbolicLink(srcDir As DirectoryInfo, dstDir As DirectoryInfo)
 
@@ -68,11 +65,9 @@ Namespace DevCase.Core.IO.Tools
 
         End Sub
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Creates a symbolic link of the specified directory.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <param name="srcDir">
         ''' The source directory.
         ''' </param>
@@ -80,7 +75,6 @@ Namespace DevCase.Core.IO.Tools
         ''' <param name="dstDirPath">
         ''' The destination directory path where to create the symbolic link.
         ''' </param>
-        ''' ----------------------------------------------------------------------------------------------------
         <DebuggerStepThrough>
         Public Shared Sub CreateSymbolicLink(srcDir As DirectoryInfo, dstDirPath As String)
 
@@ -88,11 +82,9 @@ Namespace DevCase.Core.IO.Tools
 
         End Sub
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Creates a symbolic link of the specified directory.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <param name="srcDirPath">
         ''' The source directory path.
         ''' </param>
@@ -100,7 +92,6 @@ Namespace DevCase.Core.IO.Tools
         ''' <param name="dstDirPath">
         ''' The destination directory where to create the symbolic link.
         ''' </param>
-        ''' ----------------------------------------------------------------------------------------------------
         <DebuggerStepThrough>
         Public Shared Sub CreateSymbolicLink(srcDirPath As String, dstDirPath As DirectoryInfo)
 
@@ -108,11 +99,9 @@ Namespace DevCase.Core.IO.Tools
 
         End Sub
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Creates a symbolic link of the specified directory.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <param name="srcDirPath">
         ''' The source directory path.
         ''' </param>
@@ -120,39 +109,63 @@ Namespace DevCase.Core.IO.Tools
         ''' <param name="dstDirPath">
         ''' The destination directory path where to create the symbolic link.
         ''' </param>
-        ''' ----------------------------------------------------------------------------------------------------
         <DebuggerStepThrough>
         Public Shared Sub CreateSymbolicLink(srcDirPath As String, dstDirPath As String)
 
-            Dim dstDir As New DirectoryInfo(Path.Combine(dstDirPath, Path.GetFileName(srcDirPath)))
-            If (dstDir.Exists) Then
-                Throw New IOException(message:=String.Format("Destination directory '{0}' already exists.", dstDir.FullName))
-                Exit Sub
-            End If
-
-            Dim win32Err As Integer
-            Dim success As Boolean = NativeMethods.CreateSymbolicLink(dstDir.FullName, srcDirPath, SymbolicLinkFlags.Directory)
-            win32Err = Marshal.GetLastWin32Error()
-            If Not (success) Then
-                Throw New Win32Exception([error]:=win32Err)
-            End If
+            Dim linkPath As String = Path.Combine(dstDirPath, Path.GetFileName(srcDirPath))
+            Directories.CreateSymbolicLinkAt(linkPath, srcDirPath)
 
         End Sub
 
-        ''' ----------------------------------------------------------------------------------------------------
+        ''' <summary>
+        ''' Creates a directory symbolic link at the exact specified path, pointing to the specified target.
+        ''' <para></para>
+        ''' Unlike <see cref="Directories.CreateSymbolicLink(String, String)"/>,
+        ''' the name of the link is not derived from the name of the target,
+        ''' so this method can be used to replicate an existing symbolic link that has a different name than its target.
+        ''' </summary>
+        ''' <example> This is a code example.
+        ''' <code language="VB.NET">
+        ''' Directories.CreateSymbolicLinkAt("C:\Mirror\MyLink", "D:\Real Target Folder")
+        ''' </code>
+        ''' </example>
+        ''' <param name="linkPath">
+        ''' The full path of the symbolic link to create.
+        ''' </param>
+        '''
+        ''' <param name="targetPath">
+        ''' The target directory path that the symbolic link will point to.
+        ''' <para></para>
+        ''' It can be an absolute or a relative path, and the target does not need to exist.
+        ''' </param>
+        ''' <exception cref="ArgumentNullException">
+        ''' <paramref name="linkPath"/> or <paramref name="targetPath"/> is null, empty or white-spaced.
+        ''' </exception>
+        '''
+        ''' <exception cref="IOException">
+        ''' A file or directory already exists at <paramref name="linkPath"/>.
+        ''' </exception>
+        '''
+        ''' <exception cref="Win32Exception">
+        ''' The native function failed (e.g. the user does not have the required privilege to create symbolic links).
+        ''' </exception>
+        <DebuggerStepThrough>
+        Public Shared Sub CreateSymbolicLinkAt(linkPath As String, targetPath As String)
+
+            SymbolicLinkHelper.CreateSymbolicLink(linkPath, targetPath, SymbolicLinkFlags.Directory)
+
+        End Sub
+
         ''' <summary>
         ''' Determines whether whether the specified directory is a symbolic link.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <param name="directory">
         ''' The directory.
         ''' </param>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <returns>
         ''' <see langword="True"/> if the specified directory is a symbolic link; 
         ''' otherwise, <see langword="False"/>.
         ''' </returns>
-        ''' ----------------------------------------------------------------------------------------------------
         <DebuggerStepThrough>
         Public Shared Function IsSymbolicLink(directory As DirectoryInfo) As Boolean
 
@@ -160,26 +173,21 @@ Namespace DevCase.Core.IO.Tools
 
         End Function
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Determines whether whether the specified directory is a symbolic link.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <param name="dirPath">
         ''' The full directory path.
         ''' </param>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <returns>
         ''' <see langword="True"/> if the specified directory is a symbolic link; 
         ''' otherwise, <see langword="False"/>.
         ''' </returns>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <exception cref="DirectoryNotFoundException">
         ''' </exception>
         ''' 
         ''' <exception cref="Win32Exception">
         ''' </exception>
-        ''' ----------------------------------------------------------------------------------------------------
         <DebuggerStepThrough>
         Public Shared Function IsSymbolicLink(dirPath As String) As Boolean
 
@@ -187,37 +195,29 @@ Namespace DevCase.Core.IO.Tools
 
         End Function
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Gets the destination of the specified symbolic link.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <param name="directory">
         ''' The (symbolic link) directory.
         ''' </param>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <returns>
         ''' The destination of the specified symbolic link.
         ''' </returns>
-        ''' ----------------------------------------------------------------------------------------------------
         <DebuggerStepThrough>
         Public Shared Function GetSymbolicLinkDestination(directory As DirectoryInfo) As DirectoryInfo
             Return New DirectoryInfo(Directories.GetSymbolicLinkDestination(directory.FullName))
         End Function
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Gets the destination of the specified symbolic link.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <param name="dirPath">
         ''' The full path of a symbolic link that points to a directory.
         ''' </param>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <returns>
         ''' The destination of the specified symbolic link.
         ''' </returns>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <exception cref="DirectoryNotFoundException">
         ''' </exception>
         ''' 
@@ -227,7 +227,6 @@ Namespace DevCase.Core.IO.Tools
         ''' 
         ''' <exception cref="Win32Exception">
         ''' </exception>
-        ''' ----------------------------------------------------------------------------------------------------
         <DebuggerStepThrough>
         Public Shared Function GetSymbolicLinkDestination(dirPath As String) As String
 
@@ -279,20 +278,16 @@ Namespace DevCase.Core.IO.Tools
 
         End Function
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Determines whether whether the specified directory is a mount point.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <param name="directory">
         ''' The directory.
         ''' </param>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <returns>
         ''' <see langword="True"/> if the specified directory is a mount point; 
         ''' otherwise, <see langword="False"/>.
         ''' </returns>
-        ''' ----------------------------------------------------------------------------------------------------
         <DebuggerStepThrough>
         Public Shared Function IsMountPoint(directory As DirectoryInfo) As Boolean
 
@@ -300,26 +295,21 @@ Namespace DevCase.Core.IO.Tools
 
         End Function
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Determines whether whether the specified directory is a mount point.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <param name="dirPath">
         ''' The full directory path.
         ''' </param>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <returns>
         ''' <see langword="True"/> if the specified directory is a mount point; 
         ''' otherwise, <see langword="False"/>.
         ''' </returns>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <exception cref="DirectoryNotFoundException">
         ''' </exception>
         ''' 
         ''' <exception cref="Win32Exception">
         ''' </exception>
-        ''' ----------------------------------------------------------------------------------------------------
         <DebuggerStepThrough>
         Public Shared Function IsMountPoint(dirPath As String) As Boolean
 
@@ -331,28 +321,23 @@ Namespace DevCase.Core.IO.Tools
 
 #Region " Private Methods "
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Determines whether the specified reparse point (a directory) 
         ''' is of the specified reparse point tag type.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <param name="dirPath">
         ''' The full directory path.
         ''' </param>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <returns>
         ''' <see langword="True"/> if the specified reparse point (a directory) 
         ''' is of the specified reparse point tag type; 
         ''' otherwise, <see langword="False"/>.
         ''' </returns>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <exception cref="DirectoryNotFoundException">
         ''' </exception>
         ''' 
         ''' <exception cref="Win32Exception">
         ''' </exception>
-        ''' ----------------------------------------------------------------------------------------------------
         <DebuggerStepThrough>
         Private Shared Function IsReparsePointOf(dirPath As String, tag As ReparsePointTags) As Boolean
 

@@ -1,6 +1,7 @@
 ﻿Imports System.Resources
 Imports System
 Imports System.Reflection
+Imports System.Runtime.CompilerServices
 Imports System.Runtime.InteropServices
 
 ' General Information about an assembly is controlled through the following
@@ -13,7 +14,7 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyDescription("Create replicas of directories (including files) using dummy (zero-byte) files.")>
 <Assembly: AssemblyCompany("ElektroStudios")>
 <Assembly: AssemblyProduct("Dummy Drive Mirror Maker")>
-<Assembly: AssemblyCopyright("Copyright © ElektroStudios 2018-2025")>
+<Assembly: AssemblyCopyright("Copyright © ElektroStudios 2018-2026")>
 <Assembly: AssemblyTrademark("")>
 
 <Assembly: ComVisible(False)>
@@ -32,6 +33,9 @@ Imports System.Runtime.InteropServices
 ' by using the '*' as shown below:
 ' <Assembly: AssemblyVersion("1.0.*")>
 
-<Assembly: AssemblyVersion("1.3.0.0")>
-<Assembly: AssemblyFileVersion("1.3.0.0")>
+<Assembly: AssemblyVersion("1.4.0.0")>
+<Assembly: AssemblyFileVersion("1.4.0.0")>
 <Assembly: NeutralResourcesLanguage("en")>
+
+' Allows the unit test project to access the members declared as Friend.
+<Assembly: InternalsVisibleTo("Dummy Drive Mirror Maker.Tests")>

@@ -53,6 +53,18 @@ Namespace My
                 Return defaultInstance
             End Get
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("System")>  _
+        Public Property Theme() As String
+            Get
+                Return CType(Me("Theme"),String)
+            End Get
+            Set
+                Me("Theme") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

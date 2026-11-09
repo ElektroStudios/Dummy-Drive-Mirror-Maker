@@ -48,11 +48,9 @@ Imports DevCase.UserControls.Types.EventArgs
 
 Namespace DevCase.UserControls.Controls
 
-    ''' ----------------------------------------------------------------------------------------------------
     ''' <summary>
     ''' A extended <see cref="ProgressBar"/> control.
     ''' </summary>
-    ''' ----------------------------------------------------------------------------------------------------
     <DisplayName("ElektroProgressBar")>
     <Description("A extended ProgressBar control.")>
     <DesignTimeVisible(True)>
@@ -70,15 +68,12 @@ Namespace DevCase.UserControls.Controls
 
 #Region " Properties "
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Gets the required creation parameters when the control handle is created.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <value>
         ''' The creation parameters.
         ''' </value>
-        ''' ----------------------------------------------------------------------------------------------------
         <Browsable(False)>
         <EditorBrowsable(EditorBrowsableState.Advanced)>
         <Description("The required creation parameters when the control handle is created.")>
@@ -94,17 +89,14 @@ Namespace DevCase.UserControls.Controls
             End Get
         End Property
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Gets or sets a value indicating whether this control should redraw its surface using a secondary buffer 
         ''' to reduce or prevent flicker.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <value>
         ''' <see langword="True"/> if the surface of the control should be drawn using double buffering; 
         ''' otherwise, <see langword="False"/>.
         ''' </value>
-        ''' ----------------------------------------------------------------------------------------------------
         <Browsable(True)>
         <EditorBrowsable(EditorBrowsableState.Always)>
         <DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)>
@@ -122,7 +114,6 @@ Namespace DevCase.UserControls.Controls
             End Set
         End Property
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Gets or sets a value that indicates whether the control should avoid unwanted flickering effects.
         ''' <para></para>
@@ -132,11 +123,9 @@ Namespace DevCase.UserControls.Controls
         ''' This negative impact doesn't affect to the performance of the application itself, 
         ''' just to the performance of this control.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <value>
         ''' A value that indicates whether the control should avoid unwanted flickering effects.
         ''' </value>
-        ''' ----------------------------------------------------------------------------------------------------
         <Browsable(True)>
         <EditorBrowsable(EditorBrowsableState.Always)>
         <DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)>
@@ -152,23 +141,18 @@ Namespace DevCase.UserControls.Controls
                 Me.preventFlickeringB = value
             End Set
         End Property
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' ( Backing Field )
         ''' A value that indicates whether the control should avoid unwanted flickering effects.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         Private preventFlickeringB As Boolean
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Gets or sets the current value of the progress bar.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <value>
         ''' The current value of the progress bar.
         ''' </value>
-        ''' ----------------------------------------------------------------------------------------------------
         <Browsable(True)>
         <EditorBrowsable(EditorBrowsableState.Always)>
         <DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)>
@@ -193,15 +177,12 @@ Namespace DevCase.UserControls.Controls
             End Set
         End Property
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Gets the default size of the control.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <value>
         ''' The default size of the control.
         ''' </value>
-        ''' ----------------------------------------------------------------------------------------------------
         <Browsable(False)>
         <EditorBrowsable(EditorBrowsableState.Advanced)>
         Protected Overrides ReadOnly Property DefaultSize As Size
@@ -210,15 +191,12 @@ Namespace DevCase.UserControls.Controls
             End Get
         End Property
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Gets the current percentage of the progress bar.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <value>
         ''' The current percentage of the progress bar.
         ''' </value>
-        ''' ----------------------------------------------------------------------------------------------------
         <Browsable(False)>
         <EditorBrowsable(EditorBrowsableState.Always)>
         <DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)>
@@ -236,7 +214,6 @@ Namespace DevCase.UserControls.Controls
             End Get
         End Property
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Gets or sets the percentage format string that will be displayed on the control 
         ''' when its current state is <see cref="ProgressBarState.Normal"/>.
@@ -245,12 +222,10 @@ Namespace DevCase.UserControls.Controls
         ''' #total=Maximum Value 
         ''' #%=Current Percentage 
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <value>
         ''' The percentage format string that will be displayed in the control 
         ''' when its current state is <see cref="ProgressBarState.Normal"/>.
         ''' </value>
-        ''' ----------------------------------------------------------------------------------------------------
         <Browsable(True)>
         <EditorBrowsable(EditorBrowsableState.Always)>
         <DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)>
@@ -269,7 +244,6 @@ Namespace DevCase.UserControls.Controls
                 End If
             End Set
         End Property
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' ( Backing Field)
         ''' The percentage format string that will be displayed in the control 
@@ -279,10 +253,8 @@ Namespace DevCase.UserControls.Controls
         ''' #total=Maximum Value 
         ''' #%=Current Percentage 
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         Private formatStringB As String
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Gets or sets the percentage format string that will be displayed on the control 
         ''' when its current state is <see cref="ProgressBarState.Error"/>.
@@ -291,12 +263,10 @@ Namespace DevCase.UserControls.Controls
         ''' #total=Maximum Value 
         ''' #%=Current Percentage 
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <value>
         ''' The percentage format string that will be displayed in the control 
         ''' when its current state is <see cref="ProgressBarState.Error"/>.
         ''' </value>
-        ''' ----------------------------------------------------------------------------------------------------
         <Browsable(True)>
         <EditorBrowsable(EditorBrowsableState.Always)>
         <DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)>
@@ -315,7 +285,6 @@ Namespace DevCase.UserControls.Controls
                 End If
             End Set
         End Property
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' ( Backing Field)
         ''' The percentage format string that will be displayed in the control 
@@ -325,10 +294,8 @@ Namespace DevCase.UserControls.Controls
         ''' #total=Maximum Value 
         ''' #%=Current Percentage 
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         Private formatStringErrorB As String
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Gets or sets the percentage format string that will be displayed on the control 
         ''' when its current state is <see cref="ProgressBarState.Paused"/>.
@@ -337,12 +304,10 @@ Namespace DevCase.UserControls.Controls
         ''' #total=Maximum Value 
         ''' #%=Current Percentage 
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <value>
         ''' The percentage format string that will be displayed in the control 
         ''' when its current state is <see cref="ProgressBarState.Paused"/>.
         ''' </value>
-        ''' ----------------------------------------------------------------------------------------------------
         <Browsable(True)>
         <EditorBrowsable(EditorBrowsableState.Always)>
         <DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)>
@@ -361,7 +326,6 @@ Namespace DevCase.UserControls.Controls
                 End If
             End Set
         End Property
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' ( Backing Field)
         ''' The percentage format string that will be displayed in the control 
@@ -371,18 +335,14 @@ Namespace DevCase.UserControls.Controls
         ''' #total=Maximum Value 
         ''' #%=Current Percentage 
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         Private formatStringPausedB As String
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Gets or sets the <see cref="System.Drawing.Font"/> of the text displayed by the control.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <value>
         ''' The <see cref="System.Drawing.Font"/> of the text displayed by the control.
         ''' </value>
-        ''' ----------------------------------------------------------------------------------------------------
         <Browsable(True)>
         <EditorBrowsable(EditorBrowsableState.Always)>
         <DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)>
@@ -400,47 +360,37 @@ Namespace DevCase.UserControls.Controls
                 End If
             End Set
         End Property
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Sets the <see cref="ElektroProgressBar.Font"/> property to its default value.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <remarks>
         ''' <see href="http://msdn.microsoft.com/en-us/library/53b8022e(v=vs.110).aspx"/>
         ''' </remarks>
-        ''' ----------------------------------------------------------------------------------------------------
         Public Overrides Sub ResetFont()
             Me.Font = Nothing
         End Sub
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Checks whether the <see cref="ElektroProgressBar.Font"/> property has changed from its default value 
         ''' and write code into the Form only if the property is changed, thus allowing for more efficient code generation.
         ''' <para></para>
         ''' The designer writes code to the form only if <see langword="True"/> is returned.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <remarks>
         ''' <see href="http://msdn.microsoft.com/en-us/library/53b8022e(v=vs.110).aspx"/>
         ''' </remarks>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <returns>
         ''' Returns <see langword="True"/> if the font has changed; otherwise, returns <see langword="False"/>.
         ''' </returns>
-        ''' ----------------------------------------------------------------------------------------------------
         Private Function ShouldSerializeFont() As Boolean
             Return Not (Me.Font Is Control.DefaultFont)
         End Function
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Gets or sets the color of the text displayed by the control.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <value>
         ''' The color of the text displayed by the control.
         ''' </value>
-        ''' ----------------------------------------------------------------------------------------------------
         <Browsable(True)>
         <EditorBrowsable(EditorBrowsableState.Always)>
         <DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)>
@@ -460,15 +410,12 @@ Namespace DevCase.UserControls.Controls
             End Set
         End Property
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Gets or sets the state (and fill color) of the progress bar.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <value>
         ''' The state (and fill color) of the progress bar.
         ''' </value>
-        ''' ----------------------------------------------------------------------------------------------------
         <Browsable(True)>
         <EditorBrowsable(EditorBrowsableState.Always)>
         <DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)>
@@ -485,23 +432,18 @@ Namespace DevCase.UserControls.Controls
                 NativeMethods.SendMessage(Me.Handle, ProgressBarUIMessages.SetState, New IntPtr(Me.stateB), IntPtr.Zero)
             End Set
         End Property
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' ( Backing Field )
         ''' The state (and fill color) of the progress bar.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         Private stateB As ProgressBarState
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Gets or sets the border color of the control.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <value>
         ''' The border color of the control.
         ''' </value>
-        ''' ----------------------------------------------------------------------------------------------------
         <Browsable(True)>
         <EditorBrowsable(EditorBrowsableState.Always)>
         <DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)>
@@ -520,23 +462,153 @@ Namespace DevCase.UserControls.Controls
                 End If
             End Set
         End Property
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' ( Backing Field )
         ''' The border color of the control.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         Private borderColorB As Color
 
-        ''' ----------------------------------------------------------------------------------------------------
+        ''' <summary>
+        ''' Gets or sets the color of the text displayed by the control.
+        ''' <para></para>
+        ''' When this value is <see cref="Color.Empty"/>, the text is drawn using the <see cref="ElektroProgressBar.ForeColor"/>.
+        ''' </summary>
+        ''' <remarks>
+        ''' When visual styles are disabled (see <see cref="ElektroProgressBar.UseVisualStyles"/>),
+        ''' the <see cref="ElektroProgressBar.ForeColor"/> is also used by Windows as the color of the progress bar,
+        ''' so this property allows to draw the text in a different color than the bar.
+        ''' </remarks>
+        <Browsable(True)>
+        <EditorBrowsable(EditorBrowsableState.Always)>
+        <DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)>
+        <Localizable(False)>
+        <Category("(Extended) Appearance")>
+        <Description("The color of the text displayed by the control. When empty, the ForeColor is used.")>
+        <DefaultValue(GetType(Color), "")>
+        Public Overridable Property TextColor As Color
+            Get
+                Return Me.textColorB
+            End Get
+            Set(value As Color)
+                Me.textColorB = value
+                If MyBase.Visible Then
+                    MyBase.Invalidate(invalidateChildren:=False)
+                End If
+            End Set
+        End Property
+        Private textColorB As Color = Color.Empty
+
+        ''' <summary>
+        ''' Gets or sets the color of a 1 pixel outline drawn around the text, 
+        ''' which keeps the text readable over any bar color.
+        ''' <para></para>
+        ''' When this value is <see cref="Color.Empty"/>, no outline is drawn.
+        ''' </summary>
+        <Browsable(True)>
+        <EditorBrowsable(EditorBrowsableState.Always)>
+        <DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)>
+        <Localizable(False)>
+        <Category("(Extended) Appearance")>
+        <Description("The color of a 1 pixel outline drawn around the text. When empty, no outline is drawn.")>
+        <DefaultValue(GetType(Color), "")>
+        Public Overridable Property TextOutlineColor As Color
+            Get
+                Return Me.textOutlineColorB
+            End Get
+            Set(value As Color)
+                Me.textOutlineColorB = value
+                If MyBase.Visible Then
+                    MyBase.Invalidate(invalidateChildren:=False)
+                End If
+            End Set
+        End Property
+        Private textOutlineColorB As Color = Color.Empty
+
+        ''' <summary>
+        ''' Gets or sets the numeric format string used to display the <c>#current</c> and <c>#total</c> values 
+        ''' of the format strings (e.g. <c>N0</c> to display thousands separators).
+        ''' <para></para>
+        ''' When this value is <see langword="Nothing"/> or empty, the values are displayed without format.
+        ''' </summary>
+        <Browsable(True)>
+        <EditorBrowsable(EditorBrowsableState.Always)>
+        <DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)>
+        <Localizable(False)>
+        <Category("(Extended) Behavior")>
+        <Description("The numeric format string of the #current and #total values (e.g. N0). When empty, the values are displayed without format.")>
+        <DefaultValue(GetType(String), "")>
+        Public Overridable Property NumberFormat As String
+            Get
+                Return Me.numberFormatB
+            End Get
+            Set(value As String)
+                Me.numberFormatB = value
+                If MyBase.Visible Then
+                    MyBase.Invalidate(invalidateChildren:=False)
+                End If
+            End Set
+        End Property
+        Private numberFormatB As String = String.Empty
+
+        ''' <summary>
+        ''' Gets or sets the culture used to format the values displayed by the control.
+        ''' <para></para>
+        ''' When this value is <see langword="Nothing"/>, the <see cref="CultureInfo.CurrentCulture"/> is used.
+        ''' </summary>
+        <Browsable(False)>
+        <EditorBrowsable(EditorBrowsableState.Always)>
+        <DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)>
+        Public Overridable Property FormatCulture As CultureInfo
+            Get
+                Return Me.formatCultureB
+            End Get
+            Set(value As CultureInfo)
+                Me.formatCultureB = value
+                If MyBase.Visible Then
+                    MyBase.Invalidate(invalidateChildren:=False)
+                End If
+            End Set
+        End Property
+        Private formatCultureB As CultureInfo
+
+        ''' <summary>
+        ''' Gets or sets a value indicating whether the control is drawn using the visual styles of Windows.
+        ''' <para></para>
+        ''' When disabled, the control is drawn in the classic flat style,
+        ''' which respects the <see cref="ElektroProgressBar.BackColor"/> (background)
+        ''' and <see cref="ElektroProgressBar.ForeColor"/> (bar) colors. This is useful for dark themes.
+        ''' </summary>
+        <Browsable(True)>
+        <EditorBrowsable(EditorBrowsableState.Always)>
+        <DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)>
+        <Localizable(False)>
+        <Category("(Extended) Appearance")>
+        <Description("A value indicating whether the control is drawn using the visual styles of Windows.")>
+        <DefaultValue(GetType(Boolean), "True")>
+        Public Overridable Property UseVisualStyles As Boolean
+            Get
+                Return Me.useVisualStylesB
+            End Get
+            Set(value As Boolean)
+                If (value = Me.useVisualStylesB) Then
+                    Exit Property
+                End If
+
+                Me.useVisualStylesB = value
+                If MyBase.IsHandleCreated Then
+                    Me.ApplyVisualStyles()
+                    MyBase.Invalidate(invalidateChildren:=False)
+                End If
+            End Set
+        End Property
+        Private useVisualStylesB As Boolean = True
+
         ''' <summary>
         ''' Gets or sets a value indicating whether the border of the control is shown.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <value>
         ''' <see langword="True"/> if the border of the control is shown; otherwise <see langword="False"/>.
         ''' </value>
-        ''' ----------------------------------------------------------------------------------------------------
         <Browsable(True)>
         <EditorBrowsable(EditorBrowsableState.Always)>
         <DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)>
@@ -555,23 +627,19 @@ Namespace DevCase.UserControls.Controls
                 End If
             End Set
         End Property
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' ( Backing Field )
         ''' A value indicating whether the border of the control is shown.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         Private showBorderB As Boolean
 
 #End Region
 
 #Region " Events "
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Occurs when the progress bar value changes.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <example> This is a code example.
         ''' <code>
         ''' ''' ----------------------------------------------------------------------------------------------------
@@ -596,7 +664,6 @@ Namespace DevCase.UserControls.Controls
         ''' End Sub
         ''' </code>
         ''' </example>
-        ''' ----------------------------------------------------------------------------------------------------
         <Browsable(True)>
         <EditorBrowsable(EditorBrowsableState.Always)>
         <Localizable(True)>
@@ -622,9 +689,7 @@ Namespace DevCase.UserControls.Controls
                 Dim handler As EventHandler(Of ProgressBarValueChangedEventArgs) =
                 DirectCast(MyBase.Events("ValueChangedEvent"), EventHandler(Of ProgressBarValueChangedEventArgs))
 
-                If (handler IsNot Nothing) Then
-                    handler.Invoke(sender, e)
-                End If
+                handler?.Invoke(sender, e)
             End RaiseEvent
 
         End Event
@@ -633,11 +698,9 @@ Namespace DevCase.UserControls.Controls
 
 #Region " Constructors "
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Initializes a new instance of the <see cref="ElektroProgressBar"/> class.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         <DebuggerStepThrough>
         Public Sub New()
 
@@ -663,15 +726,24 @@ Namespace DevCase.UserControls.Controls
 
 #Region " Event Invocators "
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
-        ''' Raises <see cref="ElektroProgressBar.ValueChanged"/> event.
+        ''' Raises the <see cref="Control.HandleCreated"/> event.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <param name="e">
-        ''' The <see cref="ProgressBarValueChangedEventArgs"/> instance containing the event data.
+        ''' An <see cref="EventArgs"/> that contains the event data.
         ''' </param>
-        ''' ----------------------------------------------------------------------------------------------------
+        <DebuggerStepThrough>
+        Protected Overrides Sub OnHandleCreated(e As System.EventArgs)
+
+            MyBase.OnHandleCreated(e)
+
+            ' The visual styles are enabled by default for a new window.
+            If Not (Me.useVisualStylesB) Then
+                Me.ApplyVisualStyles()
+            End If
+
+        End Sub
+
         <DebuggerStepThrough>
         Protected Overridable Sub OnValueChanged(e As ProgressBarValueChangedEventArgs)
 
@@ -683,15 +755,12 @@ Namespace DevCase.UserControls.Controls
 
 #Region " Window Procedure (WndProc) "
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Invokes the default window procedure associated with this window to process windows UIMessages.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <param name="m">
         ''' A <see cref="Message"/> that is associated with the current Windows message.
         ''' </param>
-        ''' ----------------------------------------------------------------------------------------------------
         <DebuggerStepperBoundary>
         Protected Overrides Sub WndProc(ByRef m As Message)
 
@@ -714,15 +783,12 @@ Namespace DevCase.UserControls.Controls
 
 #Region " Public Methods "
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Advances the current position of the progress bar by the specified amount.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <param name="value">
         ''' The amount by which to increment the progress bar's current position.
         ''' </param>
-        ''' ----------------------------------------------------------------------------------------------------
         <DebuggerStepThrough>
         Public Overridable Shadows Sub Increment(value As Integer)
 
@@ -735,12 +801,10 @@ Namespace DevCase.UserControls.Controls
 
         End Sub
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Advances the current position of the progress bar by the amount of the 
         ''' <see cref="ElektroProgressBar.Step"/> property.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         <DebuggerStepThrough>
         Public Overridable Shadows Sub PerformStep()
 
@@ -753,20 +817,17 @@ Namespace DevCase.UserControls.Controls
 
         End Sub
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Returns a string representation for this <see cref="ElektroProgressBar"/>.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <returns>
         ''' A <see cref="String" /> that describes this control.
         ''' </returns>
-        ''' ----------------------------------------------------------------------------------------------------
         Public Overrides Function ToString() As String
 
             Dim sb As New StringBuilder()
             With sb
-                .Append([GetType]().FullName)
+                .Append(Me.[GetType]().FullName)
                 .Append(", Minimum: ")
                 .Append(MyBase.Minimum.ToString(CultureInfo.CurrentCulture))
                 .Append(", Maximum: ")
@@ -783,19 +844,23 @@ Namespace DevCase.UserControls.Controls
 
 #Region " Private Methods "
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Gets the percentage string that will be drawn inside the progress bar rectangle.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <returns>
         ''' The percentage string that will be drawn inside the progress bar rectangle.
         ''' </returns>
-        ''' ----------------------------------------------------------------------------------------------------
+        ''' <remarks>
+        ''' This member is declared as <see langword="Friend"/> to allow unit testing.
+        ''' <para></para>
+        ''' The tokens are replaced literally (instead of building a composite format string),
+        ''' so a format string containing curly braces (e.g. a file path or any user text)
+        ''' never throws a <see cref="FormatException"/> while painting the control.
+        ''' </remarks>
         <DebuggerStepperBoundary>
-        Private Function GetPercentageString() As String
+        Friend Function GetPercentageString() As String
 
-            Dim formatString As String = String.Empty
+            Dim formatString As String
             Select Case Me.stateB
 
                 Case ProgressBarState.Normal
@@ -809,47 +874,88 @@ Namespace DevCase.UserControls.Controls
 
             End Select
 
-            Dim format As String = formatString.Replace("#current", "{0}").
-                                                Replace("#total", "{1}").
-                                                Replace("#%", "{2}%")
+            If String.IsNullOrEmpty(formatString) Then
+                Return String.Empty
+            End If
 
-            Return String.Format(format, MyBase.Value, MyBase.Maximum, CInt(Me.Percentage))
+            Dim culture As CultureInfo = If(Me.formatCultureB, CultureInfo.CurrentCulture)
+            Dim numberFormat As String = If(String.IsNullOrEmpty(Me.numberFormatB), Nothing, Me.numberFormatB)
+
+            Return formatString.Replace("#current", MyBase.Value.ToString(numberFormat, culture)).
+                                Replace("#total", MyBase.Maximum.ToString(numberFormat, culture)).
+                                Replace("#%", $"{CInt(Me.Percentage).ToString(culture)}%")
 
         End Function
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Draws the text on the progress bar rectangle.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <param name="g">
         ''' The graphics surface.
         ''' </param>
-        ''' ----------------------------------------------------------------------------------------------------
         <DebuggerStepperBoundary>
         Private Sub DrawText(g As Graphics)
-            TextRenderer.DrawText(g, Me.GetPercentageString(), Me.Font, MyBase.ClientRectangle, Me.ForeColor)
+            Dim color As Color = If(Me.textColorB.IsEmpty, Me.ForeColor, Me.textColorB)
+            Dim text As String = Me.GetPercentageString()
+            Dim bounds As Rectangle = MyBase.ClientRectangle
+
+            ' Outline: the text drawn 1 pixel around its position, in the outline color.
+            If Not Me.textOutlineColorB.IsEmpty Then
+                For offsetX As Integer = -1 To 1
+                    For offsetY As Integer = -1 To 1
+                        If (offsetX <> 0) OrElse (offsetY <> 0) Then
+                            Dim outlineBounds As Rectangle = bounds
+                            outlineBounds.Offset(offsetX, offsetY)
+                            TextRenderer.DrawText(g, text, Me.Font, outlineBounds, Me.textOutlineColorB)
+                        End If
+                    Next offsetY
+                Next offsetX
+            End If
+
+            TextRenderer.DrawText(g, text, Me.Font, bounds, color)
         End Sub
 
-        ''' ----------------------------------------------------------------------------------------------------
+        ''' <summary>
+        ''' Enables or disables the visual styles of the control window,
+        ''' according to the <see cref="ElektroProgressBar.UseVisualStyles"/> property.
+        ''' </summary>
+        ''' <exception cref="Win32Exception">
+        ''' The native function failed.
+        ''' </exception>
+        <DebuggerStepperBoundary>
+        Private Sub ApplyVisualStyles()
+
+            ' Empty strings disable the visual styles; null strings restore the default visual styles.
+            Dim hResult As Integer =
+                If(Me.useVisualStylesB,
+                   NativeMethods.SetWindowTheme(MyBase.Handle, Nothing, Nothing),
+                   NativeMethods.SetWindowTheme(MyBase.Handle, String.Empty, String.Empty))
+
+            If (hResult <> 0) Then
+                Throw New Win32Exception(hResult)
+            End If
+
+            ' The bar and background colors are only respected by the classic (non-themed) style,
+            ' so they are sent again after the style change.
+            MyBase.ForeColor = Me.ForeColor
+            MyBase.BackColor = Me.BackColor
+
+        End Sub
+
         ''' <summary>
         ''' Draws a border on the control surface.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         <DebuggerStepperBoundary>
         Private Sub DrawBorder(g As Graphics)
             ControlPaint.DrawBorder(g, MyBase.ClientRectangle, Me.borderColorB, ButtonBorderStyle.Solid)
         End Sub
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Prepares the <see cref="WindowsMessages.WM_Paint"/> message.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <param name="m">
         ''' A <see cref="Message"/> that is associated with the current Windows message.
         ''' </param>
-        ''' ----------------------------------------------------------------------------------------------------
         <DebuggerStepperBoundary>
         Private Sub DoWmPaint(ByRef m As Message)
 
@@ -883,11 +989,9 @@ Namespace DevCase.UserControls.Controls
 
         End Sub
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Prepares the <see cref="WindowsMessages.WM_PrintClient"/> message.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <param name="m">
         ''' A <see cref="Message"/> that is associated with the current Windows message.
         ''' </param>

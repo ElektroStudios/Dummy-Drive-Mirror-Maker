@@ -48,11 +48,9 @@ Namespace DevCase.Core.IO.Tools
 
 #Region " Public Methods "
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Creates a symbolic link of the specified file.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <param name="srcFile">
         ''' The source file.
         ''' </param>
@@ -60,7 +58,6 @@ Namespace DevCase.Core.IO.Tools
         ''' <param name="dstDir">
         ''' The destination directory where to create the symbolic link.
         ''' </param>
-        ''' ----------------------------------------------------------------------------------------------------
         <DebuggerStepThrough>
         Public Shared Sub CreateSymbolicLink(srcFile As FileInfo, dstDir As DirectoryInfo)
 
@@ -68,11 +65,9 @@ Namespace DevCase.Core.IO.Tools
 
         End Sub
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Creates a symbolic link of the specified file.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <param name="srcFilePath">
         ''' The source file path.
         ''' </param>
@@ -80,7 +75,6 @@ Namespace DevCase.Core.IO.Tools
         ''' <param name="dstDirPath">
         ''' The destination directory path where to create the symbolic link.
         ''' </param>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <exception cref="FileNotFoundException">
         ''' </exception>
         ''' 
@@ -89,38 +83,63 @@ Namespace DevCase.Core.IO.Tools
         ''' 
         ''' <exception cref="Win32Exception">
         ''' </exception>
-        ''' ----------------------------------------------------------------------------------------------------
         <DebuggerStepThrough>
         Public Shared Sub CreateSymbolicLink(srcFilePath As String, dstDirPath As String)
 
-            Dim dstFile As New FileInfo(Path.Combine(dstDirPath, Path.GetFileName(srcFilePath)))
-            If (dstFile.Exists) Then
-                Throw New IOException(message:=String.Format("Destination file '{0}' already exists.", dstFile.FullName))
-            End If
-
-            Dim win32Err As Integer
-            Dim success As Boolean = NativeMethods.CreateSymbolicLink(dstFile.FullName, srcFilePath, SymbolicLinkFlags.File)
-            win32Err = Marshal.GetLastWin32Error()
-            If Not (success) Then
-                Throw New Win32Exception([error]:=win32Err)
-            End If
+            Dim linkPath As String = Path.Combine(dstDirPath, Path.GetFileName(srcFilePath))
+            Files.CreateSymbolicLinkAt(linkPath, srcFilePath)
 
         End Sub
 
-        ''' ----------------------------------------------------------------------------------------------------
+        ''' <summary>
+        ''' Creates a file symbolic link at the exact specified path, pointing to the specified target.
+        ''' <para></para>
+        ''' Unlike <see cref="Files.CreateSymbolicLink(String, String)"/>,
+        ''' the name of the link is not derived from the name of the target,
+        ''' so this method can be used to replicate an existing symbolic link that has a different name than its target.
+        ''' </summary>
+        ''' <example> This is a code example.
+        ''' <code language="VB.NET">
+        ''' Files.CreateSymbolicLinkAt("C:\Mirror\MyLink.txt", "D:\Real Target File.txt")
+        ''' </code>
+        ''' </example>
+        ''' <param name="linkPath">
+        ''' The full path of the symbolic link to create.
+        ''' </param>
+        '''
+        ''' <param name="targetPath">
+        ''' The target file path that the symbolic link will point to.
+        ''' <para></para>
+        ''' It can be an absolute or a relative path, and the target does not need to exist.
+        ''' </param>
+        ''' <exception cref="ArgumentNullException">
+        ''' <paramref name="linkPath"/> or <paramref name="targetPath"/> is null, empty or white-spaced.
+        ''' </exception>
+        '''
+        ''' <exception cref="IOException">
+        ''' A file or directory already exists at <paramref name="linkPath"/>.
+        ''' </exception>
+        '''
+        ''' <exception cref="Win32Exception">
+        ''' The native function failed (e.g. the user does not have the required privilege to create symbolic links).
+        ''' </exception>
+        <DebuggerStepThrough>
+        Public Shared Sub CreateSymbolicLinkAt(linkPath As String, targetPath As String)
+
+            SymbolicLinkHelper.CreateSymbolicLink(linkPath, targetPath, SymbolicLinkFlags.File)
+
+        End Sub
+
         ''' <summary>
         ''' Determines whether whether the specified file is a symbolic link.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <param name="file">
         ''' The file.
         ''' </param>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <returns>
         ''' <see langword="True"/> if the specified file is a symbolic link; 
         ''' otherwise, <see langword="False"/>.
         ''' </returns>
-        ''' ----------------------------------------------------------------------------------------------------
         <DebuggerStepThrough>
         Public Shared Function IsSymbolicLink(file As FileInfo) As Boolean
 
@@ -128,26 +147,21 @@ Namespace DevCase.Core.IO.Tools
 
         End Function
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Determines whether whether the specified file is a symbolic link.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <param name="filePath">
         ''' The full file path.
         ''' </param>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <returns>
         ''' <see langword="True"/> if the specified file is a symbolic link; 
         ''' otherwise, <see langword="False"/>.
         ''' </returns>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <exception cref="FileNotFoundException">
         ''' </exception>
         ''' 
         ''' <exception cref="Win32Exception">
         ''' </exception>
-        ''' ----------------------------------------------------------------------------------------------------
         <DebuggerStepThrough>
         Public Shared Function IsSymbolicLink(filePath As String) As Boolean
 
@@ -155,19 +169,15 @@ Namespace DevCase.Core.IO.Tools
 
         End Function
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Gets the destination of the specified symbolic link.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <param name="file">
         ''' The (symbolic link) file.
         ''' </param>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <returns>
         ''' The destination of the specified symbolic link.
         ''' </returns>
-        ''' ----------------------------------------------------------------------------------------------------
         <DebuggerStepThrough>
         Public Shared Function GetSymbolicLinkDestination(file As FileInfo) As FileInfo
 
@@ -175,19 +185,15 @@ Namespace DevCase.Core.IO.Tools
 
         End Function
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Gets the destination of the specified symbolic link.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <param name="filePath">
         ''' The full path of a symbolic link that points to a file.
         ''' </param>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <returns>
         ''' The destination of the specified symbolic link.
         ''' </returns>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <exception cref="FileNotFoundException">
         ''' </exception>
         ''' 
@@ -197,7 +203,6 @@ Namespace DevCase.Core.IO.Tools
         ''' 
         ''' <exception cref="Win32Exception">
         ''' </exception>
-        ''' ----------------------------------------------------------------------------------------------------
         <DebuggerStepThrough>
         Public Shared Function GetSymbolicLinkDestination(filePath As String) As String
 
@@ -253,28 +258,23 @@ Namespace DevCase.Core.IO.Tools
 
 #Region " Private Methods "
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Determines whether the specified reparse point (a file) 
         ''' is of the specified reparse point tag type.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <param name="filePath">
         ''' The full file path.
         ''' </param>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <returns>
         ''' <see langword="True"/> if the specified reparse point (a file) 
         ''' is of the specified reparse point tag type; 
         ''' otherwise, <see langword="False"/>.
         ''' </returns>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <exception cref="FileNotFoundException">
         ''' </exception>
         ''' 
         ''' <exception cref="Win32Exception">
         ''' </exception>
-        ''' ----------------------------------------------------------------------------------------------------
         <DebuggerStepThrough>
         Private Shared Function IsReparsePointOf(filePath As String, tag As ReparsePointTags) As Boolean
 
