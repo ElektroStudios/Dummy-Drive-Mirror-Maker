@@ -82,6 +82,9 @@ Managing data structure visibility across multiple environments often involves m
 
 ## 🎦 Videos
 
+> [!WARNING]
+> Note: The video was recorded using an older version of the software.
+
 [DDMM Demo Video](https://github.com/user-attachments/assets/746b7a4a-789e-418b-8eb8-088a9700ed45)
 
 ## 📝 Requirements
