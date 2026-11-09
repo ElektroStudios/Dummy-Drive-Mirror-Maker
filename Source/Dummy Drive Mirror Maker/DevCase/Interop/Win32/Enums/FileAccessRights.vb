@@ -30,15 +30,12 @@
 
 Namespace DevCase.Interop.Win32.Enums
 
-    ''' ----------------------------------------------------------------------------------------------------
     ''' <summary>
     ''' Specifies file-specific access rights.
     ''' </summary>
-    ''' ----------------------------------------------------------------------------------------------------
     ''' <remarks>
     ''' <see href="https://msdn.microsoft.com/en-us/library/windows/desktop/gg258116(v=vs.85).aspx"/>
     ''' </remarks>
-    ''' ----------------------------------------------------------------------------------------------------
     <Flags>
     Public Enum FileAccessRights As UInteger
 

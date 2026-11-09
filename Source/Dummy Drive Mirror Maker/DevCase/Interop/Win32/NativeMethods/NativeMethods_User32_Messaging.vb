@@ -43,18 +43,15 @@ Namespace DevCase.Interop.Win32
 
 #Region " User32.dll "
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Sends the specified message to a <see cref="ProgressBar"/> control.
         ''' <para></para>
         ''' The SendMessage function calls the window procedure for the specified window
         ''' and does not return until the window procedure has processed the message.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <remarks>
         ''' <see href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms644950%28v=vs.85%29.aspx"/>
         ''' </remarks>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <param name="hwnd">
         ''' A handle to the window whose window procedure will receive the message.
         ''' </param>
@@ -70,11 +67,9 @@ Namespace DevCase.Interop.Win32
         ''' <param name="lParam">
         ''' Additional message-specific information.
         ''' </param>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <returns>
         ''' The return value specifies the result of the message processing; it depends on the message sent.
         ''' </returns>
-        ''' ----------------------------------------------------------------------------------------------------
         <SuppressMessage("Microsoft.Interoperability", "CA1401:PInvokesShouldNotBeVisible", Justification:="Visible for API")>
         <DllImport("User32.dll", SetLastError:=True)>
         Public Shared Function SendMessage(hwnd As IntPtr,

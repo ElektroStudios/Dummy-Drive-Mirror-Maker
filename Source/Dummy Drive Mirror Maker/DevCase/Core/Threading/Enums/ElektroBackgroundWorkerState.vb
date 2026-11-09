@@ -36,11 +36,9 @@ Imports DevCase.Core.Threading.Types
 
 Namespace DevCase.Core.Threading.Enums
 
-    ''' ----------------------------------------------------------------------------------------------------
     ''' <summary>
     ''' Specifies the state of a <see cref="ElektroBackgroundWorker"/>.
     ''' </summary>
-    ''' ----------------------------------------------------------------------------------------------------
     Public Enum ElektroBackgroundWorkerState As Integer
 
         ''' <summary>

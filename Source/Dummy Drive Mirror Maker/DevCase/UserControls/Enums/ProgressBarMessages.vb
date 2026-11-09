@@ -30,7 +30,6 @@
 
 Namespace DevCase.Interop.Win32.Enums
 
-    ''' ----------------------------------------------------------------------------------------------------
     ''' <summary>
     ''' The system sends or posts a system-defined message when it communicates with an application. 
     ''' <para></para>
@@ -40,13 +39,11 @@ Namespace DevCase.Interop.Win32.Enums
     ''' <para></para>
     ''' Applications generally use these UIMessages to control the operation of control windows created by using preregistered window classes.
     ''' </summary>
-    ''' ----------------------------------------------------------------------------------------------------
     ''' <remarks>
     ''' <see href="http://msdn.microsoft.com/en-us/library/windows/desktop/ff485990(v=vs.85).aspx"/>
     ''' <para></para>
     ''' The definitions can be found in the Windows SDK file: WinUser.h
     ''' </remarks>
-    ''' ----------------------------------------------------------------------------------------------------
     Public Enum ProgressBarUIMessages As Integer
 
         ' *****************************************************************************
@@ -63,7 +60,6 @@ Namespace DevCase.Interop.Win32.Enums
         ''' </summary>
         Null = &H0
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Sets the state of the progress bar.
         ''' <para></para>
@@ -75,11 +71,9 @@ Namespace DevCase.Interop.Win32.Enums
         ''' <c>lParam</c> 
         ''' Must be zero.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <remarks>
         ''' <see href="http://msdn.microsoft.com/en-us/library/windows/desktop/bb760850(v=vs.85).aspx"/>
         ''' </remarks>
-        ''' ----------------------------------------------------------------------------------------------------
         SetState = 1040
 
     End Enum

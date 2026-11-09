@@ -30,17 +30,14 @@
 
 Namespace DevCase.Interop.Win32.Enums
 
-    ''' ----------------------------------------------------------------------------------------------------
     ''' <summary>
     ''' The window sizing and positioning flags.
     ''' <para></para>
     ''' Flags combination for <c>uFlags</c> parameter of <see cref="NativeMethods.SetWindowPos"/> function.
     ''' </summary>
-    ''' ----------------------------------------------------------------------------------------------------
     ''' <remarks>
     ''' <see href="http://msdn.microsoft.com/es-es/library/windows/desktop/ms633545%28v=vs.85%29.aspx"/>
     ''' </remarks>
-    ''' ----------------------------------------------------------------------------------------------------
     <Flags>
     Public Enum SetWindowPosFlags As UInteger
 

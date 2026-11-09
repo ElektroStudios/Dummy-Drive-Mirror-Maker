@@ -36,17 +36,14 @@ Imports System.Runtime.InteropServices
 
 Namespace DevCase.Interop.Win32.Types
 
-    ''' ----------------------------------------------------------------------------------------------------
     ''' <summary>
     ''' Contains basic information about a physical font. 
     ''' <para></para>
     ''' All sizes are specified in logical units; that is, they depend on the current mapping mode of the display context.
     ''' </summary>
-    ''' ----------------------------------------------------------------------------------------------------
     ''' <remarks>
     ''' <see href="http://msdn.microsoft.com/es-es/library/windows/desktop/dd145132(v=vs.85).aspx"/>
     ''' </remarks>
-    ''' ----------------------------------------------------------------------------------------------------
     <DebuggerStepThrough>
     <StructLayout(LayoutKind.Sequential, CharSet:=CharSet.Unicode)>
     Public Structure TextMetricW

@@ -30,20 +30,16 @@
 
 Namespace DevCase.Core.IO.Tools
 
-    ''' ----------------------------------------------------------------------------------------------------
     ''' <summary>
     ''' Contains file related utilities.
     ''' </summary>
-    ''' ----------------------------------------------------------------------------------------------------
     Public NotInheritable Class Files
 
 #Region " Constructors "
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Prevents a default instance of the <see cref="Files"/> class from being created.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         <DebuggerNonUserCode>
         Private Sub New()
         End Sub

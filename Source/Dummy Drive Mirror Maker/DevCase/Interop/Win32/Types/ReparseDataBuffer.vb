@@ -38,11 +38,9 @@ Imports DevCase.Interop.Win32.Enums
 
 Namespace DevCase.Interop.Win32.Types
 
-    ''' ----------------------------------------------------------------------------------------------------
     ''' <summary>
     ''' Contains reparse point data for a Microsoft reparse point. 
     ''' </summary>
-    ''' ----------------------------------------------------------------------------------------------------
     ''' <remarks>
     ''' Reparse points: <see href="https://msdn.microsoft.com/es-es/library/windows/desktop/aa365503%28v=vs.85%29.aspx"/>
     ''' <para></para>
@@ -55,27 +53,21 @@ Namespace DevCase.Interop.Win32.Types
     ''' <see href="http://troyparsons.com/blog/2012/03/symbolic-links-in-c-sharp/"/> and 
     ''' <see href="http://www.pinvoke.net/default.aspx/Structures.REPARSE_DATA_BUFFER"/>
     ''' </remarks>
-    ''' ----------------------------------------------------------------------------------------------------
     <DebuggerStepThrough>
     <StructLayout(LayoutKind.Sequential)>
     Public Structure ReparseDataBuffer
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Reparse point tag. Must be a Microsoft reparse point tag.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         <MarshalAs(UnmanagedType.U4)>
         Public ReparseTag As ReparsePointTags
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Size, in bytes, of the reparse data in the <see cref="ReparseDataBuffer.Buffer"/> member.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         Public ReparseDataLength As UShort
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Length, in bytes, of the unparsed portion of the file name pointed to by the 
         ''' FileName member of the associated file object. 
@@ -84,20 +76,16 @@ Namespace DevCase.Interop.Win32.Types
         ''' For all other purposes, such as setting or querying a reparse point for the reparse data, 
         ''' this member is treated as reserved.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         Public Reserved As UShort
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' The offset, in bytes, from the beginning of the <see cref="ReparseDataBuffer.Buffer"/> member, 
         ''' at which the substitute name is located. 
         ''' <para></para>
         ''' The substitute name is the name the client MUST use to access this file if it requires to follow the symbolic link.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         Public SubstituteNameOffset As UShort
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' The length, in bytes, of the substitute name string. 
         ''' <para></para>
@@ -106,20 +94,16 @@ Namespace DevCase.Interop.Win32.Types
         ''' <para></para>
         ''' This value MUST be greater than or equal to 0.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         Public SubstituteNameLength As UShort
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' The offset, in bytes, from the beginning of the PathBuffer field, at which the print name is located. 
         ''' <para></para>
         ''' The print name is the user-friendly name the client MUST return to the 
         ''' application if it requests the name of the symbolic link destination
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         Public PrintNameOffset As UShort
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' The length, in bytes, of the print name string. 
         ''' <para></para>
@@ -128,18 +112,14 @@ Namespace DevCase.Interop.Win32.Types
         ''' <para></para>
         ''' This value MUST be greater than or equal to 0.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         Public PrintNameLength As UShort
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Flags that pecifies whether the substitute is an absolute destination path name or 
         ''' a path name relative to the directory containing the symbolic link.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         Public Flags As ReparseDataBufferFlags
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' A buffer that contains the Unicode strings for the substitute name and the print name, as described by 
         ''' <see cref="ReparseDataBuffer.SubstituteNameOffset"/>, 
@@ -152,7 +132,6 @@ Namespace DevCase.Interop.Win32.Types
         ''' The print name string MUST be a Unicode string, suitable for display to a user, 
         ''' that also identifies the destination of the symbolic link.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         <MarshalAs(UnmanagedType.ByValArray, SizeConst:=&H3FF0)> ' MaxUnicodePathLength
         Public Buffer() As Byte
 

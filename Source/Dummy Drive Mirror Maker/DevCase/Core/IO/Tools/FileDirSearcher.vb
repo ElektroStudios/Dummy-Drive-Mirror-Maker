@@ -42,11 +42,9 @@ Namespace DevCase.Core.IO.Tools
 
 #Region " Constructors "
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Prevents a default instance of the <see cref="FileDirSearcher"/> class from being created.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         <DebuggerNonUserCode>
         Private Sub New()
         End Sub
@@ -55,11 +53,9 @@ Namespace DevCase.Core.IO.Tools
 
 #Region " Public Methods "
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Gets the files those matches the criteria inside the specified directory and/or sub-directories.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <param name="dirPath">
         ''' The root directory path to search for files.
         ''' </param>
@@ -83,14 +79,11 @@ Namespace DevCase.Core.IO.Tools
         ''' <param name="throwOnError">
         ''' If set to <see langword="True"/>, exceptions will be thrown, like access denied to file or directory.
         ''' </param>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <returns>
         ''' An <see cref="IEnumerable(Of FileInfo)"/> instance containing the files information.
         ''' </returns>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <exception cref="ArgumentException">dirPath or searchOption
         ''' </exception>
-        ''' ----------------------------------------------------------------------------------------------------
         <DebuggerStepThrough>
         Friend Shared Function GetFiles(dirPath As String,
 searchOption As SearchOption,
@@ -112,11 +105,9 @@ searchOption As SearchOption,
 
         End Function
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Gets the filepaths those matches the criteria inside the specified directory and/or sub-directories.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <param name="dirPath">
         ''' The root directory path to search for files.
         ''' </param>
@@ -140,14 +131,11 @@ searchOption As SearchOption,
         ''' <param name="throwOnError">
         ''' If set to <see langword="True"/>, exceptions will be thrown, like access denied to file or directory.
         ''' </param>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <returns>
         ''' An <see cref="IEnumerable(Of String)"/> instance containing the filepaths.
         ''' </returns>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <exception cref="ArgumentException">dirPath or searchOption
         ''' </exception>
-        ''' ----------------------------------------------------------------------------------------------------
         <DebuggerStepThrough>
         Friend Shared Function GetFilePaths(dirPath As String,
 searchOption As SearchOption,
@@ -169,11 +157,9 @@ searchOption As SearchOption,
 
         End Function
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Gets the directories those matches the criteria inside the specified directory and/or sub-directories.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <param name="dirPath">
         ''' The root directory path to search for directories.
         ''' </param>
@@ -197,14 +183,11 @@ searchOption As SearchOption,
         ''' <param name="throwOnError">
         ''' If set to <see langword="True"/>, exceptions will be thrown, like access denied to directory.
         ''' </param>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <returns>
         ''' An <see cref="IEnumerable(Of DirectoryInfo)"/> instance containing the dirrectories information.
         ''' </returns>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <exception cref="ArgumentException">dirPath or searchOption
         ''' </exception>
-        ''' ----------------------------------------------------------------------------------------------------
         <DebuggerStepThrough>
         Friend Shared Function GetDirs(dirPath As String,
 searchOption As SearchOption,
@@ -226,11 +209,9 @@ searchOption As SearchOption,
 
         End Function
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Gets the filepaths those matches the criteria inside the specified directory and/or sub-directories.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <param name="dirPath">
         ''' The root directory path to search for directories.
         ''' </param>
@@ -254,14 +235,11 @@ searchOption As SearchOption,
         ''' <param name="throwOnError">
         ''' If set to <see langword="True"/>, exceptions will be thrown, like access denied to directory.
         ''' </param>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <returns>
         ''' An <see cref="IEnumerable(Of String)"/> instance containing the directory paths.
         ''' </returns>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <exception cref="ArgumentException">dirPath or searchOption
         ''' </exception>
-        ''' ----------------------------------------------------------------------------------------------------
         <DebuggerStepThrough>
         Friend Shared Function GetDirPaths(dirPath As String,
 searchOption As SearchOption,
@@ -287,18 +265,14 @@ searchOption As SearchOption,
 
 #Region " Private Methods "
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Analyzes a directory path and perform specific changes on it.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <param name="refDirPath">
         ''' The directory path.
         ''' </param>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <exception cref="ArgumentNullException">dirPath;Value is null, empty, or white-spaced.
         ''' </exception>
-        ''' ----------------------------------------------------------------------------------------------------
         <DebuggerStepThrough>
         Private Shared Sub AnalyzePath(ByRef refDirPath As String)
 
@@ -325,11 +299,9 @@ searchOption As SearchOption,
 
         End Sub
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Analyzes the specified directory values.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <param name="dirPath">
         ''' The root directory path to search for files.
         ''' </param>
@@ -337,10 +309,8 @@ searchOption As SearchOption,
         ''' <param name="searchOption">
         ''' The searching mode.
         ''' </param>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <exception cref="ArgumentException">dirPath or searchOption
         ''' </exception>
-        ''' ----------------------------------------------------------------------------------------------------
         <DebuggerStepThrough>
         Private Shared Sub AnalyzeArgs(dirPath As String, searchOption As SearchOption)
 
@@ -354,11 +324,9 @@ searchOption As SearchOption,
 
         End Sub
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Tries to instance the by-reference <see cref="DirectoryInfo"/> object using the given directory path.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <param name="dirPath">
         ''' The directory path used to instance the by-reference <see cref="DirectoryInfo"/> object.
         ''' </param>
@@ -370,7 +338,6 @@ searchOption As SearchOption,
         ''' <param name="throwOnError">
         ''' If set to <see langword="True"/>, exceptions will be thrown, like access denied to directory.
         ''' </param>
-        ''' ----------------------------------------------------------------------------------------------------
         <DebuggerStepThrough>
         Private Shared Sub SetupDirInfoObject(dirPath As String,
                                               ByRef refDirInfo As DirectoryInfo,
@@ -400,11 +367,9 @@ throwOnError As Boolean)
 
         End Sub
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Tries to instance the by-reference <paramref name="refCol"/> object using the given directory path.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <typeparam name="A">
         ''' The type of the <paramref name="refCol"/> object used to cast and fill the by-reference collection.
         ''' </typeparam>
@@ -432,7 +397,6 @@ throwOnError As Boolean)
         ''' <param name="throwOnError">
         ''' If set to <see langword="True"/>, exceptions will be thrown, like access denied to file or directory.
         ''' </param>
-        ''' ----------------------------------------------------------------------------------------------------
         <DebuggerStepThrough>
         Private Shared Sub SetupFileDirCollection(Of A)(objectAction As Func(Of String, SearchOption,
                                                                                               IEnumerable(Of A)),
@@ -475,11 +439,9 @@ throwOnError As Boolean)
 
         End Sub
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Determines whether at least one of the specified patterns matches the given value.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <param name="value">
         ''' The value, which can be a filename, file extension, direcrory path, or directory name.
         ''' </param>
@@ -491,11 +453,9 @@ throwOnError As Boolean)
         ''' <param name="ignoreCase">
         ''' If set to <see langword="True"/>, compares ignoring string-case rules.
         ''' </param>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <returns>
         ''' <see langword="True"/> at least one of the specified patterns matches the given value; <see langword="False"/> otherwise.
         ''' </returns>
-        ''' ----------------------------------------------------------------------------------------------------
         <DebuggerStepThrough>
         Private Shared Function IsMatchPattern(value As String,
 patterns As IEnumerable(Of String),
@@ -526,11 +486,9 @@ ignoreCase As Boolean) As Boolean
 
         End Function
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Runs the next collector tasks synchronouslly.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <typeparam name="T"></typeparam>
         ''' <param name="action">
         ''' The collector method to invoke.
@@ -559,7 +517,6 @@ ignoreCase As Boolean) As Boolean
         ''' <param name="throwOnError">
         ''' If set to <see langword="True"/>, exceptions will be thrown, like access denied to file or directory.
         ''' </param>
-        ''' ----------------------------------------------------------------------------------------------------
         <DebuggerStepThrough>
         Private Shared Sub RunNextTasks(Of T)(action As Action(Of ConcurrentQueue(Of T),
                                                                      String,
@@ -606,11 +563,9 @@ throwOnError As Boolean)
 
         End Sub
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Collects the files those matches the criteria inside the specified directory and/or sub-directories.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <param name="queue">
         ''' The <see cref="ConcurrentQueue(Of FileInfo)"/> instance to enqueue new files.
         ''' </param>
@@ -638,7 +593,6 @@ throwOnError As Boolean)
         ''' <param name="throwOnError">
         ''' If set to <see langword="True"/>, exceptions will be thrown, like access denied to file or directory.
         ''' </param>
-        ''' ----------------------------------------------------------------------------------------------------
         <DebuggerStepThrough>
         Private Shared Sub CollectFiles(queue As ConcurrentQueue(Of FileInfo),
 dirPath As String,
@@ -704,11 +658,9 @@ throwOnError As Boolean)
 
         End Sub
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Collects the filepaths those matches the criteria inside the specified directory and/or sub-directories.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <param name="queue">
         ''' The <see cref="ConcurrentQueue(Of String)"/> instance to enqueue new filepaths.
         ''' </param>
@@ -736,7 +688,6 @@ throwOnError As Boolean)
         ''' <param name="throwOnError">
         ''' If set to <see langword="True"/>, exceptions will be thrown, like access denied to file or directory.
         ''' </param>
-        ''' ----------------------------------------------------------------------------------------------------
         <DebuggerStepThrough>
         Private Shared Sub CollectFilePaths(queue As ConcurrentQueue(Of String),
 dirPath As String,
@@ -798,11 +749,9 @@ throwOnError As Boolean)
 
         End Sub
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Collects the directories those matches the criteria inside the specified directory and/or sub-directories.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <param name="queue">
         ''' The <see cref="ConcurrentQueue(Of DirectoryInfo)"/> instance to enqueue new directories.
         ''' </param>
@@ -830,7 +779,6 @@ throwOnError As Boolean)
         ''' <param name="throwOnError">
         ''' If set to <see langword="True"/>, exceptions will be thrown, like access denied to directory.
         ''' </param>
-        ''' ----------------------------------------------------------------------------------------------------
         <DebuggerStepThrough>
         Private Shared Sub CollectDirs(queue As ConcurrentQueue(Of DirectoryInfo),
 dirPath As String,
@@ -890,11 +838,9 @@ throwOnError As Boolean)
 
         End Sub
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Collects the directory paths those matches the criteria inside the specified directory and/or sub-directories.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <param name="queue">
         ''' The <see cref="ConcurrentQueue(Of String)"/> instance to enqueue new directory paths.
         ''' </param>
@@ -922,7 +868,6 @@ throwOnError As Boolean)
         ''' <param name="throwOnError">
         ''' If set to <see langword="True"/>, exceptions will be thrown, like access denied to directory.
         ''' </param>
-        ''' ----------------------------------------------------------------------------------------------------
         <DebuggerStepThrough>
         Private Shared Sub CollectDirPaths(queue As ConcurrentQueue(Of String),
 dirPath As String,

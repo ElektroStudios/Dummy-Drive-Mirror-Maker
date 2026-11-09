@@ -30,15 +30,12 @@
 
 Namespace DevCase.Interop.Win32.Enums
 
-    ''' ----------------------------------------------------------------------------------------------------
     ''' <summary>
     ''' Extended window styles.
     ''' </summary>
-    ''' ----------------------------------------------------------------------------------------------------
     ''' <remarks>
     ''' <see href="http://msdn.microsoft.com/es-es/library/windows/desktop/ff700543%28v=vs.85%29.aspx"/>
     ''' </remarks>
-    ''' ----------------------------------------------------------------------------------------------------
     <Flags>
     Public Enum WindowStylesEx As UInteger
 

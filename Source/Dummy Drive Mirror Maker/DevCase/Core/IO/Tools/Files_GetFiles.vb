@@ -40,11 +40,9 @@ Namespace DevCase.Core.IO.Tools
 
 #Region " Public Methods "
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Gets the files those matches the criteria inside the specified directory and/or sub-directories.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <example> This is a code example.
         ''' <code>
         ''' Dim files As List(Of FileInfo) =
@@ -59,7 +57,6 @@ Namespace DevCase.Core.IO.Tools
         '''              throwOnError:=True)
         ''' </code>
         ''' </example>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <param name="dir">
         ''' The root directory path to search for files.
         ''' </param>
@@ -83,14 +80,11 @@ Namespace DevCase.Core.IO.Tools
         ''' <param name="throwOnError">
         ''' If set to <see langword="True"/>, exceptions will be thrown, like access denied to file or directory.
         ''' </param>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <returns>
         ''' An <see cref="IEnumerable(Of FileInfo)"/> instance containing the files information.
         ''' </returns>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <exception cref="Global.System.ArgumentException">dirPath or searchOption
         ''' </exception>
-        ''' ----------------------------------------------------------------------------------------------------
         <DebuggerStepThrough>
         Public Shared Function GetFiles(dir As DirectoryInfo,
 searchOption As SearchOption,

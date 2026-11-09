@@ -42,26 +42,20 @@ Imports DevCase.UserControls.Controls
 
 Namespace DevCase.UserControls.Types.Designers
 
-    ''' ----------------------------------------------------------------------------------------------------
     ''' <summary>
     ''' Provides design-time support for the <see cref="ElektroProgressBar"/> control.
     ''' </summary>
-    ''' ----------------------------------------------------------------------------------------------------
     ''' <seealso cref="ControlDesigner"/>
-    ''' ----------------------------------------------------------------------------------------------------
     Friend NotInheritable Class ElektroProgressBarDesigner : Inherits ControlDesigner
 
 #Region " Properties "
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Gets a list of <see cref="SnapLine"/> objects representing significant alignment points for this control.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <value>
         ''' The snap lines.
         ''' </value>
-        ''' ----------------------------------------------------------------------------------------------------
         Public Overrides ReadOnly Property SnapLines As IList
             Get
                 ' Get the SnapLines collection from the base class
@@ -81,11 +75,9 @@ Namespace DevCase.UserControls.Types.Designers
 
 #Region " Constructors "
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Initializes a new instance of the <see cref="ElektroProgressBarDesigner"/> class.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         Public Sub New()
         End Sub
 
@@ -93,11 +85,9 @@ Namespace DevCase.UserControls.Types.Designers
 
 #Region " Private Methods "
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Gets the baseline.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <param name="ctrl">
         ''' The control.
         ''' </param>
@@ -105,11 +95,9 @@ Namespace DevCase.UserControls.Types.Designers
         ''' <param name="alignment">
         ''' The alignment.
         ''' </param>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <returns>
         ''' The resulting baseline.
         ''' </returns>
-        ''' ----------------------------------------------------------------------------------------------------
         Private Shared Function GetBaseline(ctrl As Control, alignment As ContentAlignment) As Integer
 
             Dim textAscent As Integer = 0
@@ -170,11 +158,9 @@ Namespace DevCase.UserControls.Types.Designers
             Return CInt(Math.Round(CDbl(clientRect.Top) + CDbl(clientRect.Height) / 2 - CDbl(textHeight) / 2 + CDbl(textAscent)))
         End Function
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Fills the specified buffer with the metrics for the currently selected font.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <param name="hdc">
         ''' The device context handle.
         ''' </param>
@@ -182,13 +168,11 @@ Namespace DevCase.UserControls.Types.Designers
         ''' <param name="refMetricUnicode">
         ''' A <see cref="TextMetricW"/> (Unicode) structure.
         ''' </param>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <returns>
         ''' If the function succeeds, the return value is <see langword="True"/>.
         ''' <para></para>
         ''' If the function fails, the return value is <see langword="False"/>.
         ''' </returns>
-        ''' ----------------------------------------------------------------------------------------------------
         Private Shared Function GetTextMetrics(hdc As HandleRef, ByRef refMetricUnicode As TextMetricW) As Boolean
 
             If Marshal.SystemDefaultCharSize <> 1 Then

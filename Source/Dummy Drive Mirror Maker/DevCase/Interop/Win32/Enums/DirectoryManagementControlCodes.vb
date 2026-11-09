@@ -30,15 +30,12 @@
 
 Namespace DevCase.Interop.Win32.Enums
 
-    ''' ----------------------------------------------------------------------------------------------------
     ''' <summary>
     ''' Specifies Directory Management Control Codes to use with the <see cref="NativeMethods.DeviceIoControl"/> function.
     ''' </summary>
-    ''' ----------------------------------------------------------------------------------------------------
     ''' <remarks>
     ''' <see href="https://msdn.microsoft.com/es-es/library/windows/desktop/aa363948(v=vs.85).aspx"/>
     ''' </remarks>
-    ''' ----------------------------------------------------------------------------------------------------
     Public Enum DirectoryManagementControlCodes As UInteger
 
         ' *****************************************************************************
@@ -47,26 +44,20 @@ Namespace DevCase.Interop.Win32.Enums
         '  THIS ENUMERATION IS PARTIALLY DEFINED TO MEET THE PURPOSES OF THIS API
         ' *****************************************************************************
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Sets a reparse point on a file or directory.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <remarks>
         ''' <see href="https://msdn.microsoft.com/es-es/library/windows/desktop/aa364595(v=vs.85).aspx"/>
         ''' </remarks>
-        ''' ----------------------------------------------------------------------------------------------------
         SetReparsePoint = &H900A4
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Retrieves the reparse point data associated with the file or directory identified by the specified handle.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <remarks>
         ''' <see href="https://msdn.microsoft.com/es-es/library/windows/desktop/aa364571(v=vs.85).aspx"/>
         ''' </remarks>
-        ''' ----------------------------------------------------------------------------------------------------
         GetReparsePoint = &H900A8
 
     End Enum

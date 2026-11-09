@@ -36,15 +36,12 @@ Imports DevCase.Interop.Win32.Types
 
 Namespace DevCase.Interop.Win32.Enums
 
-    ''' ----------------------------------------------------------------------------------------------------
     ''' <summary>
     ''' Flags for the <see cref="ReparseDataBuffer.Flags"/> member.
     ''' </summary>
-    ''' ----------------------------------------------------------------------------------------------------
     ''' <remarks>
     ''' <see href="https://msdn.microsoft.com/en-us/library/cc246542.aspx"/>
     ''' </remarks>
-    ''' ----------------------------------------------------------------------------------------------------
     Public Enum ReparseDataBufferFlags As UInteger
 
         ''' <summary>

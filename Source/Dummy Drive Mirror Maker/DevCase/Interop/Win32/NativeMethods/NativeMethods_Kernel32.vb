@@ -46,19 +46,15 @@ Namespace DevCase.Interop.Win32
 
 #Region " Kernel32.dll "
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Gets the thread identifier of the calling thread.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <remarks>
         ''' <see href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683183%28v=vs.85%29.aspx"/>
         ''' </remarks>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <returns>
         ''' The thread identifier of the calling thread.
         ''' </returns>
-        ''' ----------------------------------------------------------------------------------------------------
         <SuppressMessage("Microsoft.Interoperability", "CA1401:PInvokesShouldNotBeVisible", Justification:="Visible for API")>
         <SuppressUnmanagedCodeSecurity>
         <DllImport("Kernel32.dll", SetLastError:=False)>
@@ -66,15 +62,12 @@ Namespace DevCase.Interop.Win32
         ) As UInteger
         End Function
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Creates a symbolic link.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <remarks>
         ''' <see href="http://msdn.microsoft.com/en-us/library/windows/desktop/aa363866%28v=vs.85%29.aspx"/>
         ''' </remarks>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <param name="dstPath">
         ''' The path of the symbolic link to be created.
         ''' </param>
@@ -90,7 +83,6 @@ Namespace DevCase.Interop.Win32
         ''' <param name="flags">
         ''' Indicates whether the link destination is a file or is a directory.
         ''' </param>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <returns>
         ''' If the function succeeds, the return value is <see langword="True"/>.
         ''' <para></para>
@@ -99,7 +91,6 @@ Namespace DevCase.Interop.Win32
         ''' To get extended error information, call <see cref="Marshal.GetLastWin32Error()"/>.
         ''' <para></para>
         ''' </returns>
-        ''' ----------------------------------------------------------------------------------------------------
         <SuppressMessage("Microsoft.Interoperability", "CA1401:PInvokesShouldNotBeVisible", Justification:="Visible for API")>
         <DllImport("Kernel32.dll", SetLastError:=True, CharSet:=CharSet.Unicode)>
         Public Shared Function CreateSymbolicLink(dstPath As String,
@@ -108,16 +99,13 @@ srcPath As String,
         ) As <MarshalAs(UnmanagedType.I1)> Boolean
         End Function
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Sends a control code directly to a specified device driver, 
         ''' causing the corresponding device to perform the corresponding operation.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <remarks>
         ''' <see href="https://msdn.microsoft.com/es-es/library/windows/desktop/aa363216(v=vs.85).aspx"/>
         ''' </remarks>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <param name="hDevice">
         ''' A handle to the device on which the operation is to be performed. 
         ''' <para></para>
@@ -203,7 +191,6 @@ srcPath As String,
         ''' and the event object is signaled when the operation has been completed. 
         ''' Otherwise, the function does not return until the operation has been completed or an error occurs.
         ''' </param>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <returns>
         ''' If the operation completes successfully, the return value is <see langword="True"/>.
         ''' <para></para>
@@ -211,7 +198,6 @@ srcPath As String,
         ''' <para></para>
         ''' To get extended error information, call <see cref="Marshal.GetLastWin32Error"/>.
         ''' </returns>
-        ''' ----------------------------------------------------------------------------------------------------
         <SuppressMessage("Microsoft.Interoperability", "CA1401:PInvokesShouldNotBeVisible", Justification:="Visible for API")>
         <DllImport("kernel32.dll", CharSet:=CharSet.Auto, SetLastError:=True)>
         Public Shared Function DeviceIoControl(hDevice As IntPtr,
@@ -225,7 +211,6 @@ overlapped As IntPtr
         ) As <MarshalAs(UnmanagedType.Bool)> Boolean
         End Function
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Creates or opens a file or I/O device.
         ''' <para></para>
@@ -237,11 +222,9 @@ overlapped As IntPtr
         ''' The function returns a handle that can be used to access the file or device 
         ''' for various types of I/O depending on the file or device and the flags and attributes specified.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <remarks>
         ''' <see href="http://msdn.microsoft.com/en-us/library/windows/desktop/aa363858%28v=vs.85%29.aspx"/>
         ''' </remarks>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <param name="filepath">
         ''' The name of the file or device to be created or opened.
         ''' <para></para>
@@ -284,7 +267,6 @@ overlapped As IntPtr
         ''' <para></para>
         ''' The template file supplies file attributes and extended attributes for the file that is being created.
         ''' </param>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <returns>
         ''' If the function succeeds, 
         ''' the return value is an open handle to the specified file, device, named pipe, or mail slot.
@@ -293,7 +275,6 @@ overlapped As IntPtr
         ''' <para></para>
         ''' To get extended error information, call <see cref="Marshal.GetLastWin32Error()"/>.
         ''' </returns>
-        ''' ----------------------------------------------------------------------------------------------------
         <SuppressMessage("Microsoft.Interoperability", "CA1401:PInvokesShouldNotBeVisible", Justification:="Visible for API")>
         <DllImport("kernel32.dll", CharSet:=CharSet.Auto, BestFitMapping:=False, ThrowOnUnmappableChar:=True, SetLastError:=True)>
         Public Shared Function CreateFile(<MarshalAs(UnmanagedType.LPTStr)> filepath As String,

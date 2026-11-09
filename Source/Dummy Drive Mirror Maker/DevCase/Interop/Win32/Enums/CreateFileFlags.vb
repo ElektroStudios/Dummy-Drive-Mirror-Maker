@@ -36,17 +36,14 @@ Imports System.IO
 
 Namespace DevCase.Interop.Win32.Enums
 
-    ''' ----------------------------------------------------------------------------------------------------
     ''' <summary>
     ''' Specifies the file or device flags for the <see cref="NativeMethods.CreateFile"/> function.
     ''' <para></para>
     ''' These flags can be combined with any value of the <see cref="FileAttributes"/> enumeration. 
     ''' </summary>
-    ''' ----------------------------------------------------------------------------------------------------
     ''' <remarks>
     ''' <see href="https://msdn.microsoft.com/en-us/library/windows/desktop/aa363858%28v=vs.85%29.aspx"/>
     ''' </remarks>
-    ''' ----------------------------------------------------------------------------------------------------
     <Flags>
     Public Enum CreateFileFlags As UInteger
 

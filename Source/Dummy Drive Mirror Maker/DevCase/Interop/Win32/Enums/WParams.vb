@@ -30,15 +30,12 @@
 
 Namespace DevCase.Interop.Win32.Enums
 
-    ''' ----------------------------------------------------------------------------------------------------
     ''' <summary>
     ''' Specifies additional message-specific information for a System-Defined Message.
     ''' </summary>
-    ''' ----------------------------------------------------------------------------------------------------
     ''' <remarks>
     ''' <see href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms644927%28v=vs.85%29.aspx#system_defined"/>
     ''' </remarks>
-    ''' ----------------------------------------------------------------------------------------------------
     Public Enum WParams As UInteger
 
         ' *****************************************************************************
@@ -47,50 +44,39 @@ Namespace DevCase.Interop.Win32.Enums
         '  THIS ENUMERATION IS PARTIALLY DEFINED TO MEET THE PURPOSES OF THIS API
         ' *****************************************************************************
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' A Null WParam.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         Null = 0UI
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Sets the state of a progressbar to Normal (Green Color).
         ''' <para></para>
         ''' Used with <see cref="ProgressBarUIMessages.SetState"/> message.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <remarks>
         ''' <see href="http://msdn.microsoft.com/en-us/library/windows/desktop/bb760850(v=vs.85).aspx"/>
         ''' </remarks>
-        ''' ----------------------------------------------------------------------------------------------------
         PBST_Normal = &H1
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Sets the state of a progressbar to Error (Red Color).
         ''' <para></para>
         ''' Used with <see cref="ProgressBarUIMessages.SetState"/> message.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <remarks>
         ''' <see href="http://msdn.microsoft.com/en-us/library/windows/desktop/bb760850(v=vs.85).aspx"/>
         ''' </remarks>
-        ''' ----------------------------------------------------------------------------------------------------
         PBST_Error = &H2
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Sets the state of a progressbar to Paused (Yellow Color).
         ''' <para></para>
         ''' Used with <see cref="ProgressBarUIMessages.SetState"/> message.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <remarks>
         ''' <see href="http://msdn.microsoft.com/en-us/library/windows/desktop/bb760850(v=vs.85).aspx"/>
         ''' </remarks>
-        ''' ----------------------------------------------------------------------------------------------------
         PBST_Paused = &H3
 
     End Enum

@@ -36,15 +36,12 @@ Imports DevCase.Interop.Win32.Types
 
 Namespace DevCase.Interop.Win32.Enums
 
-    ''' ----------------------------------------------------------------------------------------------------
     ''' <summary>
     ''' Specifies a predefined Microsoft reparse point tag, for the <see cref="ReparseDataBuffer.ReparseTag"/> member.
     ''' </summary>
-    ''' ----------------------------------------------------------------------------------------------------
     ''' <remarks>
     ''' <see href="https://msdn.microsoft.com/es-es/library/windows/desktop/aa365511(v=vs.85).aspx"/>
     ''' </remarks>
-    ''' ----------------------------------------------------------------------------------------------------
     Public Enum ReparsePointTags As UInteger
 
         ' *****************************************************************************

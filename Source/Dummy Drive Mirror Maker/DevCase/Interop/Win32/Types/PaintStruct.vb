@@ -37,17 +37,14 @@ Imports System.Runtime.InteropServices
 
 Namespace DevCase.Interop.Win32.Types
 
-    ''' ----------------------------------------------------------------------------------------------------
     ''' <summary>
     ''' Contains information for an application. 
     ''' <para></para>
     ''' This information can be used to paint the client area of a window owned by that application.
     ''' </summary>
-    ''' ----------------------------------------------------------------------------------------------------
     ''' <remarks>
     ''' <see href="http://msdn.microsoft.com/en-us/library/windows/desktop/dd162768(v=vs.85).aspx"/>
     ''' </remarks>
-    ''' ----------------------------------------------------------------------------------------------------
     <DebuggerStepThrough>
     <StructLayout(LayoutKind.Sequential, CharSet:=CharSet.Auto)>
     Public Structure PaintStruct

@@ -36,32 +36,24 @@ Imports DevCase.Interop.Win32.Enums
 
 Namespace DevCase.UserControls.Enums
 
-    ''' ----------------------------------------------------------------------------------------------------
     ''' <summary>
     ''' Specifies the state of a <see cref="ProgressBar"/> control.
     ''' </summary>
-    ''' ----------------------------------------------------------------------------------------------------
     Public Enum ProgressBarState As Integer
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Sets the state of a progressbar to Normal (Green Color).
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         Normal = CInt(WParams.PBST_Normal)
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Sets the state of a progressbar to Error (Red Color).
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         [Error] = CInt(WParams.PBST_Error)
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Sets the state of a progressbar to Paused (Yellow Color).
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         Paused = CInt(WParams.PBST_Paused)
 
     End Enum

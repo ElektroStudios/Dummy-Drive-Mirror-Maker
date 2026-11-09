@@ -40,11 +40,9 @@ Namespace DevCase.Core.IO.Tools
 
 #Region " Public Methods "
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Gets the directories those matches the criteria inside the specified directory and/or sub-directories.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <example> This is a code example.
         ''' <code>
         ''' Dim dirs As List(Of DirectoryInfo) =
@@ -59,7 +57,6 @@ Namespace DevCase.Core.IO.Tools
         '''             throwOnError:=True)
         ''' </code>
         ''' </example>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <param name="dir">
         ''' The root directory path to search for directories.
         ''' </param>
@@ -83,14 +80,11 @@ Namespace DevCase.Core.IO.Tools
         ''' <param name="throwOnError">
         ''' If set to <see langword="True"/>, exceptions will be thrown, like access denied to directory.
         ''' </param>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <returns>
         ''' An <see cref="IEnumerable(Of DirectoryInfo)"/> instance containing the dirrectories information.
         ''' </returns>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <exception cref="Global.System.ArgumentException">dirPath or searchOption
         ''' </exception>
-        ''' ----------------------------------------------------------------------------------------------------
         <DebuggerStepThrough>
         Public Shared Function GetDirs(dir As DirectoryInfo,
 searchOption As SearchOption,

@@ -30,20 +30,16 @@
 
 Namespace DevCase.Core.IO.Tools
 
-    ''' ----------------------------------------------------------------------------------------------------
     ''' <summary>
     ''' Contains directory related utilities.
     ''' </summary>
-    ''' ----------------------------------------------------------------------------------------------------
     Public NotInheritable Class Directories
 
 #Region " Constructors "
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Prevents a default instance of the <see cref="Directories"/> class from being created.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         <DebuggerNonUserCode>
         Private Sub New()
         End Sub

@@ -36,23 +36,18 @@ Imports System.ComponentModel
 
 Namespace DevCase.UserControls.Types
 
-    ''' ----------------------------------------------------------------------------------------------------
     ''' <summary>
     ''' Provides simple double buffering (anti flickering) functionality for a Windows Forms <see cref="Control"/>,
     ''' such for example a <see cref="TextBox"/>.
     ''' </summary>
-    ''' ----------------------------------------------------------------------------------------------------
     Public Interface IBufferedControl
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Gets the required creation parameters when the control handle is created.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <value>
         ''' The creation parameters.
         ''' </value>
-        ''' ----------------------------------------------------------------------------------------------------
         <Browsable(False)>
         <EditorBrowsable(EditorBrowsableState.Advanced)>
         ReadOnly Property CreateParams As CreateParams
@@ -70,17 +65,14 @@ Namespace DevCase.UserControls.Types
         '     End Get
         ' End Property
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Gets or sets a value indicating whether this control should redraw its surface using a secondary buffer 
         ''' to reduce or prevent flicker.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <value>
         ''' <see langword="True"/> if the surface of the control should be drawn using double buffering; 
         ''' otherwise, <see langword="False"/>.
         ''' </value>
-        ''' ----------------------------------------------------------------------------------------------------
         <Browsable(True)>
         <EditorBrowsable(EditorBrowsableState.Always)>
         <DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)>
@@ -101,7 +93,6 @@ Namespace DevCase.UserControls.Types
         '     End Set
         ' End Property
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Gets or sets a value that indicates whether the control should avoid unwanted flickering effects.
         ''' <para></para>
@@ -111,11 +102,9 @@ Namespace DevCase.UserControls.Types
         ''' This negative impact doesn't affect to the performance of the application itself, 
         ''' just to the performance of this control.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <value>
         ''' A value that indicates whether the control should avoid unwanted flickering effects.
         ''' </value>
-        ''' ----------------------------------------------------------------------------------------------------
         <Browsable(True)>
         <EditorBrowsable(EditorBrowsableState.Always)>
         <DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)>

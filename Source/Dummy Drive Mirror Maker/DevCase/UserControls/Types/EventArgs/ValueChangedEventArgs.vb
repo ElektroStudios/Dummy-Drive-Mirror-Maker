@@ -36,48 +36,38 @@ Imports System.ComponentModel
 
 Namespace DevCase.UserControls.Types.EventArgs
 
-    ''' ----------------------------------------------------------------------------------------------------
     ''' <summary>
     ''' Exposes the event-data of an event that notifies for value changes of a control. 
     ''' </summary>
-    ''' ----------------------------------------------------------------------------------------------------
     Public MustInherit Class ValueChangedEventArgs(Of T As IConvertible) : Inherits System.EventArgs
 
 #Region " Properties "
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Gets the value.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <value>
         ''' The value.
         ''' </value>
-        ''' ----------------------------------------------------------------------------------------------------
         Public Overridable ReadOnly Property NewValue As T
 
 #End Region
 
 #Region " Constructors "
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Prevents a default instance of the <see cref="ValueChangedEventArgs"/> class from being created.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         <DebuggerNonUserCode>
         Private Sub New()
         End Sub
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Initializes a new instance of the <see cref="ValueChangedEventArgs"/> class.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <param name="value">
         ''' The value.
         ''' </param>
-        ''' ----------------------------------------------------------------------------------------------------
         <DebuggerStepThrough>
         Public Sub New(value As T)
 

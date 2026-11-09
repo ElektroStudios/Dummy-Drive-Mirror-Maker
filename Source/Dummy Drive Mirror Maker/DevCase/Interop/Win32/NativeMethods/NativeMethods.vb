@@ -36,7 +36,6 @@ Imports System.Security
 
 Namespace DevCase.Interop.Win32
 
-    ''' ----------------------------------------------------------------------------------------------------
     ''' <summary>
     ''' Platform Invocation methods (P/Invoke), access unmanaged code.
     ''' <para></para>
@@ -45,20 +44,16 @@ Namespace DevCase.Interop.Win32
     ''' <para></para>
     ''' This class is for methods that can be used anywhere because a stack walk will be performed.
     ''' </summary>
-    ''' ----------------------------------------------------------------------------------------------------
     ''' <remarks>
     ''' <see href="http://msdn.microsoft.com/en-us/library/ms182161.aspx"/>
     ''' </remarks>
-    ''' ----------------------------------------------------------------------------------------------------
     Public NotInheritable Class NativeMethods
 
 #Region " Constructors "
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Prevents a default instance of the <see cref="NativeMethods"/> class from being created.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         <DebuggerNonUserCode>
         Private Sub New()
         End Sub

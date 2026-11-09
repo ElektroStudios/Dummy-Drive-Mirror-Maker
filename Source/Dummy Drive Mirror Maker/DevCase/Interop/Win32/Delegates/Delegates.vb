@@ -40,11 +40,9 @@ Namespace DevCase.Interop.Win32
 
 #Region " Constructors "
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Prevents a default instance of the <see cref="Delegates"/> class from being created.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         <DebuggerNonUserCode>
         Private Sub New()
         End Sub
@@ -53,7 +51,6 @@ Namespace DevCase.Interop.Win32
 
 #Region " Delegates "
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' An application-defined callback function used with the <see cref="NativeMethods.EnumThreadWindows"/> function.
         ''' <para></para>
@@ -63,11 +60,9 @@ Namespace DevCase.Interop.Win32
         ''' <para></para>
         ''' <see cref="EnumThreadWindowsProc"/> is a placeholder for the application-defined function name. 
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <remarks>
         ''' <see href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms633496%28v=vs.85%29.aspx"/>
         ''' </remarks>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <param name="hwnd">
         ''' A handle to a window associated with the thread specified in the <see cref="NativeMethods.EnumThreadWindows"/> function. 
         ''' </param>
@@ -75,12 +70,10 @@ Namespace DevCase.Interop.Win32
         ''' <param name="lParam">
         ''' The application-defined value given in <see cref="NativeMethods.EnumThreadWindows"/> functions.
         ''' </param>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <returns>
         ''' To continue enumeration, the callback function must return <see langword="True"/>; 
         ''' to stop enumeration, it must return <see langword="False"/>. 
         ''' </returns>
-        ''' ----------------------------------------------------------------------------------------------------
         <SuppressUnmanagedCodeSecurity>
         Public Delegate Function EnumThreadWindowsProc(hwnd As IntPtr,
 lParam As IntPtr) As Boolean

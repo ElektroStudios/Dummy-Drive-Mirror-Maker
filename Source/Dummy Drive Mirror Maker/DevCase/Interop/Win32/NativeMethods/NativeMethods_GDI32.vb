@@ -44,7 +44,6 @@ Namespace DevCase.Interop.Win32
 
 #Region " GDI32.dll "
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Deletes a logical pen, brush, font, bitmap, region, or palette,
         ''' freeing all system resources associated with the object.
@@ -56,21 +55,17 @@ Namespace DevCase.Interop.Win32
         ''' When a pattern brush is deleted, the bitmap associated with the brush is not deleted. 
         ''' The bitmap must be deleted independently.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <remarks>
         ''' <see href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms633540%28v=vs.85%29.aspx"/>
         ''' </remarks>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <param name="hObject">
         ''' A handle to a logical pen, brush, font, bitmap, region, or palette.
         ''' </param>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <returns>
         ''' If the function succeeds, the return value is <see langword="True"/>.
         ''' <para></para>
         ''' If the specified handle is not valid or is currently selected into a DC, the return value is <see langword="False"/>.
         ''' </returns>
-        ''' ----------------------------------------------------------------------------------------------------
         <SuppressMessage("Microsoft.Interoperability", "CA1401:PInvokesShouldNotBeVisible", Justification:="Visible for API")>
         <SuppressUnmanagedCodeSecurity>
         <DllImport("GDI32.dll", CharSet:=CharSet.Auto, ExactSpelling:=False, SetLastError:=True)>
@@ -78,15 +73,12 @@ Namespace DevCase.Interop.Win32
         ) As <MarshalAs(UnmanagedType.Bool)> Boolean
         End Function
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Fills the specified buffer with the metrics for the currently selected font.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <remarks>
         ''' <see href="http://msdn.microsoft.com/en-us/library/windows/desktop/dd144941(v=vs.85).aspx"/>
         ''' </remarks>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <param name="hdc">
         ''' A handle To a DC (Device Context).
         ''' </param>
@@ -94,13 +86,11 @@ Namespace DevCase.Interop.Win32
         ''' <param name="refMetrics">
         ''' A pointer to the <see cref="TextMetricA"/> structure that receives the text metrics.
         ''' </param>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <returns>
         ''' If the function succeeds, the return value is <see langword="True"/>.
         ''' <para></para>
         ''' If the function fails, the return value is <see langword="False"/>.
         ''' </returns>
-        ''' ----------------------------------------------------------------------------------------------------
         <SuppressMessage("Microsoft.Interoperability", "CA1401:PInvokesShouldNotBeVisible", Justification:="Visible for API")>
         <SuppressUnmanagedCodeSecurity>
         <DllImport("GDI32.dll", CharSet:=CharSet.Ansi, ExactSpelling:=False)>
@@ -109,15 +99,12 @@ Namespace DevCase.Interop.Win32
         ) As <MarshalAs(UnmanagedType.Bool)> Boolean
         End Function
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Fills the specified buffer with the metrics for the currently selected font.
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <remarks>
         ''' <see href="http://msdn.microsoft.com/en-us/library/windows/desktop/dd144941(v=vs.85).aspx"/>
         ''' </remarks>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <param name="hdc">
         ''' A handle To a DC (Device Context).
         ''' </param>
@@ -125,13 +112,11 @@ Namespace DevCase.Interop.Win32
         ''' <param name="refMetrics">
         ''' A pointer to the <see cref="TextMetricW"/> structure that receives the text metrics.
         ''' </param>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <returns>
         ''' If the function succeeds, the return value is <see langword="True"/>.
         ''' <para></para>
         ''' If the function fails, the return value is <see langword="False"/>.
         ''' </returns>
-        ''' ----------------------------------------------------------------------------------------------------
         <SuppressMessage("Microsoft.Interoperability", "CA1401:PInvokesShouldNotBeVisible", Justification:="Visible for API")>
         <SuppressUnmanagedCodeSecurity>
         <DllImport("GDI32.dll", CharSet:=CharSet.Unicode, ExactSpelling:=False)>
@@ -140,17 +125,14 @@ Namespace DevCase.Interop.Win32
         ) As <MarshalAs(UnmanagedType.Bool)> Boolean
         End Function
 
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <summary>
         ''' Selects an object into a specified device context.
         ''' <para></para>
         ''' The new object replaces the previous object of the same type. 
         ''' </summary>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <remarks>
         ''' <see href="http://msdn.microsoft.com/en-us/library/windows/desktop/dd162957%28v=vs.85%29.aspx"/>
         ''' </remarks>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <param name="hdc">
         ''' A handle to the <c>DC</c>.
         ''' </param>
@@ -158,7 +140,6 @@ Namespace DevCase.Interop.Win32
         ''' <param name="hObject">
         ''' A handle to the object to be selected.
         ''' </param>
-        ''' ----------------------------------------------------------------------------------------------------
         ''' <returns>
         ''' If the selected object is not a region and the function succeeds, 
         ''' the return value is a handle to the object being replaced.
@@ -166,7 +147,6 @@ Namespace DevCase.Interop.Win32
         ''' If the selected object is a region and the function succeeds, 
         ''' the return value is one of the following values.
         ''' </returns>
-        ''' ----------------------------------------------------------------------------------------------------
         <SuppressMessage("Microsoft.Interoperability", "CA1401:PInvokesShouldNotBeVisible", Justification:="Visible for API")>
         <SuppressUnmanagedCodeSecurity>
         <DllImport("GDI32.dll", CharSet:=CharSet.Auto, ExactSpelling:=False)>
