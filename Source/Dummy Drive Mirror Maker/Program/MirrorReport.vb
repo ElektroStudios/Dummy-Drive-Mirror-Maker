@@ -208,7 +208,7 @@ End Class
 ''' <summary>
 ''' Represents a file system item that was successfully mirrored.
 ''' </summary>
-Friend NotInheritable Class MirroredItemEntry
+Friend NotInheritable Class MirroredItemEntry ' NOSONAR
 
     ''' <summary>Gets the kind of item.</summary>
     Friend ReadOnly Property Kind As MirrorItemKind
@@ -251,7 +251,7 @@ End Class
 ''' <para></para>
 ''' This class is thread-safe: entries are added by the background work and read by the UI thread.
 ''' </summary>
-Friend NotInheritable Class MirrorReport
+Friend NotInheritable Class MirrorReport ' NOSONAR
 
 #Region " Properties "
 

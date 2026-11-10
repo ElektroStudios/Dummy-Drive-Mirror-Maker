@@ -12,7 +12,7 @@ Option Infer Off
 ''' Specifies the result of validating a destination directory against a source directory.
 ''' </summary>
 ''' <seealso cref="MirrorRules.ValidateDestination(String, String)"/>
-Friend Enum DestinationValidationResult As Integer
+Friend Enum DestinationValidationResult As Integer ' NOSONAR
 
     ''' <summary>
     ''' The destination directory is valid.

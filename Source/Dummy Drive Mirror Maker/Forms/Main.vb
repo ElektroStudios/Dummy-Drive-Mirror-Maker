@@ -306,9 +306,11 @@ Public NotInheritable Class Main : Inherits Form
             Throw New ArgumentException("At least two columns are required.", NameOf(columnWidths))
         End If
 
-        If columnWidths.Any(Function(w As Integer) w < 0) Then
-            Throw New ArgumentException("The column widths cannot be negative.", NameOf(columnWidths))
-        End If
+        For Each width As Integer In columnWidths
+            If width < 0 Then
+                Throw New ArgumentException("The column widths cannot be negative.", NameOf(columnWidths))
+            End If
+        Next width
 
         Dim freeSpace As Integer = (right - left) - columnWidths.Sum()
         If freeSpace < 0 Then

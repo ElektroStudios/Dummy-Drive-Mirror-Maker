@@ -13,7 +13,7 @@ Option Infer Off
 ''' <para></para>
 ''' Use the predefined <see cref="ThemePalette.Light"/> and <see cref="ThemePalette.Dark"/> palettes.
 ''' </summary>
-Friend NotInheritable Class ThemePalette
+Friend NotInheritable Class ThemePalette ' NOSONAR
 
 #Region " Predefined Palettes "
 

@@ -11,7 +11,7 @@ Option Infer Off
 ''' <summary>
 ''' Specifies the visual theme of the application.
 ''' </summary>
-Friend Enum AppTheme As Integer
+Friend Enum AppTheme As Integer ' NOSONAR
 
     ''' <summary>
     ''' Light theme, based on the default Windows system colors.

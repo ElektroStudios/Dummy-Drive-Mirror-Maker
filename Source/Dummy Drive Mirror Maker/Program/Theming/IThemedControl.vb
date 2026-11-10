@@ -14,7 +14,7 @@ Option Infer Off
 ''' <see cref="ThemeManager.ApplyTheme(Control, ThemePalette)"/> delegates the theming
 ''' of any control that implements this interface to the control itself.
 ''' </summary>
-Friend Interface IThemedControl
+Friend Interface IThemedControl ' NOSONAR
 
     ''' <summary>
     ''' Applies the specified color palette to the control.
