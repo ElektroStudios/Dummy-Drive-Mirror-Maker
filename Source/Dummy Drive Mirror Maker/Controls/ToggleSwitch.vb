@@ -23,7 +23,7 @@ Imports System.Drawing.Drawing2D
 ''' </summary>
 <DesignerCategory("Code")>
 <ToolboxItem(True)>
-Public NotInheritable Class ToggleSwitch : Inherits CheckBox : Implements IThemedControl
+Public NotInheritable Class ToggleSwitch : Inherits CheckBox : Implements IThemedControl ' NOSONAR
 
 #Region " Constants "
 

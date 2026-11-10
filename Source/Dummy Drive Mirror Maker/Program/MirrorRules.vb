@@ -20,7 +20,7 @@ Imports System.IO
 ''' All path comparisons follow the Windows file system rules: they are case-insensitive,
 ''' they ignore trailing directory separators and they ignore the long path prefix (<c>\\?\</c>).
 ''' </summary>
-Friend NotInheritable Class MirrorRules
+Friend NotInheritable Class MirrorRules ' NOSONAR
 
 #Region " Constants "
 

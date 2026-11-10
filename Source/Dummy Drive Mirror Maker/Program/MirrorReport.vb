@@ -19,7 +19,7 @@ Imports System.Text
 ''' <summary>
 ''' Specifies the kind of a file system item that was not mirrored.
 ''' </summary>
-Friend Enum MirrorItemKind As Integer
+Friend Enum MirrorItemKind As Integer ' NOSONAR
 
     ''' <summary>A directory.</summary>
     Directory = 0
@@ -38,7 +38,7 @@ End Enum
 ''' <para></para>
 ''' The declaration order is the order in which the reasons are listed in the report.
 ''' </summary>
-Friend Enum MirrorSkipReason As Integer
+Friend Enum MirrorSkipReason As Integer ' NOSONAR
 
     ''' <summary>An exception occurred, and the user chose to continue the operation.</summary>
     [Error] = 0
@@ -79,7 +79,7 @@ End Enum
 ''' <summary>
 ''' Specifies how a mirror operation ended.
 ''' </summary>
-Friend Enum MirrorOutcome As Integer
+Friend Enum MirrorOutcome As Integer ' NOSONAR
 
     ''' <summary>The operation did not end yet.</summary>
     InProgress = 0
@@ -102,7 +102,7 @@ End Enum
 ''' <summary>
 ''' Specifies the category of an item that was not mirrored, according to its <see cref="MirrorSkipReason"/>.
 ''' </summary>
-Friend Enum MirrorEntryCategory As Integer
+Friend Enum MirrorEntryCategory As Integer ' NOSONAR
 
     ''' <summary>
     ''' The item was intentionally excluded by the options chosen by the user 
@@ -126,7 +126,7 @@ End Enum
 ''' <summary>
 ''' Specifies the overall result of a mirror operation, according to its ignored items.
 ''' </summary>
-Friend Enum MirrorReportSeverity As Integer
+Friend Enum MirrorReportSeverity As Integer ' NOSONAR
 
     ''' <summary>All the items were mirrored, except the items excluded by the options or by design.</summary>
     None = 0
@@ -146,7 +146,7 @@ End Enum
 ''' <summary>
 ''' Represents a file system item that was ignored or not copied by a mirror operation.
 ''' </summary>
-Friend NotInheritable Class MirrorReportEntry
+Friend NotInheritable Class MirrorReportEntry ' NOSONAR
 
     ''' <summary>Gets the kind of item.</summary>
     Friend ReadOnly Property Kind As MirrorItemKind

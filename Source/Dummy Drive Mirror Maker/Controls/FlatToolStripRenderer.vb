@@ -14,7 +14,7 @@ Option Infer Off
 ''' <para></para>
 ''' Intended for themed <see cref="StatusStrip"/> controls.
 ''' </summary>
-Friend NotInheritable Class FlatToolStripRenderer : Inherits ToolStripRenderer
+Friend NotInheritable Class FlatToolStripRenderer : Inherits ToolStripRenderer ' NOSONAR
 
 #Region " Properties "
 

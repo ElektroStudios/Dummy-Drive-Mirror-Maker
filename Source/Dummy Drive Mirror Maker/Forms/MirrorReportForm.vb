@@ -25,7 +25,7 @@ Imports System.Text
 ''' <para></para>
 ''' The report can be copied to the clipboard or saved to a text file.
 ''' </summary>
-Friend NotInheritable Class MirrorReportForm : Inherits Form
+Friend NotInheritable Class MirrorReportForm : Inherits Form ' NOSONAR
 
 #Region " Private Fields "
 

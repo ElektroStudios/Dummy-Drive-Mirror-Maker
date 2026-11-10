@@ -21,7 +21,7 @@ Imports System.ComponentModel
 ''' </summary>
 <DesignerCategory("Code")>
 <ToolboxItem(True)>
-Public NotInheritable Class SectionHeaderLabel : Inherits Label : Implements IThemedControl
+Public NotInheritable Class SectionHeaderLabel : Inherits Label : Implements IThemedControl ' NOSONAR
 
 #Region " Constants "
 

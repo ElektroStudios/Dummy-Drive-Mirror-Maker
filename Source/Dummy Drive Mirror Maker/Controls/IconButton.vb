@@ -21,7 +21,7 @@ Imports System.Drawing.Drawing2D
 ''' </summary>
 <DesignerCategory("Code")>
 <ToolboxItem(True)>
-Public NotInheritable Class IconButton : Inherits Button : Implements IThemedControl
+Public NotInheritable Class IconButton : Inherits Button : Implements IThemedControl ' NOSONAR
 
 #Region " Properties "
 

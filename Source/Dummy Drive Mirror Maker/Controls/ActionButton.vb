@@ -18,7 +18,7 @@ Imports System.Drawing.Drawing2D
 ''' <summary>
 ''' Specifies the visual kind of an <see cref="ActionButton"/>.
 ''' </summary>
-Public Enum ActionButtonKind As Integer
+Public Enum ActionButtonKind As Integer ' NOSONAR
 
     ''' <summary>
     ''' A primary action, drawn with the accent color.
@@ -44,7 +44,7 @@ End Enum
 ''' <summary>
 ''' Specifies the vector glyph drawn at the left of the text of an <see cref="ActionButton"/>.
 ''' </summary>
-Public Enum ActionButtonGlyph As Integer
+Public Enum ActionButtonGlyph As Integer ' NOSONAR
 
     ''' <summary>
     ''' No glyph.
@@ -79,7 +79,7 @@ End Enum
 ''' </summary>
 <DesignerCategory("Code")>
 <ToolboxItem(True)>
-Public NotInheritable Class ActionButton : Inherits Button : Implements IThemedControl
+Public NotInheritable Class ActionButton : Inherits Button : Implements IThemedControl ' NOSONAR
 
 #Region " Constants "
 

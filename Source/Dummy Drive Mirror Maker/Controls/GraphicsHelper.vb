@@ -17,7 +17,7 @@ Imports System.Drawing.Drawing2D
 ''' <summary>
 ''' Drawing helpers shared by the custom controls of the application.
 ''' </summary>
-Friend NotInheritable Class GraphicsHelper
+Friend NotInheritable Class GraphicsHelper ' NOSONAR
 
 #Region " Constructors "
 

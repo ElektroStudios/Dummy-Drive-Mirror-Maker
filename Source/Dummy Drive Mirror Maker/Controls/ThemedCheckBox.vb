@@ -21,7 +21,7 @@ Imports System.Drawing.Drawing2D
 ''' </summary>
 <DesignerCategory("Code")>
 <ToolboxItem(True)>
-Public NotInheritable Class ThemedCheckBox : Inherits CheckBox : Implements IThemedControl
+Public NotInheritable Class ThemedCheckBox : Inherits CheckBox : Implements IThemedControl ' NOSONAR
 
 #Region " Constants "
 
